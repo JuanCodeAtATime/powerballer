@@ -1,8 +1,8 @@
 {
   "name": "powerball-pro",
   "version": "1.0.0",
-  "description": "Powerball Pool Application",
-  "main": "index.js",
+  "description": "powerball app",
+  "main": "server.js",
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
@@ -12,8 +12,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git+https://github.com/JuanCodeAtATime/powerball-pro.git",
-  "author": "Lisa <lisa.michael@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanCodeAtATime/powerball-pro.git"
+  },
+  "author": "Juan Rivera", "Lisa Michael"
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JuanCodeAtATime/powerball-pro/issues"

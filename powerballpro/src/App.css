@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+/* Powerball title on hompage */
+.pb-title {
+  font-family: 'Quantico', 'Cursive';
+  background-color:  rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+#pro {
+  color: red;
+}
+
+/* homepage buttons */
+.btn {
+  color: whitesmoke;  
+  text-decoration: none;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  /* flex-direction: row;  */
+  align-items: center;
+  justify-content: center; 
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+button {
+  display: block;
+  margin: 3px;
+ 
+}
+
+/* .buttons {  
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: center; 
+} */
+.App-link {
+  color: #61dafb;
+  /* margin-top: 500px */
+}
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
