@@ -4,14 +4,9 @@ import axios from "axios";
 
 export default {
   getRandomDog: function () {
-    return axios.get("https://dog.ceo/api/breeds/image/random");
-  },
-  getDogsOfBreed: function (breed) {
-    return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
-  },
-  getBaseBreedsList: function () {
-    return axios.get("https://dog.ceo/api/breeds/list");
+    return axios.get("https://data.ny.gov/resource/d6yy-54nr.json");
   }
+
 };
 
 // POWERBALL API

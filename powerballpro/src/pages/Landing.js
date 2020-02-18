@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Powerballs from "../components/Powerballs";
+import WinningNum from "./WinningNum"
 
 function Landing() {
     return (
@@ -20,6 +21,9 @@ function Landing() {
                             <h4 class="jackpot">$50 MILLION</h4>
                             <p class="win-date-announcement">Winning numbers for Feb 15, 2020</p>
                             <Powerballs></Powerballs>
+                            <br></br>
+                            <br></br>
+                            <h4><WinningNum></WinningNum></h4>
 
                         </Jumbotron>
                     </Col>
