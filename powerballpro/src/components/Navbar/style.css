@@ -1,3 +1,7 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
 }
+
+.navbar-brand {
+  font-family: 'Quantico', 'Cursive';
+}

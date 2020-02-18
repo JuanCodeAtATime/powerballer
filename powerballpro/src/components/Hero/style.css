@@ -1,5 +1,5 @@
 .hero {
-  height: 500px;
+  height: 450px;
   background-size: cover;
   background-position: center;
   position: relative; 
@@ -8,7 +8,7 @@
 .hero::after {
   content: "";
   display: block;
-  opacity: .4;
+  opacity: .6;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,18 +22,25 @@
   z-index: 2;
 }
 
-.hero h1, .hero h2 {
+.hero h1, .hero h3 {
   color: white;
 }
 
+.hero h3 {
+  color: whitesmoke;
+ 
+}
+
 .hero h1 {
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bolder;
   padding-top: 140px;
   margin-top: 0;
   font-family: 'Quantico', 'Cursive';
+  text-shadow: 1px 1px 2px black, 0 0 15px blue, 0 0 5px darkblue;
 }
 
 #pro {
   color: red;
+  
 }
