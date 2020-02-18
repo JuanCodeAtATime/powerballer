@@ -1,39 +1,24 @@
-import React from 'react';
-// import logo from './pbbg.jpg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Search from "./pages/Search";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
-    <div className="App container">
-      <header className="App-header">
-        <h1 className="pb-title">
-          POWERBALL <span id="pro">PRO</span>
-        </h1>
-        <br></br>
-        <div className="buttons">
-          <button class="btn bg-primary white" >
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Login
-        </a>
-          </button>
-          <button className="btn bg-danger white">
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Signup
-        </a>
-          </button>
-        </div>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/about" component={Landing} />
+          <Route exact path="/search" component={Search} />
+        </Wrapper>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
