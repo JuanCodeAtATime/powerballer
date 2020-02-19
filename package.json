@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "powerball app",
   "main": "server.js",
+  "devDependencies": {},
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
@@ -11,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/JuanCodeAtATime/powerball-pro.git"
   },
-  "author": "Juan Rivera",
+  "author": "Juan Rivera Lisa Michael",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JuanCodeAtATime/powerball-pro/issues"
@@ -30,8 +31,5 @@
     "passport-jwt": "^4.0.0",
     "react-router-dom": "^5.1.2",
     "validator": "^12.2.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
   }
 }
