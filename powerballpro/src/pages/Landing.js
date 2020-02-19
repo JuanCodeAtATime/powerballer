@@ -4,27 +4,28 @@ import Jumbotron from "../components/Jumbotron";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import Powerballs from "../components/Powerballs";
+// import Powerballs from "../components/Powerballs";
 import WinningNum from "./WinningNum"
 
 function Landing() {
     return (
         <div>
             <Hero>
-                <h1>POWERBALL <span id="pro">PRO</span></h1>
-                <h3>BECAUSE WINNING IS A TEAM SPORT</h3>
+                <h1 className="logo">POWERBALL <span id="pro">PRO</span></h1>
+                <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4>
+                <button className="hero-button">Become A Member</button>
             </Hero>
             <Container style={{ marginTop: 30 }}>
                 <Row>
                     <Col size="md-4">
                         <Jumbotron> <h3>POWERBALL</h3><hr></hr>
                             <h4 class="jackpot">$50 MILLION</h4>
-                            <p class="win-date-announcement">Winning numbers for Feb 15, 2020</p>
-                            <Powerballs></Powerballs>
+                            <br></br>
+                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span class="dateTime"></span>Feb 15, 2020</em></strong></h6>
+                            {/* <Powerballs></Powerballs> */}
                             <br></br>
                             <br></br>
                             <h4><WinningNum></WinningNum></h4>
-
                         </Jumbotron>
                     </Col>
                     <Col size="md-4">

@@ -1,0 +1,29 @@
+.live-pb-num {
+    color: whitesmoke;
+    font-style: 'Quantico', 'Cursive';
+    background-color: #504f54;
+    display: inline;
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: solid red 2px;
+}
+
+button.hero-button {
+    background-color: transparent;
+    color: whitesmoke;
+    border-radius: 5px;
+    display: inline;
+}
+
+h4.tagline {
+    color: whitesmoke;
+    margin-top: 0;
+}
+
+h1.logo {
+    margin-bottom: 0;
+  }
+
+  h4.jackpot {
+      color: black;
+  }

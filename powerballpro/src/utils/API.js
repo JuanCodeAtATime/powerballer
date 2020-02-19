@@ -3,7 +3,7 @@ import axios from "axios";
 // Export an object containing methods we'll use for accessing the Dog.Ceo API
 
 export default {
-  getRandomDog: function () {
+  getPbNum: function () {
     return axios.get("https://data.ny.gov/resource/d6yy-54nr.json");
   }
 
