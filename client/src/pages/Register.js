@@ -1,22 +1,22 @@
 import React from "react";
 import Hero from "../components/Hero";
-import Login from "../components/auth/login"
+import Register from "../components/auth/register"
 // import Jumbotron from "../components/Jumbotron";
 // import Container from "../components/Container";
 // import Row from "../components/Row";
 // import Col from "../components/Col";
 // import Powerballs from "../components/Powerballs";
 
-function Loginpage() {
+function Signup() {
     return (
         <div>
             <Hero>
                 <br></br>
-                <Login></Login>
+                <Register></Register>
             </Hero>
 
         </div>
     );
 }
 
-export default Loginpage;
+export default Signup;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import Jumbotron from "../components/Jumbotron";
 import Container from "../components/Container";
@@ -6,6 +7,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 // import Powerballs from "../components/Powerballs";
 import WinningNum from "./WinningNum"
+// import { Router } from "express";
 
 function Landing() {
     return (
@@ -13,15 +15,18 @@ function Landing() {
             <Hero>
                 <h1 className="logo">POWERBALL <span id="pro">PRO</span></h1>
                 <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4>
-                <button className="hero-button">Become A Member</button>
+                <Link
+                    to="/register">
+
+                    <button className="hero-button">Become A Member</button></Link>
             </Hero>
             <Container style={{ marginTop: 30 }}>
                 <Row>
                     <Col size="md-4">
                         <Jumbotron> <h3>POWERBALL</h3><hr></hr>
-                            <h4 class="jackpot">$50 MILLION</h4>
+                            <h4 className="jackpot">$50 MILLION</h4>
                             <br></br>
-                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span class="dateTime"></span>Feb 15, 2020</em></strong></h6>
+                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span className="dateTime"></span>Feb 15, 2020</em></strong></h6>
                             {/* <Powerballs></Powerballs> */}
                             <br></br>
                             <br></br>
