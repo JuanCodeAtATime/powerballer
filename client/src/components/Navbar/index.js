@@ -31,14 +31,14 @@ function Navbar() {
               Login
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link
               to="/register"
               className={window.location.pathname === "/register" ? "nav-link active" : "nav-link"}
             >
               Signup
             </Link>
-          </li>
+          </li> */}
 
         </ul>
       </div>

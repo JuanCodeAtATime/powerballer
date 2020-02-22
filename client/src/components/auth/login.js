@@ -15,6 +15,7 @@ class Login extends Component {
             password: "",
             errors: {}
         };
+
     }
 
     componentDidMount() {
@@ -90,7 +91,7 @@ class Login extends Component {
                                 })}
 
                             />
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email" style={{ color: "whitesmoke" }}>Email</label>
                             <span className="red-text">
                                 {errors.email}
                                 {errors.emailnotfound}
@@ -106,7 +107,7 @@ class Login extends Component {
                                     invalid: errors.password || errors.passwordincorrect
                                 })}
                             />
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password" style={{ color: "whitesmoke" }}>Password</label>
                             <span className="red-text">
                                 {errors.password}
                                 {errors.passwordincorrect}

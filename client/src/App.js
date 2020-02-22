@@ -6,7 +6,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import Landing from "./pages/Landing";
-import Loginpage from "./pages/Login";
+import Login from "./components/auth/login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -44,7 +44,7 @@ class App extends Component {
             <Wrapper>
               <Route exact path="/" component={Landing} />
               <Route exact path="/landing" component={Landing} />
-              <Route exact path="/login" component={Loginpage} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />

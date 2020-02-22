@@ -68,7 +68,7 @@ class Register extends Component {
                             <h4>
                                 <b style={{ color: "whitesmoke" }}>Register below</b>
                             </h4>
-                            <p className="grey-text text-darken-1">
+                            <p className="white-text text-darken-1">
                                 Already have an account? <Link to="/login">Log in</Link>
                             </p>
                         </div>
@@ -84,7 +84,7 @@ class Register extends Component {
                                         invalid: errors.name
                                     })}
                                 />
-                                <label htmlFor="name">Name</label>
+                                <label style={{ color: "whitesmoke" }} htmlFor="name">Name</label>
                                 <span className="red-text">{errors.name}</span>
                             </div>
                             <div className="input-field col s12">
@@ -98,7 +98,7 @@ class Register extends Component {
                                         invalid: errors.email
                                     })}
                                 />
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="email" style={{ color: "whitesmoke" }}>Email</label>
                                 <span className="red-text">{errors.email}</span>
                             </div>
                             <div className="input-field col s12">
@@ -112,7 +112,7 @@ class Register extends Component {
                                         invalid: errors.password
                                     })}
                                 />
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password" style={{ color: "whitesmoke" }}>Password</label>
                                 <span className="red-text">{errors.password}</span>
                             </div>
                             <div className="input-field col s12">
@@ -126,7 +126,7 @@ class Register extends Component {
                                         invalid: errors.password2
                                     })}
                                 />
-                                <label htmlFor="password2">Confirm Password</label>
+                                <label htmlFor="password2" style={{ color: "whitesmoke" }}>Confirm Password</label>
                                 <span className="red-text">{errors.password2}</span>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>

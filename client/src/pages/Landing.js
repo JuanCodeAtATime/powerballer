@@ -24,9 +24,9 @@ function Landing() {
                 <Row>
                     <Col size="md-4">
                         <Jumbotron> <h3>POWERBALL</h3><hr></hr>
-                            <h4 className="jackpot">$50 MILLION</h4>
+                            <h4 className="jackpot">$60 MILLION</h4>
                             <br></br>
-                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span className="dateTime"></span>Feb 15, 2020</em></strong></h6>
+                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span className="dateTime"></span>Feb 20, 2020</em></strong></h6>
                             {/* <Powerballs></Powerballs> */}
                             <br></br>
                             <br></br>
