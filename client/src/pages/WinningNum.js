@@ -7,14 +7,17 @@ import "./style.css"
 class WinningNum extends Component {
     state = {
         powerballs: []
+
     };
 
     loadWinningNums = () => {
         API.getPbNum()
             .then(res =>
                 this.setState({
-                    powerballs: res.data[0].winning_numbers,
+                    powerballs: res.data[0].winning_numbers.split(' '),
+                    // numberSplit: powerballs.split(' '),
                     dateTime: res.data[0].draw_date
+
                 })
 
             )
@@ -23,20 +26,43 @@ class WinningNum extends Component {
 
 
 
-    // When the component mounts, get a list of all available base breeds and update this.state.breeds
+    // When the component mounts, load winning numbers
     componentDidMount() {
         this.loadWinningNums();
-
     }
+
 
     // Here's the the draw date from API.  Need code to convert it then render to UI
     // {this.state.dateTime}
 
     render() {
         return (
-            <div>
-                <div className="live-pb-num">{this.state.powerballs}</div>
-            </div>
+            < div className="powerballs" >
+                <div className="powerballs-wrap">
+                    <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
+                </div>
+
+                <div className="powerballs-wrap">
+                    <span className="powerballNumber powerball-number-2">{this.state.powerballs[1]}</span>
+                </div>
+
+                <div className="powerballs-wrap">
+                    <span className="powerballNumber powerball-number-3">{this.state.powerballs[2]}</span>
+
+                </div>
+                <div className="powerballs-wrap">
+                    <span className="powerballNumber powerball-number-4">{this.state.powerballs[3]}</span>
+
+                </div>
+                <div className="powerballs-wrap">
+                    <span className="powerballNumber powerball-number-5">{this.state.powerballs[4]}</span>
+
+                </div>
+                <div className="powerballs-wrap" id="redBall">
+                    <span className="powerballNumber powerball-redball">{this.state.powerballs[5]}</span>
+
+                </div>
+            </div >
         );
     }
 }

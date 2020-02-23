@@ -5,7 +5,6 @@ import Jumbotron from "../components/Jumbotron";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-// import Powerballs from "../components/Powerballs";
 import WinningNum from "./WinningNum"
 // import { Router } from "express";
 
@@ -24,11 +23,9 @@ function Landing() {
                 <Row>
                     <Col size="md-4">
                         <Jumbotron> <h3>POWERBALL</h3><hr></hr>
-                            <h4 className="jackpot">$60 MILLION</h4>
+                            <h4 className="jackpot">$70 MILLION</h4>
                             <br></br>
-                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span className="dateTime"></span>Feb 20, 2020</em></strong></h6>
-                            {/* <Powerballs></Powerballs> */}
-                            <br></br>
+                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span className="dateTime"></span>Feb 22, 2020</em></strong></h6>
                             <br></br>
                             <h4><WinningNum></WinningNum></h4>
                         </Jumbotron>

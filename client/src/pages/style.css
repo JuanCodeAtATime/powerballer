@@ -27,3 +27,37 @@ h1.logo {
   h4.jackpot {
       color: black;
   }
+
+
+  .powerballs {
+    display: inline-block;
+  
+}
+
+
+
+.powerballs-wrap {
+    display: inline-block;
+    background: whitesmoke;
+    margin: 1.75px;
+    padding: 1.5px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;    
+    border: solid black .50px;
+   
+
+}
+
+.powerballNumber {
+    color: black;
+    font-weight: 600; 
+  
+} 
+
+#redBall {
+    color: whitesmoke;
+    background-color: red;
+    /* font-weight: 600;
+    border-radius: 50%; */
+} 
