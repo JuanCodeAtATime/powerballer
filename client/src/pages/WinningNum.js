@@ -6,7 +6,8 @@ import "./style.css"
 
 class WinningNum extends Component {
     state = {
-        powerballs: []
+        powerballs: [],
+        dateTime: []
 
     };
 
@@ -38,6 +39,9 @@ class WinningNum extends Component {
     render() {
         return (
             < div className="powerballs" >
+                <h4>Drawing date:</h4> <h5>{this.state.dateTime}</h5>
+                <br></br>
+
                 <div className="powerballs-wrap">
                     <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
                 </div>

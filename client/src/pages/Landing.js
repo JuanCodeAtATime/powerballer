@@ -22,24 +22,31 @@ function Landing() {
             <Container style={{ marginTop: 30 }}>
                 <Row>
                     <Col size="md-4">
-                        <Jumbotron> <h3>POWERBALL</h3><hr></hr>
+                        <Jumbotron> <h3><b>POWERBALL</b></h3><hr></hr>
                             <h4 className="jackpot">$70 MILLION</h4>
-                            <br></br>
-                            <h6 className="win-date-announcement"><strong><em>Winning numbers for <span className="dateTime"></span>Feb 22, 2020</em></strong></h6>
+                            <h6 style={{ color: "red" }}>
+                                <em>Jackpot</em></h6>
                             <br></br>
                             <h4><WinningNum></WinningNum></h4>
                         </Jumbotron>
                     </Col>
                     <Col size="md-4">
-                        <Jumbotron> <h3>PB<span id="pro">PRO</span> CHAT</h3><hr></hr>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
-                                consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis
-                                bulum suscipit nunc non egestas tristique. </p></Jumbotron>
+                        <Jumbotron> <h3><b>WATCH LATEST DRAWING</b></h3><hr></hr>
+                            <Link>
+                                <iframe
+                                    className="iframe"
+                                    src="https://www.youtube.com/embed?max-results=1&showinfo=0&rel=0&listType=user_uploads&list=PowerbaLL39"
+                                    allowfullscreen
+                                    style={{ width: "98%" }}
+                                >
+                                </iframe></Link>
+
+                        </Jumbotron>
+
                     </Col>
 
                     <Col size="md-4">
-                        <Jumbotron> <h3>UPCOMING EVENTS</h3><hr></hr>
+                        <Jumbotron> <h3><b>UPCOMING EVENTS</b></h3><hr></hr>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
                                 consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis
