@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import Moment from 'react-moment';
 import "./style.css"
 
 
@@ -39,10 +40,10 @@ class WinningNum extends Component {
     render() {
         return (
             < div className="powerballs" >
-                <h4>Drawing date:</h4> <h5>{this.state.dateTime}</h5>
-                <br></br>
+                <h6>DRAWING DATE:</h6> <h4><Moment className="moment" format="MM/DD/YYYY">{this.state.dateTime}</Moment ></h4>
 
-                <div className="powerballs-wrap">
+
+                <div className="powerballs-wrap" style={{ marginTop: "5px" }}>
                     <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
                 </div>
 
