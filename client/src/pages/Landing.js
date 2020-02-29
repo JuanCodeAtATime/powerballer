@@ -5,7 +5,8 @@ import Jumbotron from "../components/Jumbotron";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import WinningNum from "./WinningNum"
+import WinningNum from "./WinningNum";
+import Countdown from "../components/Countdown";
 // import { Router } from "express";
 
 function Landing() {
@@ -18,6 +19,10 @@ function Landing() {
                     to="/register">
 
                     <button className="hero-button">Become A Member</button></Link>
+                {/* <Countdown
+                    timeTillDate="02 29 2020, 11:00 pm"
+                    timeFormat="MM DD YYYY, h:mm a"
+                /> */}
             </Hero>
             <Container style={{ marginTop: 30 }}>
                 <Row>
@@ -45,12 +50,19 @@ function Landing() {
 
                     </Col>
 
-                    <Col size="md-4">
-                        <Jumbotron> <h3><b>UPCOMING EVENTS</b></h3><hr></hr>
+                    <Col size="md-4" >
+                        <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
-                                consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis
-                                bulum suscipit nunc non egestas tristique. </p></Jumbotron>
+                                <Countdown
+                                    timeTillDate="02 29 2020, 12:00 pm"
+                                    timeFormat="MM DD YYYY, h:mm a"
+                                />
+
+
+
+
+
+                            </p></Jumbotron>
                     </Col>
                 </Row>
             </Container>
