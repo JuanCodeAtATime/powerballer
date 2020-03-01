@@ -14,11 +14,17 @@ function Landing() {
         <div>
             <Hero>
                 <h1 className="logo">POWERBALL <span id="pro">PRO</span></h1>
-                <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4>
+                {/* <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4> */}
+                <span><h2 style={{ color: "red" }}>Next Drawing: <Countdown
+                    timeTillDate="03/01/2020, 12:00 pm"
+                    timeFormat="MM/DD/YYYY, h:mm a" /></h2>
+                </span>
+
+                {/*                
                 <Link
                     to="/register">
 
-                    <button className="hero-button">Become A Member</button></Link>
+                    <button className="hero-button">Become A Member</button></Link> */}
                 {/* <Countdown
                     timeTillDate="02 29 2020, 11:00 pm"
                     timeFormat="MM DD YYYY, h:mm a"
@@ -28,15 +34,16 @@ function Landing() {
                 <Row>
                     <Col size="md-4">
                         <Jumbotron> <h3><b>POWERBALL</b></h3><hr></hr>
-                            <h4 className="jackpot">$70 MILLION</h4>
-                            <h6 style={{ color: "red" }}>
-                                <em>Jackpot</em></h6>
+
+                            <h4 style={{ color: "red" }}>
+                                <em>Current Jackpot</em></h4>
+                            <h1 className="jackpot">$70 MILLION</h1>
                             <br></br>
-                            <h4><WinningNum></WinningNum></h4>
+                            {/* <h4><WinningNum></WinningNum></h4> */}
                         </Jumbotron>
                     </Col>
                     <Col size="md-4">
-                        <Jumbotron> <h3><b>WATCH LATEST DRAWING</b></h3><hr></hr>
+                        <Jumbotron> <h3><b>LATEST DRAWING</b></h3><hr></hr>
                             <Link>
                                 <iframe
                                     className="iframe"
@@ -45,6 +52,11 @@ function Landing() {
                                     style={{ width: "98%" }}
                                 >
                                 </iframe></Link>
+                            <hr></hr>
+
+                            <h4><WinningNum></WinningNum></h4>
+
+
 
                         </Jumbotron>
 
@@ -54,8 +66,8 @@ function Landing() {
                         <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
                             <p>
                                 <Countdown
-                                    timeTillDate="02 29 2020, 12:00 pm"
-                                    timeFormat="MM DD YYYY, h:mm a"
+                                    timeTillDate="03/01/2020, 12:00 pm"
+                                    timeFormat="MM/DD/YYYY, h:mm a"
                                 />
 
 

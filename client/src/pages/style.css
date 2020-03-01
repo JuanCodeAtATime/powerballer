@@ -45,6 +45,7 @@ h1.logo {
     height: 30px;
     width: 30px;    
     border: solid black .50px;
+    margin-top: 15px;
    
 
 }
@@ -52,6 +53,7 @@ h1.logo {
 .powerballNumber {
     color: black;
     font-weight: 600; 
+    font-size: .95rem;
   
 } 
 

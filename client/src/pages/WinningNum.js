@@ -42,7 +42,6 @@ class WinningNum extends Component {
             < div className="powerballs" >
                 <h6>DRAWING DATE:</h6> <h4><Moment className="moment" format="MM/DD/YYYY">{this.state.dateTime}</Moment ></h4>
 
-
                 <div className="powerballs-wrap" style={{ marginTop: "5px" }}>
                     <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
                 </div>

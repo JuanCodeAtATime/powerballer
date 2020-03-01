@@ -8,11 +8,6 @@ body {
     font-family: 'Quantico', sans-serif;
 }
 
-h1 {
-    letter-spacing: 2px;
-    text-align: center;
-    text-transform: uppercase;
-}
 
 .countdown-wrapper {
     display: flex;
@@ -23,7 +18,7 @@ h1 {
 
 .countdown-item {
     color: red;
-    font-size: 25px;
+    font-size: 24px;
     
     font-weight: bold;
     display: flex;
@@ -39,17 +34,8 @@ h1 {
 }
 
 .countdown-item span {
-    color: #333;
-    font-size: 6px;
+    color: red;
+    font-size: 9.5px;
     font-weight: 600;
     text-transform: uppercase;
 }
-
-
-/* .countdown-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-} */
