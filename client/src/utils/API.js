@@ -5,9 +5,16 @@ import axios from "axios";
 export default {
   getPbNum: function () {
     return axios.get("https://data.ny.gov/resource/d6yy-54nr.json");
+  },
+
+  loadPbData: function () {
+    return axios.get("https://cors-anywhere.herokuapp.com/https://www.powerball.com/api/v1/estimates/powerball?_format=json");
   }
 
 };
+
+
+
 
 
 

@@ -7,6 +7,8 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import WinningNum from "./WinningNum";
 import Countdown from "../components/Countdown";
+import Jackpot from "../components/Jackpot/Jackpot";
+import NextDraw from "../components/NextDrawDate";
 // import { Router } from "express";
 
 function Landing() {
@@ -16,7 +18,7 @@ function Landing() {
                 <h1 className="logo">POWERBALL <span id="pro">PRO</span></h1>
                 {/* <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4> */}
                 <span><h2 style={{ color: "red" }}>Next Drawing: <Countdown
-                    timeTillDate="03/01/2020, 12:00 pm"
+                    timeTillDate="03/06/2020"
                     timeFormat="MM/DD/YYYY, h:mm a" /></h2>
                 </span>
 
@@ -34,16 +36,17 @@ function Landing() {
                 <Row>
                     <Col size="md-4">
                         <Jumbotron> <h3><b>POWERBALL</b></h3><hr></hr>
-
                             <h4 style={{ color: "red" }}>
                                 <em>Current Jackpot</em></h4>
-                            <h1 className="jackpot">$70 MILLION</h1>
+                            <Jackpot />
                             <br></br>
-                            {/* <h4><WinningNum></WinningNum></h4> */}
                         </Jumbotron>
                     </Col>
                     <Col size="md-4">
                         <Jumbotron> <h3><b>LATEST DRAWING</b></h3><hr></hr>
+                            <h4><WinningNum></WinningNum></h4>
+                            <br></br>
+
                             <Link>
                                 <iframe
                                     className="iframe"
@@ -54,7 +57,7 @@ function Landing() {
                                 </iframe></Link>
                             <hr></hr>
 
-                            <h4><WinningNum></WinningNum></h4>
+
 
 
 
@@ -64,17 +67,11 @@ function Landing() {
 
                     <Col size="md-4" >
                         <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
-                            <p>
-                                <Countdown
-                                    timeTillDate="03/01/2020, 12:00 pm"
-                                    timeFormat="MM/DD/YYYY, h:mm a"
-                                />
+
+                            <NextDraw></NextDraw>
 
 
-
-
-
-                            </p></Jumbotron>
+                        </Jumbotron>
                     </Col>
                 </Row>
             </Container>
