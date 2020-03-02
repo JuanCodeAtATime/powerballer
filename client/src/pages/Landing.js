@@ -9,7 +9,8 @@ import WinningNum from "./WinningNum";
 import Countdown from "../components/Countdown";
 import Jackpot from "../components/Jackpot/Jackpot";
 import NextDraw from "../components/NextDrawDate";
-import Chart from "../components/Chart";
+import PastYrData from "../components/PastYrData";
+import Jackpotchart from "../components/Jackpotchart";
 // import { Router } from "express";
 
 function Landing() {
@@ -23,7 +24,10 @@ function Landing() {
                     timeFormat="MM/DD/YYYY, h:mm a" /></h2>
                 </span>
 
-                {/*                
+
+                {/*   
+                
+                This is for button in center of Hero element
                 <Link
                     to="/register">
 
@@ -47,7 +51,6 @@ function Landing() {
                         <Jumbotron> <h3><b>LATEST DRAWING</b></h3><hr></hr>
                             <h4><WinningNum></WinningNum></h4>
                             <br></br>
-
                             <Link>
                                 <iframe
                                     className="iframe"
@@ -57,28 +60,40 @@ function Landing() {
                                 >
                                 </iframe></Link>
                             <hr></hr>
-
-
-
-
-
                         </Jumbotron>
 
                     </Col>
 
                     <Col size="md-4" >
                         <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
-
                             <NextDraw></NextDraw>
-
-
                         </Jumbotron>
                     </Col>
                 </Row>
 
                 <Row>
+                    <Col size="md-6" >
 
-                    <Chart></Chart>
+                        <div
+                            style={{ height: "auto", clear: "both", paddingTop: 10, textAlign: "center", borderTop: "solid blue 25px" }}
+                            className="jumbotron"
+                        > <h3><b>JACKPOTS IN 2019</b></h3>
+                            <hr></hr>
+                            <PastYrData></PastYrData>
+
+                        </div>
+                    </Col>
+                    <Col size="md-6" >
+
+                        <div
+                            style={{ height: "auto", clear: "both", paddingTop: 10, textAlign: "center", borderTop: "solid blue 25px" }}
+                            className="jumbotron"
+                        > <h3><b>CURRENT JACKPOT TRACKING</b></h3>
+                            <hr></hr>
+                            <Jackpotchart></Jackpotchart>
+
+                        </div>
+                    </Col>
                 </Row>
             </Container>
         </div>
