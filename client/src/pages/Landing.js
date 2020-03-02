@@ -9,6 +9,7 @@ import WinningNum from "./WinningNum";
 import Countdown from "../components/Countdown";
 import Jackpot from "../components/Jackpot/Jackpot";
 import NextDraw from "../components/NextDrawDate";
+import Chart from "../components/Chart";
 // import { Router } from "express";
 
 function Landing() {
@@ -73,6 +74,11 @@ function Landing() {
 
                         </Jumbotron>
                     </Col>
+                </Row>
+
+                <Row>
+
+                    <Chart></Chart>
                 </Row>
             </Container>
         </div>
