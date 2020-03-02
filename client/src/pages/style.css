@@ -61,3 +61,19 @@ h1.logo {
     /* font-weight: 600;
     border-radius: 50%; */
 } 
+
+.moment {
+    font-family: 'Quantico', 'Cursive';
+    background-color: #504f54;
+    border-radius: 4px;
+    color: whitesmoke;
+    padding: 0 4px;
+    border: solid black 1px;
+    text-shadow: crimson;   
+
+}
+
+.moment:hover {
+ opacity: .75;
+ background-color: red;
+}
