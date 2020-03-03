@@ -2,17 +2,20 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// database schema for Powerball Season Tickets 
+//database schema for Powerball Draws
 
-const ticketSchema = new Schema({
-  control: { type: String, required: true },
+const drawSchema = new Schema({
+  drawNumber: { type: Number, required: true },
   num1: { type: Number, required: true },
   num2: { type: Number, required: true },
   num3: { type: Number, required: true },
   num4: { type: Number, required: true },
   num5: { type: Number, required: true },
   powerball: {type: Number, required: true},
-  // date: { type: Date, default: Date.now }
+  winningState: {String, required: false},
+  date: { type: Date, default: Date.now },
+  jackpotAmt: {type: Number, required: true}, 
+  prizeAmt: {type: Number, required: true}
 });
 
-const Ticket = mongoose.model("Ticket", bookSchema);
+const Draw = mongoose.model("Draw", bookSchema);
