@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const numberSchema = new Schema({
   drawNumber: { type: Number, required: true },
   number1: { type: Number, required: true },
   number2: { type: Number, required: true },
@@ -12,7 +12,8 @@ const bookSchema = new Schema({
   powerball: {type: Number, required: true},
   winningState: {String, required: false},
   date: { type: Date, default: Date.now },
-  jackpotAmt: {type: Number, required: true}
+  jackpotAmt: {type: Number, required: true}, 
+  prizeAmt: {type: Number, required: true}
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const Numbers = mongoose.model("Numbers", bookSchema);
