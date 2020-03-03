@@ -32,6 +32,24 @@ function Navbar() {
               Login
             </Link>
           </li>
+
+          <li className="nav-item">
+          <Link
+              to="/summary"
+              className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
+            >
+              Season Summary
+            </Link>
+          </li>
+
+          <li className="nav-item">
+          <Link
+              to="/admin"
+              className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
+            >
+              Admin
+            </Link>
+          </li>
           {/* <li className="nav-item">
             <Link
               to="/register"
