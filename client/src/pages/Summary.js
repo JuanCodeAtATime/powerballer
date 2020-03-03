@@ -1,16 +1,18 @@
 import React from "react";
 import Hero from "../components/Hero";
-import Jumbotron from "../components/Jumbotron";
+import Navbar from "../components/Navbar"
 
-function History () {
+
+function Summary () {
 
     return (
         <div>
-        <Hero>
-            <h1>Season Summary</h1>
-            </Hero>
+
+       <Hero> 
+           <h1>Season Summary</h1> 
+       </Hero>
         </div>
-    )
+    );
 }
 
 export default Summary;
