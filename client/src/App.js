@@ -10,7 +10,9 @@ import Login from "./components/auth/login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
-import Register from "./components/auth/register"
+import Register from "./components/auth/register";
+import Summary from "./pages/Summary";
+
 
 // import Signup from "./pages/Register";
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -46,9 +48,10 @@ class App extends Component {
               <Route exact path="/landing" component={Landing} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
-              <Route exact path="/history" component={History} />
+             
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute exact path="/summary" component={Summary} />
               </Switch>
             </Wrapper>
             <Footer />

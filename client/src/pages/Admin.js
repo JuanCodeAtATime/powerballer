@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import Hero from "../components/Hero";
+import Navbar from "../components/Navbar"
 
 class Admin extends Component {
-
 
     // setting state for users 
     state = {
@@ -10,7 +11,6 @@ class Admin extends Component {
         location: "",
         expiration: ""
     };
-
 
     componentDidMount() {
         this.loadMembers();
@@ -45,7 +45,7 @@ class Admin extends Component {
                 location: this.state.location,
                 expiration: this.state.expiration
             })
-                .then(res => this.loadBooks())
+                .then(res => this.loadMembers())
                 .catch(err => console.log(err));
         }
     };
@@ -93,9 +93,9 @@ class Admin extends Component {
                             <List>
                                 {this.state.users.map(book => (
                                     <ListItem key={book._id}>
-                                        <Link to={"/books/" + users._id}>
+                                        <Link to={"/member/" + users._id}>
                                             <strong>
-                                                {users.fullname} by {book.location}
+                                                {users.fullname} by {users.location}
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteMember(users._id)} />
@@ -111,6 +111,5 @@ class Admin extends Component {
         );
     }
 }
-
 
 export default Admin; 
