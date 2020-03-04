@@ -22,7 +22,7 @@
   z-index: 2;
 }
 
-.hero h1, .hero h3 {
+.hero h1, .hero h3, .hero h2 {
   color: white;
 }
 
@@ -31,7 +31,7 @@
  
 }
 
-.hero h1 {
+.hero h1, .hero h2 {
   font-size: 80px;
   font-weight: bolder;
   padding-top: 140px;

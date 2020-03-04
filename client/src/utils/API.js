@@ -13,7 +13,23 @@ export default {
 
   loadChartData: function () {
     return axios.get("https://games.api.lottery.com/api/v2.0/results?game=59bc2b6031947b9daf338d32");
+  },
+  getNumbers: function () {
+    return axios.get("/api/numbers");
+  },
+  // Gets the book with the given id
+  getNumber: function (id) {
+    return axios.get("/api/numbers/" + id);
+  },
+  // Deletes the book with the given id
+  deleteNumber: function (id) {
+    return axios.delete("/api/numbers/" + id);
+  },
+  // Saves a book to the database
+  saveNumber: function (numberData) {
+    return axios.post("/api/numbers", numberData);
   }
+
 
 
 };

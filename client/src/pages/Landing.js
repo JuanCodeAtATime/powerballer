@@ -17,12 +17,12 @@ function Landing() {
     return (
         <div>
             <Hero>
-                <h1 className="logo">POWERBALL <span id="pro">PRO</span></h1>
+                <h1 className="logo">POWER<span id="pro">BALLERS</span></h1>
                 {/* <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4> */}
-                <span><h2 style={{ color: "red" }}>Next Drawing: <Countdown
+                <span><h3 style={{ color: "red" }}>Next Drawing: <Countdown
                     unixTz="America/New_York"
                     timeTillDate="03/04/2020, 11:00 pm"
-                    timeFormat="MM/DD/YYYY, h:mm a" /></h2>
+                    timeFormat="MM/DD/YYYY, h:mm a" /></h3>
                 </span>
 
 

@@ -42,11 +42,6 @@ class Jackpotchart extends Component {
                                 res.data[1].prizes.asOfDate,
                                 res.data[0].prizes.asOfDate
 
-
-
-
-
-
                             ],
                         datasets: [
                             {
@@ -74,25 +69,33 @@ class Jackpotchart extends Component {
 
     render() {
         return (
+            <div className="container">
+                <div className="row">
+                    <div className="col-md">
+                        <div className="chart" style={{ backgroundColor: "white", opacity: ".65", borderRadius: "5px" }}>
+                            <Bar
+                                data={this.state.chartData}
+                                width={425}
+                                height={325}
+                                options={{
+                                    title: {
+                                        display: true,
+                                        text: 'Jackpot Tracking (To Date)',
+                                        fontSize: 20
+                                    },
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                        fontColor: '000'
+                                    }
+                                }}
+                            />
+                        </div>
 
-            <div className="chart" style={{ backgroundColor: "white", opacity: ".65", borderRadius: "5px" }}>
-                <Bar
-                    data={this.state.chartData}
-                    width={425}
-                    height={325}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'Jackpot Tracking (To Date)',
-                            fontSize: 20
-                        },
-                        legend: {
-                            display: true,
-                            position: 'top',
-                            fontColor: '000'
-                        }
-                    }}
-                />
+
+                    </div>
+
+                </div>
             </div>
 
         )
