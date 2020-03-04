@@ -20,7 +20,8 @@ function Landing() {
                 <h1 className="logo">POWERBALL <span id="pro">PRO</span></h1>
                 {/* <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4> */}
                 <span><h2 style={{ color: "red" }}>Next Drawing: <Countdown
-                    timeTillDate="03/06/2020"
+                    unixTz="America/New_York"
+                    timeTillDate="03/04/2020, 11:00 pm"
                     timeFormat="MM/DD/YYYY, h:mm a" /></h2>
                 </span>
 

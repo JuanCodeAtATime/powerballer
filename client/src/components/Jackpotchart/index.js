@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
+import API from "../../utils/API";
 
 
 
@@ -8,58 +9,68 @@ class Jackpotchart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chartData: {}
+            chartData: {},
+            drawDates: {},
+            jackpotAmt: {}
 
         };
 
     }
 
+
+
+
+
+
     componentWillMount() {
         this.getChartData();
+        // this.loadPowerballData();
 
     }
 
     getChartData() {
-        //AJAX calls here
-        this.setState({
-            chartData: {
-                labels:
-                    [
-                        'Mar 2, 2019', 'Mar 27, 2019', 'Apr 6, 2019', 'May 11, 2019', 'Jun 15, 2019', 'Jul 20, 2019', 'Aug 24, 2019',
-                        'Sep 28, 2019', 'Nov 2, 2019', 'Dec 7, 2019',
-                        'Jan 11, 2020', 'Feb 15, 2020'
-                    ],
-                datasets: [
+        API.loadChartData()
+            .then(res => {
+                console.log('RESPONSE', res)
+                this.setState({
+                    chartData: {
+                        labels:
+                            [
+                                '1/1/2020',
+                                res.data[3].prizes.asOfDate,
+                                res.data[2].prizes.asOfDate,
+                                res.data[1].prizes.asOfDate,
+                                res.data[0].prizes.asOfDate
 
-                    {
-                        label: 'Jackpot Amount in $ Millions',
-                        data: [
-                            348, //Mar 2,
-                            768, //Mar 27
-                            68,  //Apr 6
-                            235,  //May 11
-                            79,  //Jun 15
-                            53,  //Jul 20
-                            50, //AUg 24
-                            50, //Sep 28 
-                            150, //Nov 2
-                            130, //Dec 7
-                            277, //Jan 11
-                            40, //Feb 15
-                        ],
 
-                        backgroundColor: [
-                            'blue', 'blue', 'blue', 'blue',
-                            'blue', 'blue', 'blue', 'blue',
-                            'blue', 'blue', 'blue'
+
+
+
+
+                            ],
+                        datasets: [
+                            {
+                                label: 'Most Recent Jackpot',
+                                data:
+                                    [
+                                        1000000,
+                                        res.data[3].prizes.values[0].value,
+                                        res.data[2].prizes.values[0].value,
+                                        res.data[1].prizes.values[0].value,
+                                        res.data[0].prizes.values[0].value
+
+                                    ],
+                                //Not rendering this data because value types are mixed
+                                backgroundColor: [
+                                    'green', 'green', 'green', 'green', 'red'
+                                ]
+                            }
                         ]
                     }
-                ]
+                })
             }
-        })
+            )
     }
-
-
 
     render() {
         return (

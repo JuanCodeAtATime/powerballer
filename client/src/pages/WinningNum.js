@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from 'react-moment';
+import 'moment-timezone';
 import "./style.css"
 
 
@@ -38,9 +39,14 @@ class WinningNum extends Component {
     // {this.state.dateTime}
 
     render() {
+
+
+        //Use this on Landing page to load next draw date with correct timezone
+        // const unixTimestamp = this.state.dateTime;
+        // <Moment unixTz="America/New_York" className="moment" format="MM/DD/YYYY, h:mm a"></Moment>
         return (
             < div className="powerballs" >
-                <h6>DRAWING DATE:</h6> <h4><Moment className="moment" format="MM/DD/YYYY">{this.state.dateTime}</Moment ></h4>
+                <h6>DRAWING DATE:</h6> <h4><Moment unixTz="America/New_York" className="moment" format="MM/DD/YYYY">{this.state.dateTime}</Moment ></h4>
 
                 <div className="powerballs-wrap" style={{ marginTop: "5px" }}>
                     <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
