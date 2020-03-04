@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar"
+// import Row from "../components/Row";
+// import Col from "../components/Col";
+import Jumbotron from "../components/Jumbotron";
+import API from "../utils/API";
+import { Input, TextArea, FormBtn } from "../components/Form";
+// import List from "../components/List";
+import { Col, Row, Container } from "../components/Grid";
+
 
 class Admin extends Component {
 
@@ -17,16 +25,16 @@ class Admin extends Component {
     }
 
     loadMembers = () => {
-        API.getMembers()
+        API.getMember()
             .then(res =>
-                this.setState({ Members: res.data, fullname: "", location: "", expiration: "" })
+                this.setState({ Member: res.data, fullname: "", location: "", expiration: "" })
             )
             .catch(err => console.log(err));
     };
 
     deleteMember = id => {
         API.deleteMember(id)
-            .then(res => this.loadMembers())
+            .then(res => this.loadMember())
             .catch(err => console.log(err));
     };
 
@@ -87,21 +95,24 @@ class Admin extends Component {
                     </Col>
                     <Col size="md-6 sm-12">
                         <Jumbotron>
-                            <h1>Books On My List</h1>
+                            <h1>Members On My List</h1>
                         </Jumbotron>
                         {this.state.users.length ? (
-                            <List>
-                                {this.state.users.map(book => (
-                                    <ListItem key={book._id}>
-                                        <Link to={"/member/" + users._id}>
-                                            <strong>
-                                                {users.fullname} by {users.location}
-                                            </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => this.deleteMember(users._id)} />
-                                    </ListItem>
-                                ))}
-                            </List>
+                            // <List>
+                            //     {this.state.users.map(book => (
+                            //         <ListItem key={users._id}>
+                            //             <Link to={"/member/" + users._id}>
+                            //                 <strong>
+                            //                     {users.fullname} by {users.location}
+                            //                 </strong>
+                            //             </Link>
+                            //             <DeleteBtn onClick={() => this.deleteMember(users._id)} />
+                            //         </ListItem>
+                            //     ))}
+                            // </List>
+
+                            // added console .logging for anything to get rid of error
+                            console.log(user.length)
                         ) : (
                                 <h3>No Results to Display</h3>
                             )}
