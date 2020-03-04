@@ -6,8 +6,9 @@ import Navbar from "../components/Navbar"
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
-// import List from "../components/List";
+import List from "../components/List";
 import { Col, Row, Container } from "../components/Grid";
+import { Link } from "react-router-dom";
 
 
 class Admin extends Component {
@@ -48,7 +49,7 @@ class Admin extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.fullname && this.state.location) {
-            API.saveBook({
+            API.saveMember({
                 fullname: this.state.fullname,
                 location: this.state.location,
                 expiration: this.state.expiration
@@ -64,7 +65,7 @@ class Admin extends Component {
                 <Row>
                     <Col size="md-6">
                         <Jumbotron>
-                            <h1>Member List</h1>
+                            <h1>Add Member</h1>
                         </Jumbotron>
                         <form>
                             <Input
@@ -79,7 +80,7 @@ class Admin extends Component {
                                 name="location"
                                 placeholder="Location (required)"
                             />
-                            <TextArea
+                            <Input
                                 value={this.state.expiration}
                                 onChange={this.handleInputChange}
                                 name="expiration"
@@ -89,7 +90,7 @@ class Admin extends Component {
                                 disabled={!(this.state.location && this.state.fullname)}
                                 onClick={this.handleFormSubmit}
                             >
-                                Submit User
+                                Add Member
                 </FormBtn>
                         </form>
                     </Col>
@@ -97,25 +98,23 @@ class Admin extends Component {
                         <Jumbotron>
                             <h1>Members On My List</h1>
                         </Jumbotron>
-                        {this.state.users.length ? (
-                            // <List>
-                            //     {this.state.users.map(book => (
-                            //         <ListItem key={users._id}>
-                            //             <Link to={"/member/" + users._id}>
-                            //                 <strong>
-                            //                     {users.fullname} by {users.location}
-                            //                 </strong>
-                            //             </Link>
-                            //             <DeleteBtn onClick={() => this.deleteMember(users._id)} />
-                            //         </ListItem>
-                            //     ))}
-                            // </List>
-
-                            // added console .logging for anything to get rid of error
-                            console.log(user.length)
+                        {/* {this.state.users.length ? (
+                            <List>
+                                {this.state.users.map(users => (
+                                    <ListItem key={users._id}>
+                                        <Link to={"/member/" + users._id}>
+                                            <strong>
+                                                {users.fullname} by {users.location}
+                                            </strong>
+                                        </Link>
+                                        <DeleteBtn onClick={() => this.deleteMember(users._id)} />
+                                    </ListItem>
+                                ))}
+                            </List>
                         ) : (
                                 <h3>No Results to Display</h3>
-                            )}
+                            )} */}
+                            <h3> test display</h3>
                     </Col>
                 </Row>
             </Container>
