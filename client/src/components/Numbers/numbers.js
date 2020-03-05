@@ -2,23 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Hero from "./../Hero";
+import Hero from "../Hero";
 import "./style.css";
-import Members from "../../pages/Members"
+import Powerballinput from "../../pages/Members"
 
-
-// import DeleteBtn from "./..DeleteBtn";
-// import Jumbotron2 from "./..Jumbotron2";
-// import API from "../utils/API";
-// import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
-// import { Input, TextArea, FormBtn } from "./..Form";
-
-// import createBrowserHistory from 'createBrowserHistory';
-
-
-class Dashboard extends Component {
+class Numbers extends Component {
     onLogoutClick = e => {
         e.preventDefault();
         this.props.logoutUser();
@@ -86,13 +74,13 @@ class Dashboard extends Component {
                 </Hero>
                 <br></br>
 
-                <Members></Members>
+                <Powerballinput></Powerballinput>
 
             </div>
         );
     }
 }
-Dashboard.propTypes = {
+Numbers.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -102,4 +90,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { logoutUser }
-)(Dashboard);
+)(Numbers);

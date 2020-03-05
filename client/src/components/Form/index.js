@@ -4,15 +4,26 @@ import React from "react";
 
 export function Input(props) {
     return (
-        <div className="form-group" style={{ display: "inline" }}>
-            <input className="form-control" {...props} style={{ width: "45px", height: "55px", marginRight: "4px", display: "inline-block", backgroundColor: "whitesmoke", borderRadius: "5px" }} />
+        <div className="form-group center" style={{ display: "inline", width: "100%" }}>
+
+            <input type="number" className="form-control" {...props}
+                style={{
+                    float: "left",
+                    width: "97px",
+                    height: "100px",
+                    marginRight: "2px",
+                    display: "inline-block",
+                    backgroundColor: "whitesmoke",
+                    borderRadius: "5px",
+                    fontSize: "70px"
+                }} />
         </div>
     );
 }
 
 export function FormBtn(props) {
     return (
-        <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
+        <button {...props} style={{ float: "left", marginBottom: 10, width: "98%" }} className="btn btn-success">
             {props.children}
         </button>
     );

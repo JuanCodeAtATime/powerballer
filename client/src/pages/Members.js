@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import "./style.css"
 
-class Numbers extends Component {
+class Powerballinput extends Component {
     state = {
         numbers: [],
+        // drawNumber: "",
         no1: "",
         no2: "",
         no3: "",
@@ -49,6 +51,7 @@ class Numbers extends Component {
             this.state.no3 && this.state.no4 &&
             this.state.no5 && this.state.powerball) {
             API.saveNumber({
+                // drawNumber: this.state.drawNumber,
                 no1: this.state.no1,
                 no2: this.state.no2,
                 no3: this.state.no3,
@@ -65,44 +68,61 @@ class Numbers extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="md-6">
+                    <Col size="md-6 sm12">
 
                         <form>
+                            {/* <div className="row center" >
+                                <input
+                                    style={{ height: "20px", float: "left", backgroundColor: "whitesmoke", width: "25%" }}
+                                    className="drawNo"
+                                    value={this.state.drawNumber}
+                                    onChange={this.handleInputChange}
+                                    name="drawNumber"
+                                    placeholder="Draw Number (optional)"
+                                    type="number"
+                                    fontSize="15px"
+                                />
+                            </div> */}
                             <Input
+                                className="whiteballs"
                                 value={this.state.no1}
                                 onChange={this.handleInputChange}
                                 name="no1"
-                                placeholder="#1"
                             />
                             <Input
+                                className="whiteballs"
                                 value={this.state.no2}
                                 onChange={this.handleInputChange}
-                                name="no1"
-                                placeholder="#2"
+                                name="no2"
+
                             />
                             <Input
+                                className="whiteballs"
                                 value={this.state.no3}
                                 onChange={this.handleInputChange}
-                                name="no1"
-                                placeholder="#3"
+                                name="no3"
+
                             />
                             <Input
+                                className="whiteballs"
                                 value={this.state.no4}
                                 onChange={this.handleInputChange}
-                                name="no1"
-                                placeholder="#4"
+                                name="no4"
+
                             />
                             <Input
+                                className="whiteballs"
                                 value={this.state.no5}
                                 onChange={this.handleInputChange}
-                                name="no1"
-                                placeholder="#5"
+                                name="no5"
+
                             />
                             <Input
+                                className="whiteballs powerball-input"
                                 value={this.state.powerball}
                                 onChange={this.handleInputChange}
                                 name="powerball"
-                                placeholder="Powerball#"
+
                             />
 
                             <FormBtn
@@ -111,8 +131,9 @@ class Numbers extends Component {
                                     this.state.no5 && this.state.powerball
                                 )}
                                 onClick={this.handleFormSubmit}
+
                             >
-                                Submit Book
+                                Save Numbers
               </FormBtn>
                         </form>
                     </Col>
@@ -148,4 +169,4 @@ class Numbers extends Component {
     }
 }
 
-export default Numbers;
+export default Powerballinput;

@@ -17,20 +17,18 @@ export default {
   getNumbers: function () {
     return axios.get("/api/numbers");
   },
-  // Gets the book with the given id
+  // Gets the powerball number with the given id
   getNumber: function (id) {
     return axios.get("/api/numbers/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the powerball number with the given id
   deleteNumber: function (id) {
     return axios.delete("/api/numbers/" + id);
   },
-  // Saves a book to the database
+  // Saves apowerball number to the database
   saveNumber: function (numberData) {
     return axios.post("/api/numbers", numberData);
   }
-
-
 
 };
 
