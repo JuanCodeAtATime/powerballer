@@ -15,7 +15,6 @@ export function Input(props) {
                     width: "97px",
                     height: "100px",
                     marginRight: "2px",
-                    display: "inline-block",
                     backgroundColor: "whitesmoke",
                     borderRadius: "5px",
                     fontSize: "65px"
@@ -30,9 +29,9 @@ export function FormBtn(props) {
             color: "white",
             textAlign: "center",
             width: "97px",
-            height: "118px",
+            height: "100px",
             marginLeft: "8px",
-            display: "inline-block",
+            display: "inline",
             backgroundColor: "blue",
             borderRadius: "5px",
             fontSize: "20px"

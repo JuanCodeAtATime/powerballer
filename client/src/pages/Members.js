@@ -138,9 +138,9 @@ class Powerballinput extends Component {
                         </form>
                     </Col>
                     <Col size="md-6 sm-6">
-                        <Jumbotron>
+                        {/* <Jumbotron>
                             <h1>Past Ticket Numbers</h1>
-                        </Jumbotron>
+                        </Jumbotron> */}
                         {this.state.numbers.length ? (
                             <List>
                                 {this.state.numbers.map(number => (

@@ -5,7 +5,8 @@ import "./style.css";
 
 export function List({ children }) {
     return (
-        <div className="list-overflow-container">
+        <div className="list-overflow-container" style={{ backgroundColor: "#eee", borderTop: "solid blue 25px" }}>
+            <label for="pastTicketNo" style={{ color: "black", fontSize: "25px", textAlign: "center" }}><b>MY PAST TICKET #s</b></label>
             <ul className="list-group">{children}</ul>
         </div>
     );

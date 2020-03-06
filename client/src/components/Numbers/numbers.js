@@ -6,6 +6,8 @@ import Hero from "../Hero";
 import "./style.css";
 import Powerballinput from "../../pages/Members";
 import Jackpot from "../Jackpot/Jackpot";
+import WinningNum from "../../pages/WinningNum";
+
 
 class Numbers extends Component {
     onLogoutClick = e => {
@@ -41,6 +43,29 @@ class Numbers extends Component {
                             </div>
 
                         </div>
+                        <div className="row">
+                            <div className="col center-align" style={{ marginTop: "0" }}>
+                                <h5 style={{ color: "red" }}>RESULTS FOR MARCH 30th, 2017: </h5>
+                            </div>
+
+                        </div>
+                        <div className="row">
+                            <div className="col center-align" style={{ marginTop: "0" }}>
+                                <label for="my-matches" style={{ fontSize: "15px", color: "white" }}>MY MATCHES: </label>
+                                <button className="btn btn-large" style={{ width: "50%", backgroundColor: "red" }}><h3 id="my-matches">3</h3></button>
+                            </div>
+                            <div className="col center-align" style={{ marginTop: "0" }}>
+                                <label for="my-prizes" style={{
+                                    fontSize: "15px", color: "white"
+                                }}>MY PRIZES: </label>
+                                <button className="btn btn-large" style={{
+                                    width: "50%", display: "inline-flex",
+                                    alignItems: "center",
+                                    backgroundColor: "red"
+                                }} placeholder="$"></button>
+                            </div>
+
+                        </div>
 
 
                         <div className="row justify-content-between">
@@ -59,6 +84,9 @@ class Numbers extends Component {
                         </div>
                         <div className="row">
                             {/* <div className="col center-align" style={{ color: "whitesmoke" }}>
+                                <h6>Winnings Go Here</h6>
+                            </div>
+                            <div className="col center-align" style={{ color: "whitesmoke" }}>
                                 <h6>Winnings Go Here</h6>
                             </div> */}
 
