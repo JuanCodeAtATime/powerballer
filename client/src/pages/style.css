@@ -57,6 +57,9 @@ h1.logo {
   
 } 
 
+form.noInput {
+    text-align: center;
+}
 #redBall {
     color: whitesmoke;
     background-color: red;

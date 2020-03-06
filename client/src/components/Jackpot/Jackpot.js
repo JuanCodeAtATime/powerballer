@@ -40,12 +40,7 @@ class Jackpot extends Component {
     render() {
         return (
             < div className="jackpotAmt" >
-                <h2>
-                    {this.state.jackpotAmt}
-                </h2>
-
-                {/* <Moment className="moment" format="MM/DD/YYYY">{this.state.dateTime}</Moment > */}
-
+                <b>{this.state.jackpotAmt}</b>
             </div >
         );
     }

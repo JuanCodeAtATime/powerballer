@@ -44,16 +44,22 @@ function Landing() {
             </Hero>
             <Container style={{ marginTop: 30 }}>
                 <Row>
-                    <Col size="md-3">
+                    <Col size="md-3" >
                         <Jumbotron> <h3><b>POWERBALL</b></h3><hr></hr>
-                            <h4 style={{ color: "red" }}>
-                                <em>Current Jackpot</em></h4>
-                            <Jackpot />
+                            <h5 style={{ color: "red" }}>
+                                <em><b>CURRENT JACKPOT</b></em></h5>
+                            <h2 style={{
+                                backgroundColor: "white",
+                                borderRadius: "5px",
+                                border: "solid red 1px"
+                            }}>
+                                <Jackpot />
+                            </h2>
                             <br></br>
                         </Jumbotron>
                     </Col>
                     <Col size="md-5">
-                        <Jumbotron> <h3><b>LATEST DRAWING</b></h3><hr></hr>
+                        <Jumbotron> <h3><b>LATEST DRAW DATE</b></h3><hr></hr>
                             <h4><WinningNum></WinningNum></h4>
                             <br></br>
                             <Link>

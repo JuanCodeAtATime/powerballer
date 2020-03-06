@@ -68,9 +68,9 @@ class Powerballinput extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="md-6 sm12">
+                    <Col size="md-12 sm12">
 
-                        <form>
+                        <form className="noInput">
                             {/* <div className="row center" >
                                 <input
                                     style={{ height: "20px", float: "left", backgroundColor: "whitesmoke", width: "25%" }}
@@ -133,11 +133,11 @@ class Powerballinput extends Component {
                                 onClick={this.handleFormSubmit}
 
                             >
-                                Save Numbers
+                                Enter
               </FormBtn>
                         </form>
                     </Col>
-                    <Col size="md-6 sm-12">
+                    <Col size="md-6 sm-6">
                         <Jumbotron>
                             <h1>Past Ticket Numbers</h1>
                         </Jumbotron>
@@ -147,11 +147,12 @@ class Powerballinput extends Component {
                                     <ListItem key={number._id}>
                                         <Link to={"/numbers/" + number._id}>
                                             <strong>
-                                                {number.no1}
-                                                {number.no2}
-                                                {number.no3}
-                                                {number.no4}
-                                                {number.no5}
+                                                {number.no1} {"-"}
+                                                {number.no2} {"-"}
+                                                {number.no3} {"-"}
+                                                {number.no3} {"-"}
+                                                {number.no4} {"-"}
+                                                {number.no5} {"-"}
                                                 {number.powerball}
                                             </strong>
                                         </Link>

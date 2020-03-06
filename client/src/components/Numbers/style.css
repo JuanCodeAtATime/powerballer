@@ -28,13 +28,21 @@ h2.logo {
       color: black;
   }
 
+  h4.logo {
+    font-size: 50px;
+    color: "white";
+    text-shadow: 1px 1px 2px black, 0 0 15px blue, 0 0 5px darkblue;
+  }
+
 
   .powerballs {
     display: inline-block;
   
 }
 
-
+.noInput{
+    text-align: center;
+}
 
 div.powerballs-wrap {
     display: inline-block;

@@ -7,7 +7,7 @@
   }
   
   .list-overflow-container ul {
-    margin: 0;
+    margin: 2px;
   }
   
   .list-overflow-container li {
@@ -21,7 +21,9 @@
   }
   
   .list-overflow-container li a {
-    color: #2A878C;
+    color: white;
+    font-size: 25px;
+    text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
   }
   
   .list-overflow-container li:first-child {

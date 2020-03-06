@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Hero from "../Hero";
 import "./style.css";
-import Powerballinput from "../../pages/Members"
+import Powerballinput from "../../pages/Members";
+import Jackpot from "../Jackpot/Jackpot";
 
 class Numbers extends Component {
     onLogoutClick = e => {
@@ -19,10 +20,6 @@ class Numbers extends Component {
                     <div className="container">
                         <div className="row justify-content-between">
                             <div className="col-auto mr-auto">
-                                <h5 style={{ color: "white" }}>
-                                    <b>Welcome,</b><span style={{ color: "gold" }}>{user.name.split(" ")[0]}</span>
-                                </h5>
-
                             </div>
                             <div className="col-auto">
                                 <button
@@ -38,12 +35,9 @@ class Numbers extends Component {
                                 </button>
                             </div>
                         </div>
-
-
-
                         <div className="row">
                             <div className="col center-align" style={{ marginTop: "0" }}>
-                                <h2 className="logo" >POWER<span id="pro">BALLER's </span>HQ</h2>
+                                <h4 className="logo" style={{ color: "white" }}>Welcome, <span id="pro">{user.name.split(" ")[0]}</span></h4>
                             </div>
 
                         </div>
@@ -51,20 +45,22 @@ class Numbers extends Component {
 
                         <div className="row justify-content-between">
                             <div className="col-auto mr-auto">
+                                <label for="my-ticketNo" style={{ fontSize: "20px", color: "white" }}>My Ticket#</label>
                                 <h4 className="my-ticket-no" style={{ color: "whitesmoke" }} >
                                     12-34-45-2-66<span id="pro">18</span>
                                 </h4>
                             </div>
                             <div className="col-auto">
-                                <h4 className="current-jackpot" style={{ color: "whitesmoke" }} >
-                                    $90,000,000
+                                <label for="currentJackpot" style={{ fontSize: "20px", color: "white" }}>Current Jackpot</label>
+                                <h4 className="current-jackpot" style={{ color: "red" }} >
+                                    <Jackpot></Jackpot>
                                 </h4>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col center-align" style={{ color: "whitesmoke" }}>
+                            {/* <div className="col center-align" style={{ color: "whitesmoke" }}>
                                 <h6>Winnings Go Here</h6>
-                            </div>
+                            </div> */}
 
                         </div>
 
@@ -73,8 +69,9 @@ class Numbers extends Component {
 
                 </Hero>
                 <br></br>
+                <div className="noInput"> <label for="ticketNo" style={{ color: "white", fontSize: "30px", marginLeft: "15px", textAlign: "center" }}>Enter Ticket#</label>
+                    <Powerballinput /></div>
 
-                <Powerballinput></Powerballinput>
 
             </div>
         );

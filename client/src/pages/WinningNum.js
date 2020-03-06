@@ -46,7 +46,7 @@ class WinningNum extends Component {
         // <Moment unixTz="America/New_York" className="moment" format="MM/DD/YYYY, h:mm a"></Moment>
         return (
             < div className="powerballs" >
-                <h6>DATE:</h6> <h4><Moment unixTz="America/New_York" className="moment" format="ddd, MMM Do YYYY">{this.state.dateTime}</Moment ></h4>
+                <h4><Moment unixTz="America/New_York" className="moment" format="ddd, MMM Do YYYY">{this.state.dateTime}</Moment ></h4>
 
                 <div className="powerballs-wrap" style={{ marginTop: "5px" }}>
                     <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
