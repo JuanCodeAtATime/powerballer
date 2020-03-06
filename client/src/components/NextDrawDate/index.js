@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Moment from 'react-moment';
+import 'moment-timezone';
 // import "./style.css"
 
 
@@ -15,7 +16,7 @@ class NextDraw extends Component {
         API.loadPbData()
             .then(res =>
                 this.setState({
-                    nextDrawDate: res.data[0].field_next_draw_date
+                    nextDrawDate: res.data[0].field_next_draw_date.moment
 
                 })
 
@@ -32,11 +33,12 @@ class NextDraw extends Component {
     }
 
     render() {
+
         return (
             < div className="jackpotAmt" >
-                <h2>
-                    <Moment className="moment" format="MM/DD/YYYY">{this.state.nextDrawDate}</Moment>
-                </h2>
+                <h3>
+                    <Moment tZ="America/New_York" className="moment" format="MM/DD/YYYY, h:mm a">{this.state.nextDrawDate}</Moment>
+                </h3>
 
             </div >
         );
