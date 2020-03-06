@@ -42,8 +42,8 @@ h1.logo {
     margin: 1.75px;
     padding: 1.5px;
     border-radius: 50%;
-    height: 30px;
-    width: 30px;    
+    height: 75px;
+    width: 75px;    
     border: solid black .50px;
     margin-top: 15px;
    
@@ -53,7 +53,7 @@ h1.logo {
 .powerballNumber {
     color: black;
     font-weight: 600; 
-    font-size: .95rem;
+    font-size: .99rem;
   
 } 
 
@@ -64,9 +64,9 @@ h1.logo {
     border-radius: 50%; */
 } 
 
-.moment {
+time.moment {
     font-family: 'Quantico', 'Cursive';
-    background-color: #504f54;
+    background-color: red;
     border-radius: 4px;
     color: whitesmoke;
     padding: 0 4px;
@@ -75,9 +75,9 @@ h1.logo {
 
 }
 
-.moment:hover {
+time.moment:hover {
  opacity: .75;
- background-color: red;
+ background-color: green;
 }
 
 

@@ -16,7 +16,7 @@ class NextDraw extends Component {
         API.loadPbData()
             .then(res =>
                 this.setState({
-                    nextDrawDate: res.data[0].field_next_draw_date.moment
+                    nextDrawDate: res.data[0].field_next_draw_date
 
                 })
 
@@ -36,9 +36,9 @@ class NextDraw extends Component {
 
         return (
             < div className="jackpotAmt" >
-                <h3>
-                    <Moment tZ="America/New_York" className="moment" format="MM/DD/YYYY, h:mm a">{this.state.nextDrawDate}</Moment>
-                </h3>
+                <h4>
+                    <Moment subtract={{ hours: 4 }} className="moment" format="MMM Do YYYY, h:mm a">{this.state.nextDrawDate}</Moment>
+                </h4>
 
             </div >
         );

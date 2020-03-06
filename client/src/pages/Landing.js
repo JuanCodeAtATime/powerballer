@@ -19,10 +19,14 @@ function Landing() {
             <Hero>
                 <h1 className="logo">POWER<span id="pro">BALLERS</span></h1>
                 {/* <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4> */}
-                <span><h3 style={{ color: "red" }}>Next Drawing: <Countdown
-                    unixTz="America/New_York"
-                    timeTillDate="03/04/2020, 11:00 pm"
-                    timeFormat="MM/DD/YYYY, h:mm a" /></h3>
+                <span>
+                    <h3 style={{ color: "red" }}>
+                        Next Drawing:
+                    <Countdown
+                            timeTillDate="03/30/2020"
+                        // timeTillDate={<NextDraw />}
+                        />
+                    </h3>
                 </span>
 
 
@@ -40,7 +44,7 @@ function Landing() {
             </Hero>
             <Container style={{ marginTop: 30 }}>
                 <Row>
-                    <Col size="md-4">
+                    <Col size="md-3">
                         <Jumbotron> <h3><b>POWERBALL</b></h3><hr></hr>
                             <h4 style={{ color: "red" }}>
                                 <em>Current Jackpot</em></h4>
@@ -48,7 +52,7 @@ function Landing() {
                             <br></br>
                         </Jumbotron>
                     </Col>
-                    <Col size="md-4">
+                    <Col size="md-5">
                         <Jumbotron> <h3><b>LATEST DRAWING</b></h3><hr></hr>
                             <h4><WinningNum></WinningNum></h4>
                             <br></br>
@@ -67,7 +71,7 @@ function Landing() {
 
                     <Col size="md-4" >
                         <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
-                            <NextDraw></NextDraw>
+                            <NextDraw style={{ backgroundColor: "green" }}></NextDraw>
                         </Jumbotron>
                     </Col>
                 </Row>
