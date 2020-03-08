@@ -6,6 +6,7 @@ import 'moment-timezone';
 
 
 
+
 class NextDraw extends Component {
     state = {
         nextDrawDate: []
@@ -37,7 +38,13 @@ class NextDraw extends Component {
         return (
             < div className="jackpotAmt" >
                 <h4>
-                    <Moment subtract={{ hours: 4 }} className="moment" format="MMM Do YYYY, h:mm a">{this.state.nextDrawDate}</Moment>
+                    <Moment
+                        subtract={{ hours: 4 }}
+                        className="moment"
+                        format="MMM Do YYYY, h:mm a"
+                    >
+                        {this.state.nextDrawDate}
+                    </Moment>
                 </h4>
 
             </div >

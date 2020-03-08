@@ -18,8 +18,6 @@ class Jackpot extends Component {
                     jackpotAmt: res.data[0].field_prize_amount
 
                 })
-                // res[0].field_next_draw_date
-                // res.field_next_draw_date[0]
 
             )
             .catch(err => console.log(err));

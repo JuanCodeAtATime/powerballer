@@ -87,3 +87,14 @@ div.powerballs-wrap {
  opacity: .75;
  background-color: red;
 }
+
+button.myWinningsbtns {
+
+    color: royalblue;
+}
+
+
+button#myWinningsbtns {
+
+    color: royalblue;
+}

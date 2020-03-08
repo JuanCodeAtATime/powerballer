@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
       <Link className="navbar-brand" href="#" to="/">
-        POWER<span id="pro">BALLERS</span>
+        POWER<span id="pro">BALLER</span>
       </Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@ function Navbar() {
         <span className="navbar-text">
           <Link to="/register">
 
-            <button className="btn-sm" id="btn-sm" style={{ backgroundColor: "red", color: "whitesmoke" }}>Become A Member</button></Link>
+            <button className="btn-sm" id="btn-sm" style={{ backgroundColor: "red", color: "whitesmoke" }}>Create Account</button></Link>
 
           {/* <Countdown placeholder="Next Drwaing" timeTillDate="03/01/2020, 12:00 pm"
             timeFormat="MM/DD/YYYY, h:mm a" /> */}

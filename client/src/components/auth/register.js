@@ -58,17 +58,16 @@ class Register extends Component {
         const { errors } = this.state;
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col s8 offset-s2">
-                        <Link to="/" className="btn-flat waves-effect" style={{ color: "#0056b3" }}>
+                <div className="row justify-content-center">
+                    <div className="col-md-5" style={{ backgroundColor: "white", opacity: ".85", borderRadius: "5px" }}>
+                        <Link to="/" className="btn-flat waves-effect" style={{ color: "black" }}>
                             <i className="material-icons left" style={{ color: "#0056b3" }}>keyboard_backspace</i> Back to
                             home
-            </Link>
+            </Link><div className="col offset-s5"></div>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                            <h4>
-                                <b style={{ color: "whitesmoke" }}>Register below</b>
-                            </h4>
-                            <p className="white-text text-darken-1">
+                            <h3><b>POWER<span id="pro">BALLER </span></b>  <b style={{ color: "#0275d8" }}>Registration</b></h3>
+
+                            <p style={{ color: "black" }}>
                                 Already have an account? <Link to="/login">Log in</Link>
                             </p>
                         </div>
@@ -84,7 +83,7 @@ class Register extends Component {
                                         invalid: errors.name
                                     })}
                                 />
-                                <label style={{ color: "whitesmoke" }} htmlFor="name">Name</label>
+                                <label style={{ color: "#0275d8" }} htmlFor="name">Name</label>
                                 <span className="red-text">{errors.name}</span>
                             </div>
                             <div className="input-field col s12">
@@ -98,7 +97,7 @@ class Register extends Component {
                                         invalid: errors.email
                                     })}
                                 />
-                                <label htmlFor="email" style={{ color: "whitesmoke" }}>Email</label>
+                                <label htmlFor="email" style={{ color: "#0275d8" }}>Email</label>
                                 <span className="red-text">{errors.email}</span>
                             </div>
                             <div className="input-field col s12">
@@ -112,7 +111,7 @@ class Register extends Component {
                                         invalid: errors.password
                                     })}
                                 />
-                                <label htmlFor="password" style={{ color: "whitesmoke" }}>Password</label>
+                                <label htmlFor="password" style={{ color: "#0275d8" }}>Password</label>
                                 <span className="red-text">{errors.password}</span>
                             </div>
                             <div className="input-field col s12">
@@ -126,7 +125,7 @@ class Register extends Component {
                                         invalid: errors.password2
                                     })}
                                 />
-                                <label htmlFor="password2" style={{ color: "whitesmoke" }}>Confirm Password</label>
+                                <label htmlFor="password2" style={{ color: "#0275d8" }}>Confirm Password</label>
                                 <span className="red-text">{errors.password2}</span>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -136,9 +135,12 @@ class Register extends Component {
                                         borderRadius: "3px",
                                         letterSpacing: "1.5px",
                                         marginTop: "1rem",
-                                        color: "white",
+                                        color: "white"
 
                                     }}
+                                    disabled={!(this.state.name && this.state.email &&
+                                        this.state.password && this.state.password2
+                                    )}
                                     type="submit"
                                     className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                                 >

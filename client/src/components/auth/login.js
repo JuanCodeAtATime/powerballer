@@ -63,26 +63,22 @@ class Login extends Component {
             <div className="container">
                 <form noValidate onSubmit={this.onSubmit}>
                     <br></br>
-                    <div className="row">
-                        <div className="col">
-                            <h2 className="style">Login with Social Media or PB<span id="pro">PRO</span> Login</h2>
-                        </div>
-                    </div>
-                    <br></br>
-                    <div className="row">
-                        <div className="col-6">
-                            <Link to={'#'} className="fb btn">
-                                <i className="fa fa-facebook fa-fw"></i> Login with Facebook
-                        </Link>
-                            <Link to={'#'} className="google btn">
-                                <i className="fa fa-google fa-fw"></i> Login with Google+
-                        </Link>
-                        </div>
-                        <div className="col-6">
+                    <div className="row justify-content-center">
+                        <div className="col-md-5" style={{ backgroundColor: "white", opacity: ".88", borderRadius: "5px", padding: "10px" }}>
+                            <Link to="/" className="btn-flat waves-effect" style={{ color: "black" }}>
+                                <i className="material-icons left" style={{ color: "#0056b3" }}>keyboard_backspace</i> Back to
+                                home
+            </Link>
 
+                            <h3><b>POWER<span id="pro">BALLER </span></b><b style={{ color: "#0275d8" }}>Login</b></h3>
+
+                            <p style={{ color: "black" }}>
+                                Need to create account? <Link to="/register">Create Account</Link>
+                            </p>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.email}
+
                                 error={errors.email}
                                 id="email"
                                 type="email"
@@ -91,7 +87,7 @@ class Login extends Component {
                                 })}
 
                             />
-                            <label htmlFor="email" style={{ color: "whitesmoke" }}>Email</label>
+                            <label htmlFor="email" style={{ color: "black" }}>Email</label>
                             <span className="red-text">
                                 {errors.email}
                                 {errors.emailnotfound}
@@ -107,7 +103,7 @@ class Login extends Component {
                                     invalid: errors.password || errors.passwordincorrect
                                 })}
                             />
-                            <label htmlFor="password" style={{ color: "whitesmoke" }}>Password</label>
+                            <label htmlFor="password" style={{ color: "black" }}>Password</label>
                             <span className="red-text">
                                 {errors.password}
                                 {errors.passwordincorrect}
@@ -115,27 +111,19 @@ class Login extends Component {
 
                             <button
                                 type="submit"
-                                style={{ color: "white" }}
+                                style={{ color: "white", marginBottom: "5px" }}
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
                                 Login
                             </button>
+                            <br></br>
                         </div>
 
 
                     </div>
                 </form>
 
-                <div className="bottom-container">
-                    <div className="row">
-                        <div className="col">
-                            <Link to={"/register"} style={{ color: "white" }} className="btn">Sign up</Link>
-                        </div>
-                        <div className="col">
-                            <Link to={"#"} style={{ color: "white" }} className="btn">Forgot password?</Link>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         );
     }

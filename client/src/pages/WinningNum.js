@@ -17,9 +17,9 @@ class WinningNum extends Component {
         API.getPbNum()
             .then(res =>
                 this.setState({
-                    powerballs: res.data[0].winning_numbers.split(' '),
+                    powerballs: res.data[0].winning_numbers.split(' ')
                     // numberSplit: powerballs.split(' '),
-                    dateTime: res.data[0].draw_date
+                    // dateTime: res.data[0].draw_date
 
                 })
 
@@ -46,8 +46,7 @@ class WinningNum extends Component {
         // <Moment unixTz="America/New_York" className="moment" format="MM/DD/YYYY, h:mm a"></Moment>
         return (
             < div className="powerballs" >
-                <h4><Moment unixTz="America/New_York" className="moment" format="ddd, MMM Do YYYY">{this.state.dateTime}</Moment ></h4>
-
+                {console.log(this.state.powerballs[5])}
                 <div className="powerballs-wrap" style={{ marginTop: "5px" }}>
                     <span className="powerballNumber powerball-number-1">{this.state.powerballs[0]}</span>
                 </div>

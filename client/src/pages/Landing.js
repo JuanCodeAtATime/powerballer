@@ -11,6 +11,7 @@ import Jackpot from "../components/Jackpot/Jackpot";
 import NextDraw from "../components/NextDrawDate";
 import PastYrData from "../components/PastYrData";
 import Jackpotchart from "../components/Jackpotchart";
+import LastDrawDate from "../components/LastDrawDate";
 // import { Router } from "express";
 
 function Landing() {
@@ -23,8 +24,9 @@ function Landing() {
                     <h3 style={{ color: "red" }}>
                         Next Drawing:
                     <Countdown
-                            timeTillDate="03/30/2020"
-                        // timeTillDate={<NextDraw />}
+                            timeTillDate={<NextDraw />}
+                            format="MMM Do YYYY, h:mm a"
+
                         />
                     </h3>
                 </span>
@@ -60,13 +62,14 @@ function Landing() {
                     </Col>
                     <Col size="md-5">
                         <Jumbotron> <h3><b>LATEST DRAW DATE</b></h3><hr></hr>
+                            <h4><LastDrawDate></LastDrawDate></h4>
                             <h4><WinningNum></WinningNum></h4>
                             <br></br>
                             <Link>
                                 <iframe
                                     className="iframe"
                                     src="https://www.youtube.com/embed?max-results=1&showinfo=0&rel=0&listType=user_uploads&list=PowerbaLL39"
-                                    allowfullscreen
+                                    allowFullScreen
                                     style={{ width: "98%" }}
                                 >
                                 </iframe></Link>
@@ -77,7 +80,7 @@ function Landing() {
 
                     <Col size="md-4" >
                         <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
-                            <NextDraw style={{ backgroundColor: "green" }}></NextDraw>
+                            <NextDraw style={{ backgroundColor: "green" }} ></NextDraw>
                         </Jumbotron>
                     </Col>
                 </Row>
