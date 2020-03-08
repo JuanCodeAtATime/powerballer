@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default {
   getPbNum: function () {
-    return axios.get("https://data.ny.gov/resource/d6yy-54nr.json");
+    return axios.get("https://cors-anywhere.herokuapp.com/https://data.ny.gov/resource/d6yy-54nr.json");
   },
 
   loadPbData: function () {
@@ -12,7 +12,7 @@ export default {
   },
 
   loadChartData: function () {
-    return axios.get("https://games.api.lottery.com/api/v2.0/results?game=59bc2b6031947b9daf338d32");
+    return axios.get("https://cors-anywhere.herokuapp.com/https://games.api.lottery.com/api/v2.0/results?game=59bc2b6031947b9daf338d32");
   },
   getNumbers: function () {
     return axios.get("/api/numbers");
