@@ -68,7 +68,7 @@ class WinningNum extends Component {
 
                 </div>
                 <div className="powerballs-wrap" id="redBall">
-                    <span className="powerballNumber powerball-redball">{this.state.powerballs[5]}</span>
+                    <span className="powerballNumber powerball-redball" style={{ color: "white" }}>{this.state.powerballs[5]}</span>
 
                 </div>
             </div >

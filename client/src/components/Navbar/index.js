@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Countdown from "../Countdown";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import Countdown from "../Countdown";
 import "./style.css";
-
+import NextDraw from "../NextDrawDate";
+import "moment";
+// import "bootstrap/dist/css/bootstrap.min.css";
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
   return (
@@ -18,7 +19,7 @@ function Navbar() {
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
 
-            <Link
+            {/* <Link
               to="/"
               className={
                 window.location.pathname === "/" || window.location.pathname === "/landing"
@@ -28,28 +29,23 @@ function Navbar() {
             >
               Home
               <span className="sr-only">(current)</span>
-            </Link>
+            </Link> */}
 
           </li>
           <li className="nav-item">
-            <Link
+            {/* <Link
               to="/login"
               className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
             >
               Login
-            </Link>
+            </Link> */}
           </li>
           {/* <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li> */}
         </ul>
         <span className="navbar-text">
-          <Link to="/register">
-
-            <button className="btn-sm" id="btn-sm" style={{ backgroundColor: "red", color: "whitesmoke" }}>Create Account</button></Link>
-
-          {/* <Countdown placeholder="Next Drwaing" timeTillDate="03/01/2020, 12:00 pm"
-            timeFormat="MM/DD/YYYY, h:mm a" /> */}
+          <Countdown placeholder="Next Draw: " timeTillDate={<NextDraw></NextDraw>}>Next Draw: </Countdown>
         </span>
       </div>
     </nav>

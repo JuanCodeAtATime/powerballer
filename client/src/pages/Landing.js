@@ -6,7 +6,6 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import WinningNum from "./WinningNum";
-import Countdown from "../components/Countdown";
 import Jackpot from "../components/Jackpot/Jackpot";
 import NextDraw from "../components/NextDrawDate";
 import PastYrData from "../components/PastYrData";
@@ -18,17 +17,20 @@ function Landing() {
     return (
         <div>
             <Hero>
-                <h1 className="logo">POWER<span id="pro">BALLERS</span></h1>
-                {/* <h4 className="tagline">BECAUSE WINNING IS A TEAM SPORT</h4> */}
+                <h1 className="logo">POWER<span id="pro">BALLER</span></h1>
                 <span>
-                    <h3 style={{ color: "red" }}>
-                        Next Drawing:
-                    <Countdown
-                            timeTillDate={<NextDraw />}
-                            format="MMM Do YYYY, h:mm a"
+                    <Link to="/register">
 
-                        />
-                    </h3>
+                        <button className="btn-lg" id="btn-sm"
+                            style={{ backgroundColor: "blue", color: "whitesmoke" }}>
+                            Create Account</button></Link>
+                </span>
+                <span>
+                    <Link to="/login">
+
+                        <button className="btn-lg" id="btn-sm"
+                            style={{ backgroundColor: "red", color: "whitesmoke", marginLeft: "3px" }}>
+                            Login</button></Link>
                 </span>
 
 
