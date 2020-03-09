@@ -11,6 +11,7 @@ import LastDrawDate from "../LastDrawDate";
 import 'moment';
 import 'moment-timezone';
 import WinningNum from "../../pages/WinningNum";
+import { pluralize } from "mongoose";
 
 
 class Numbers extends Component {
@@ -89,13 +90,39 @@ class Numbers extends Component {
         userNumbers.push(pb);
         let winningNumbers = this.state.powerballs
         const matches = userNumbers.filter(n => winningNumbers.indexOf(n) > -1)
-        console.log("You got " + matches.length + " matches. " + " Here they are " + matches);
+        console.log("You got " + matches.length + " Whiteball matches. " + " Here they are " + matches);
         console.log("this is num1: " + num1 + ". This is the powerball no: " + winningNumbers[5]);
-        if (pb === winningNumbers[5]) {
-
-            console.log("The pb is: " + winningNumbers[5] + ".  Your pb was: " + pb + ". CONGRATS!!")
-        } else {
-            console.log("Sorry.  The pb does not match!")
+        let prize = [];
+        if (pb === winningNumbers[5] && matches.length <= 1) {
+            prize.push("$4")
+        }
+        else if (pb === winningNumbers[5] && matches.length === 2) {
+            prize.push("$4")
+        }
+        else if (pb === winningNumbers[5] && matches.length === 3) {
+            prize.push("$7")
+            console.log("LINE 96/numbers.js:  You matched the winning powerball number (" + winningNumbers[5] + ") and you matched " + matches.length + " whiteballs")
+        }
+        else if (pb !== winningNumbers[5] && matches.length === 3) {
+            prize.push("$7")
+        }
+        else if (pb === winningNumbers[5] && matches.length === 4) {
+            prize.push("$100")
+        }
+        else if (pb !== winningNumbers[5] && matches.length === 4) {
+            prize.push("$100")
+        }
+        else if (pb === winningNumbers[5] && matches.length === 5) {
+            prize.push("$50,000")
+        }
+        else if (pb !== winningNumbers[5] && matches.length === 5) {
+            prize.push("$1,000,000")
+        }
+        else if (pb === winningNumbers[5] && matches.length === 6) {
+            prize.push("JACKPOT!!!")
+        }
+        else {
+            console.log("Sorry.  You've got no matches ")
         }
 
         return (
@@ -245,7 +272,7 @@ class Numbers extends Component {
                                     color: "red"
 
                                 }}>
-                                    <p id="my-prizes">$4</p><p style={{ fontSize: "1rem", marginTop: "0" }}>PRIZES</p></button>
+                                    <p id="my-prizes">{prize}</p><p style={{ fontSize: "1rem", marginTop: "0" }}>PRIZES</p></button>
                             </div>
                         </div>
 

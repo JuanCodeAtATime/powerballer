@@ -45,7 +45,7 @@ class Jackpotchart extends Component {
                             ],
                         datasets: [
                             {
-                                label: 'Most Recent Jackpot',
+                                label: '',
                                 data:
                                     [
                                         1000000,
@@ -80,13 +80,13 @@ class Jackpotchart extends Component {
                                 options={{
                                     title: {
                                         display: true,
-                                        text: 'Jackpot Tracking (To Date)',
+                                        text: 'Jackpot Tracking (Now)',
                                         fontSize: 20
                                     },
                                     legend: {
                                         display: true,
                                         position: 'top',
-                                        fontColor: '000'
+                                        fontColor: 'black'
                                     }
                                 }}
                             />
