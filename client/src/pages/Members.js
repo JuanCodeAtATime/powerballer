@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import "./style.css"
 
@@ -142,7 +142,7 @@ class Powerballinput extends Component {
               </FormBtn>
                         </form>
                     </Col>
-                    <Col size="md-3 sm-3">
+                    {/* <Col size="md-3 sm-3">
                         {this.state.numbers.length ? (
                             <List>
                                 {this.state.numbers.map(number => (
@@ -165,7 +165,7 @@ class Powerballinput extends Component {
                         ) : (
                                 <h3>No Results to Display</h3>
                             )}
-                    </Col>
+                    </Col> */}
                 </Row>
             </Container>
         );
@@ -174,16 +174,3 @@ class Powerballinput extends Component {
 
 export default Powerballinput;
 
-// export function RecentNo(props) {
-//     return (
-//         <div>
-//             {this.state.recentNumber.no1}
-//             {this.state.recentNumber.no2}
-//             {this.state.recentNumber.no3}
-//             {this.state.recentNumber.no4}
-//             {this.state.recentNumber.no5}
-//             {this.state.recentNumber.powerball}
-
-//         </div>
-//     );
-// }

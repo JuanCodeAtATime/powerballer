@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import API from "../../utils/API";
-import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import Hero from "../Hero";
-import "./style.css";
-import Powerballinput from "../../pages/Members";
-import Jackpot from "../Jackpot/Jackpot";
-import LastDrawDate from "../LastDrawDate";
-import 'moment';
-import 'moment-timezone';
 import WinningNum from "../../pages/WinningNum";
-// import { pluralize } from "mongoose";
+import { logoutUser } from "../../actions/authActions";
+import LastDrawDate from "../LastDrawDate";
+import Jackpot from "../Jackpot/Jackpot";
 import NextDraw from "../NextDrawDate";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Modal from "../Modal";
+import Hero from "../Hero";
+import 'moment-timezone';
+import "./style.css";
+import 'moment';
+
 
 
 class Numbers extends Component {
@@ -22,6 +22,7 @@ class Numbers extends Component {
         recentNumber: '',
         secRecentNo: '',
         thirdRecentNo: "",
+        prize: [],
         matches: '',
         powerballs: ""
 
@@ -30,6 +31,7 @@ class Numbers extends Component {
     componentDidMount() {
         this.loadRecentNo();
         this.loadLastDrawDate();
+
         // this.matchUserNumsToWinNums();
 
     }
@@ -75,6 +77,30 @@ class Numbers extends Component {
         e.preventDefault();
         this.props.logoutUser();
     };
+
+
+    handleEnterTixNo = event => {
+        event.preventDefault();
+        var modal = document.getElementById("myModal");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        modal.style.display = "block";
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    };
+
+
     render() {
         const { user } = this.props.auth;
 
@@ -120,100 +146,115 @@ class Numbers extends Component {
         userNumbers.game1.push(num1, num2, num3, num4, num5, pb);
         userNumbers.game2.push(numb1, numb2, numb3, numb4, numb5, pb2);
         userNumbers.game3.push(numbe1, numbe2, numbe3, numbe4, numbe5, pb3);
-        // userNumbers.push(num3);
-        // userNumbers.push(num4);
-        // userNumbers.push(num5);
-        // userNumbers.push(pb);
+
+        //Logic to match User's numbers to winning numbers, plus prize computation
         let winningNumbers = this.state.powerballs
         const gameOneMatches = userNumbers.game1.filter(n => winningNumbers.indexOf(n) > -1)
         const gameTwoMatches = userNumbers.game2.filter(n => winningNumbers.indexOf(n) > -1)
         const gameThreeMatches = userNumbers.game3.filter(n => winningNumbers.indexOf(n) > -1)
-        console.log("For Game 1, you got " + gameOneMatches.length + " Whiteball matches. " + " Here they are " + gameOneMatches);
-        console.log("For Game 2, you got  " + gameTwoMatches.length + " Whiteball matches. " + " Here they are " + gameTwoMatches);
-        console.log("For Game 3, you got  " + gameThreeMatches.length + " Whiteball matches. " + " Here they are " + gameThreeMatches);
-        // console.log("this is num1: " + num1 + ". This is the powerball no: " + winningNumbers[5]);
-        let prize = [];
+        // console.log("For Game 1, you got " + gameOneMatches.length + " Whiteball matches. " + " Here they are " + gameOneMatches);
+        // console.log("For Game 2, you got  " + gameTwoMatches.length + " Whiteball matches. " + " Here they are " + gameTwoMatches);
+        // console.log("For Game 3, you got  " + gameThreeMatches.length + " Whiteball matches. " + " Here they are " + gameThreeMatches);
+        let prizes = this.state.prize
 
-        // if ((pb && pb2 === winningNumbers[5]) && (gameOneMatches && gameTwoMatches <= 1)) {
-        //     prize.push("$8")
-        // }
-        if (pb === winningNumbers[5] && gameOneMatches <= 1) {
-            prize.push("$4")
+        if (pb === winningNumbers[5] && gameOneMatches.length === 1) {
+            prizes.push("$4");
+            console.log("You matched the powerball.  Your prize is $4")
         }
-        // if (pb2 === winningNumbers[5] && gameTwoMatches <= 1) {
-        //     prize.push("$4")
-        // }
 
-        // if ((pb || pb2 === winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 2)) {
-        //     prize.push("$4")
-        // }
-        // if ((pb || pb2 === winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 3)) {
-        //     prize.push("$7")
-        // }
-        // if ((pb || pb2 !== winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 3)) {
-        //     prize.push("$7")
-        // }
-        // if ((pb || pb2 === winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 4)) {
-        //     prize.push("$100")
-        // }
-        // if ((pb || pb2 !== winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 4)) {
-        //     prize.push("$100")
-        // }
-        // if ((pb || pb2 === winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 5)) {
-        //     prize.push("$50,000")
-        // }
-        // if ((pb || pb2 !== winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 5)) {
-        //     prize.push("$100,000")
-        // }
-        // if ((pb || pb2 === winningNumbers[5]) && (gameOneMatches || gameTwoMatches === 6)) {
-        //     prize.push("$100,000")
-        // }
-        // else if (pb === winningNumbers[5] && gameOneMatches === 2) {
-        //     prize.push("$4")
-        // }
-        // else if (pb === winningNumbers[5] && gameOneMatches === 3) {
-        //     prize.push("$7")
-        //     console.log("LINE 96/numbers.js:  You matched the winning powerball number (" + winningNumbers[5] + ") and you matched " + gameOneMatches + " whiteballs")
-        // }
-        // else if (pb !== winningNumbers[5] && gameOneMatches === 3) {
-        //     prize.push("$7")
-        // }
-        // else if (pb === winningNumbers[5] && gameOneMatches === 4) {
-        //     prize.push("$100")
-        // }
-        // else if (pb !== winningNumbers[5] && gameOneMatches === 4) {
-        //     prize.push("$100")
-        // }
-        // else if (pb === winningNumbers[5] && gameOneMatches === 5) {
-        //     prize.push("$50,000")
-        // }
-        // else if (pb !== winningNumbers[5] && gameOneMatches === 5) {
-        //     prize.push("$1,000,000")
-        // }
-        // else if (pb === winningNumbers[5] && gameOneMatches === 6) {
-        //     prize.push("JACKPOT!!!")
-        // }
-        else {
-            console.log("Sorry.  You've got no matches ")
+        if (pb === winningNumbers[5] && gameOneMatches.length === 2) {
+            prizes.push("$4");
+            console.log("You matched the powerball and a whiteball.  Your prize is still $4")
         }
+        if (pb === winningNumbers[5] && gameOneMatches.length === 3) {
+            prizes.push("$7");
+            console.log("You matched two whiteballs and the powerball.  Your prize is $7.  This is the gameOne  " + gameOneMatches)
+        }
+        if (pb !== winningNumbers[5] && gameOneMatches.length === 3) {
+            prizes.push("$7");
+            console.log("You matched three whiteballs.  Your prize is $7")
+        }
+        if (pb === winningNumbers[5] && gameOneMatches.length === 4) {
+            prizes.push("$100");
+            console.log("You matched three whiteballs + the powerball.  Your prize is $100")
+        }
+        if (pb !== winningNumbers[5] && gameOneMatches.length === 4) {
+            prizes.push("$100");
+            console.log("You matched four whiteballs.  Your prize is $100")
+        }
+        if (pb === winningNumbers[5] && gameOneMatches.length === 5) {
+            prizes.push("$50,000");
+            console.log("You matched four whiteballs + the powerball.  Your prize is $50,000")
+        }
+        if (pb === winningNumbers[5] && gameOneMatches.length === 5) {
+            prizes.push("$100,000");
+            console.log("Wow!! You matched five whiteballs.  Your prize is $100,000")
+        }
+        if (pb === winningNumbers[5] && gameOneMatches.length === 6) {
+            prizes.push("$JACKPOT!!!!");
+            console.log("Wow!! YOU WON THE JACKPOT")
+        }
+        // else {
+        //     console.log("You have no matches")
+        // }
+        // if (pb === winningNumbers[5] && gameOneMatches == 2) {
+        //     prize.push("$4")
+        //     console.log("You matched one whiteball and the pb.  Your prize is $4")
+
 
         return (
             <div>
                 <Hero>
                     <div className="container">
                         <div className="row align-center">
-                            <div className="col-auto mr-auto" style={{ marginTop: "0" }}>
-                                <h4 className="logo" style={{ color: "whitesmoke" }}><b>Welcome,</b> <span id="pro">{user.name.split(" ")[0]}!</span></h4>
+                            <div className="col-md-5" style={{ marginTop: "0" }}>
+                                <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
                             </div>
-                            <div className="col-md">
+                            <div className="col-md-2">
+                                <button id="enterTixBtn"
+                                    style={{
+                                        fontSize: "15px",
+                                        color: "whitesmoke",
+                                        borderRadius: "9px",
+                                        marginTop: "15px",
+                                        backgroundColor: "green",
+                                        borderTop: "solid whitesmoke 2.5px",
+                                        borderBottom: "solid whitesmoke 2.5px",
+                                        float: "right"
+                                    }}
+                                    onClick={this.handleEnterTixNo}
+                                >
+                                    Enter Tix#
+                                </button>
+                                <Modal></Modal>
+                            </div>
+                            <div className="col-md-2">
                                 <button
                                     style={{
                                         fontSize: "15px",
-                                        color: "red",
+                                        color: "whitesmoke",
                                         borderRadius: "9px",
-                                        marginTop: "10px",
-                                        borderTop: "solid red 4px",
-                                        borderBottom: "solid red 4px",
+                                        marginTop: "15px",
+                                        backgroundColor: "red",
+                                        borderTop: "solid whitesmoke 2.5px",
+                                        borderBottom: "solid whitesmoke 2.5px",
+                                        float: "right"
+                                    }}
+                                // onClick={this.onLogoutClick}
+                                >
+                                    Alerts
+                                </button>
+                            </div>
+                            <div className="col-md-2">
+                                <button
+                                    style={{
+                                        fontSize: "15px",
+                                        color: "whitesmoke",
+                                        borderRadius: "9px",
+                                        marginTop: "15px",
+                                        backgroundColor: "black",
+                                        borderTop: "solid whitesmoke 2.5px",
+                                        borderBottom: "solid whitesmoke 2.5px",
                                         float: "right"
                                     }}
                                     onClick={this.onLogoutClick}
@@ -224,8 +265,8 @@ class Numbers extends Component {
 
 
                         </div>
-                        <div className="row">
-                            <div className="col-auto mr-auto">
+                        <div className="row" style={{ marginBottom: "25px" }}>
+                            <div className="col-md-4">
                                 <button
                                     className="my-ticketNo"
                                     type="button"
@@ -238,10 +279,10 @@ class Numbers extends Component {
                                         borderBottom: "solid red 4px"
                                     }}>
 
-                                    <h6><b>Your Ticket#</b></h6>
+                                    <h6 style={{ color: "black" }}><b>YOUR TICKET#s</b></h6>
                                     <h4 className="my-ticket-no" id="my-ticket-no" style={{ color: "red", backgroundColor: "white", border: "solid yellow 2px", borderRadius: "5px" }} >
                                         <ul>
-                                            <li>
+                                            <li >
                                                 {gameOne.no1}{"-"}
                                                 {gameOne.no2}{"-"}
                                                 {gameOne.no3}{"-"}
@@ -250,7 +291,7 @@ class Numbers extends Component {
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
-                                                    borderRadius: "50%"
+                                                    borderRadius: "45%"
                                                 }}>{gameOne.powerball}
 
                                                 </span>
@@ -264,26 +305,32 @@ class Numbers extends Component {
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
-                                                    borderRadius: "50%"
+                                                    borderRadius: "45%"
                                                 }}>{gameTwo.powerball}
 
                                                 </span>
                                             </li>
+                                            <li >
+                                                {gameThree.no1}{"-"}
+                                                {gameThree.no2}{"-"}
+                                                {gameThree.no3}{"-"}
+                                                {gameThree.no4}{"-"}
+                                                {gameThree.no5}{"-"}
+                                                <span style={{
+                                                    backgroundColor: "red",
+                                                    color: "white",
+                                                    borderRadius: "45%"
+                                                }}>{gameThree.powerball}
 
+                                                </span>
+                                            </li>
                                         </ul>
 
-
                                     </h4>
-                                    <h6><b>for upcoming draw on:</b></h6>
+                                    <h6 style={{ color: "black" }}><b>FOR UPCOMING DRAW ON:</b></h6>
                                     <h4><NextDraw></NextDraw></h4></button>
                             </div>
-
-
-
-
-                        </div>
-                        <div className="row">
-                            <div className="col-auto mr-auto">
+                            <div className="col-md-3">
                                 <button
                                     className="my-ticketNo"
                                     type="button"
@@ -300,12 +347,7 @@ class Numbers extends Component {
                                         <Jackpot></Jackpot>
                                     </h4></button>
                             </div>
-
-                        </div>
-
-
-                        <div className="row">
-                            <div className="col-auto mr-auto">
+                            <div className="col-md-5">
                                 <button
                                     className="my-ticketNo"
                                     type="button"
@@ -326,13 +368,25 @@ class Numbers extends Component {
                                     </h5></button>
                             </div>
                         </div>
+                        <div className="row align-content-center justify-content-center text-align-center">
+                            <div className="col-md-12">
+                                <h4 style={{ color: "whitesmoke" }}>YOUR RESULTS:</h4>
+                            </div>
+                        </div>
 
-                        <div className="row">
-                            <div className="col-m-4" style={{ marginTop: "0" }}>
-                                <div className="col-m-4" style={{ marginBottom: "8px", display: "block" }}>
-                                    <label htmlFor="my-matches" style={{ fontSize: "20px", color: "white", display: "block" }}>YOUR RESULTS: </label>
-                                </div>
-                                {/* <label htmlFor="my-matches" style={{ fontSize: "16px", color: "white", display: "inline-block" }}>MATCHES: </label> */}
+
+                        <div className="row align-content-center justify-content-center text-align-center">
+
+                            <div className="col-md-5 justify-content-between" style={{
+                                backgroundColor: "black",
+                                width: "50%",
+                                margin: "2px",
+                                borderRadius: "15px",
+                                padding: "8px",
+                                borderTop: "solid whitesmoke 3px",
+                                borderBottom: "solid whitesmoke 3px"
+                            }}>
+
                                 <button id="myMatches"
                                     style={{
                                         width: "auto",
@@ -344,17 +398,31 @@ class Numbers extends Component {
                                         alignItems: "center",
                                         justifyContent: "center",
                                         borderRadius: "5px",
-                                        borderTop: "solid red 4px",
-                                        borderBottom: "solid red 4px",
+                                        border: "solid red 3px",
                                         fontSize: "4.3rem",
                                         color: "red",
-                                        marginRight: "5px",
-                                        marginLeft: "8px"
+                                        zIndex: "-1",
+                                        position: "relative"
+
                                     }}>
-                                    <p id="my-matches">{gameOneMatches.length + gameTwoMatches.length}</p><p style={{ fontSize: "1rem", marginTop: "0" }}>MATCHES</p></button>
-
-
-                                {/* <label htmlFor="my-matches" style={{ fontSize: "16px", color: "white", display: "top" }}>MY PRIZES: </label> */}
+                                    <p id="my-matches">
+                                        {gameOneMatches.length +
+                                            gameTwoMatches.length + gameThreeMatches.length}
+                                    </p>
+                                    <p style={{ fontSize: "1.5rem", marginTop: "0", color: "whitesmoke" }}>
+                                        MATCHES
+                                    </p>
+                                </button>
+                            </div>
+                            <div className="col-md-5 justify-content-between" style={{
+                                backgroundColor: "black",
+                                width: "50%",
+                                margin: "2px",
+                                borderRadius: "15px",
+                                padding: "8px",
+                                borderTop: "solid whitesmoke 3px",
+                                borderBottom: "solid whitesmoke 3px"
+                            }}>
                                 <button id="myPrizes" style={{
                                     width: "auto",
                                     minWidth: "100px",
@@ -365,13 +433,35 @@ class Numbers extends Component {
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: "5px",
-                                    borderTop: "solid red 4px",
-                                    borderBottom: "solid red 4px",
+                                    border: "solid red 3px",
                                     fontSize: "4.3rem",
                                     color: "red"
 
                                 }}>
-                                    <p id="my-prizes">{prize}</p><p style={{ fontSize: "1rem", marginTop: "0" }}>PRIZES</p></button>
+                                    <p id="my-prizes">{prizes}</p>
+                                    <p style={{
+                                        fontSize: "1.5rem",
+                                        marginTop: "0",
+                                        color: "whitesmoke"
+                                    }}>PRIZES</p>
+                                </button>
+                            </div>
+
+                        </div>
+
+
+
+                        <div className="row">
+
+                        </div>
+
+                        <div className="row">
+                            <div className="col-m-4" style={{ marginTop: "0" }}>
+
+
+
+                                {/* <label htmlFor="my-matches" style={{ fontSize: "16px", color: "white", display: "top" }}>MY PRIZES: </label> */}
+
                             </div>
                         </div>
 
@@ -380,8 +470,8 @@ class Numbers extends Component {
 
                 </Hero>
                 <br></br>
-                <div className="noInput"> <label htmlFor="ticketNo" style={{ color: "white", fontSize: "30px", marginLeft: "15px", textAlign: "left" }}>Enter Ticket#</label>
-                    <Powerballinput /></div>
+                {/* <div className="noInput"> <label htmlFor="ticketNo" style={{ color: "white", fontSize: "30px", marginLeft: "15px", textAlign: "left" }}>Enter Ticket#</label>
+                    <Powerballinput /></div> */}
 
 
             </div>

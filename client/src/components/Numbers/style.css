@@ -98,3 +98,12 @@ button#myWinningsbtns {
 
     color: royalblue;
 }
+
+li {
+    margin-top: 10px;
+}
+
+button.myMatches {
+    z-Index: -1;
+    position: absolute;
+}
