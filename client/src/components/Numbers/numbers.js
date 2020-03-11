@@ -7,11 +7,13 @@ import Jackpot from "../Jackpot/Jackpot";
 import NextDraw from "../NextDrawDate";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Modal from "../Modal";
+import ModalInput from "../Modal/index";
+import { Button, ButtonToolbar } from 'react-bootstrap'
 import Hero from "../Hero";
 import 'moment-timezone';
 import "./style.css";
 import 'moment';
+
 
 
 
@@ -24,9 +26,12 @@ class Numbers extends Component {
         thirdRecentNo: "",
         prize: [],
         matches: '',
-        powerballs: ""
+        powerballs: "",
+        addModalShow: false
 
     };
+
+
 
     componentDidMount() {
         this.loadRecentNo();
@@ -78,31 +83,9 @@ class Numbers extends Component {
         this.props.logoutUser();
     };
 
-
-    handleEnterTixNo = event => {
-        event.preventDefault();
-        var modal = document.getElementById("myModal");
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-        // When the user clicks the button, open the modal 
-        modal.style.display = "block";
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-    };
-
-
     render() {
         const { user } = this.props.auth;
+        let addModalClose = () => this.setState({ addModalShow: false })
 
         //Filter and indexOf methods used below to match User's numbers with dynamic powerball numbers.       
         //Pushing up to 3 User games into arrays within the userNumbers object
@@ -202,6 +185,7 @@ class Numbers extends Component {
         //     console.log("You matched one whiteball and the pb.  Your prize is $4")
 
 
+
         return (
             <div>
                 <Hero>
@@ -211,22 +195,31 @@ class Numbers extends Component {
                                 <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
                             </div>
                             <div className="col-md-2">
-                                <button id="enterTixBtn"
-                                    style={{
-                                        fontSize: "15px",
-                                        color: "whitesmoke",
-                                        borderRadius: "9px",
-                                        marginTop: "15px",
-                                        backgroundColor: "green",
-                                        borderTop: "solid whitesmoke 2.5px",
-                                        borderBottom: "solid whitesmoke 2.5px",
-                                        float: "right"
-                                    }}
-                                    onClick={this.handleEnterTixNo}
-                                >
-                                    Enter Tix#
+                                <ButtonToolbar>
+                                    <button
+                                        style={{
+                                            fontSize: "15px",
+                                            color: "whitesmoke",
+                                            borderRadius: "9px",
+                                            marginTop: "15px",
+                                            backgroundColor: "green",
+                                            borderTop: "solid whitesmoke 2.5px",
+                                            borderBottom: "solid whitesmoke 2.5px",
+                                            float: "right"
+                                        }}
+                                        onClick={() => this.setState({ addModalShow: true })}
+                                    >
+                                        Enter Tix#
                                 </button>
-                                <Modal></Modal>
+                                    <ModalInput
+                                        show={this.state.addModalShow}
+                                        onHide={addModalClose}
+                                    />
+
+                                </ButtonToolbar>
+
+
+
                             </div>
                             <div className="col-md-2">
                                 <button
@@ -470,9 +463,6 @@ class Numbers extends Component {
 
                 </Hero>
                 <br></br>
-                {/* <div className="noInput"> <label htmlFor="ticketNo" style={{ color: "white", fontSize: "30px", marginLeft: "15px", textAlign: "left" }}>Enter Ticket#</label>
-                    <Powerballinput /></div> */}
-
 
             </div>
         );

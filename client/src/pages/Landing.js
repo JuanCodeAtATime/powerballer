@@ -82,7 +82,11 @@ function Landing() {
 
                     <Col size="md-4" >
                         <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
-                            <NextDraw style={{ backgroundColor: "green" }} ></NextDraw>
+                            <h4 style={{
+                                backgroundColor: "white",
+                                borderRadius: "5px",
+                                border: "solid red 1.5px"
+                            }}><NextDraw ></NextDraw></h4>
                         </Jumbotron>
                     </Col>
                 </Row>

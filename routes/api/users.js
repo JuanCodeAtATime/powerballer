@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const logout = require('express-passport-logout');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
@@ -8,6 +9,8 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User modelkeys
 const User = require("../../models/User");
+
+
 
 // @route POST api/users/register
 // @desc Register user
@@ -92,5 +95,13 @@ router.post("/login", (req, res) => {
         });
     });
 });
+
+router.get('/', function (req, res) {
+    req.logout();
+    console.log('logged out');
+    res.redirect('/');
+})
+
+
 
 module.exports = router;

@@ -44,6 +44,10 @@ h2.logo {
     text-align: center;
 }
 
+button {
+    z-index: -1;
+}
+
 div.powerballs-wrap {
     display: inline-block;
     background: white;

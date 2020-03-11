@@ -3,8 +3,8 @@ import "./style.css";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <span>Powerball Pro 2020</span>
+    <footer className="footer center">
+      <span>Powerballer | Copyright 2020 | Developer: Juan Rivera</span>
     </footer>
   );
 }
