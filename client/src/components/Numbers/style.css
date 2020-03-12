@@ -115,3 +115,14 @@ button.myMatches {
     z-Index: -1;
     position: absolute;
 }
+
+h5#prizeBoxes {
+font-family: "Quantico", "Cursive";
+font-size: "1.5rem";
+margin-top: "10px";
+color: "white";
+position: "absolute";
+display: "center";
+text-align: "center";
+margin-top: "5px";
+}

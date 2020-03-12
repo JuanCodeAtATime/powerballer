@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap"
 import Powerballinput from "../../pages/Members";
 import "./style.css";
+
 // The ...props means, spread all of the passed props onto this element
 
 
@@ -20,13 +21,12 @@ export default class ModalInput extends Component {
                     centered
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="enterTixNo">
-                            <b>Hey there, POWER<span style={{ color: "red" }}>BALLER! </span> Enter Your #s</b>
+                        <Modal.Title id="enterTixNo" style={{ fontFamily: "Quantico" }}>
+                            <b>Please enter 2 digits per field (eg. for "1" enter "01")</b>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Powerballinput></Powerballinput>
-
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="primary" onClick={this.props.onHide}>Close</Button>

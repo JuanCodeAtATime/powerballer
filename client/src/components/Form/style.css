@@ -1,3 +1,7 @@
 button:hover {
 color: red;
 }
+
+button.saveNo:hover {
+background-color: red;
+}

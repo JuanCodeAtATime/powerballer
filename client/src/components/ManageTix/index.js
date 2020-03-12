@@ -3,9 +3,8 @@ import { Modal, Button } from "react-bootstrap"
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import DeleteBtn from "../DeleteBtn";
-import API from "../../utils/API"
-
-
+import API from "../../utils/API";
+import Moment from "react-moment";
 import "./style.css";
 
 
@@ -67,16 +66,22 @@ export default class ManageTix extends Component {
                                         <List>
                                             {this.state.numbers.map(number => (
                                                 <ListItem key={number._id}>
-                                                    <strong>
-                                                        <p>Game #: </p>{number.gameNo}
+                                                    <strong style={{ fontFamily: "Quantico" }}>
+                                                        <p style={{ color: "blue" }}>Game No: {number.gameNo}</p>
                                                         <hr></hr>
-                                                        {number.no1} {"-"}
-                                                        {number.no2} {"-"}
-                                                        {number.no3} {"-"}
-                                                        {number.no3} {"-"}
-                                                        {number.no4} {"-"}
-                                                        {number.no5} {"-"}
-                                                        {number.powerball}
+                                                        <h4>
+                                                            {number.no1} {"-"}
+                                                            {number.no2} {"-"}
+                                                            {number.no3} {"-"}
+                                                            {number.no3} {"-"}
+                                                            {number.no4} {"-"}
+                                                            {number.no5} {"-"}
+                                                            {number.powerball}
+                                                        </h4>
+                                                        <hr></hr>
+                                                        <p style={{ color: "blue" }}>
+                                                            <Moment format="MM/DD/YYYY">{number.date}</Moment>
+                                                        </p>
                                                     </strong>
 
                                                     <DeleteBtn onClick={() => this.deleteNumber(number._id)} />

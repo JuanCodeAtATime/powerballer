@@ -11,9 +11,11 @@ import ModalInput from "../Modal/index";
 import ManageTix from "../ManageTix/index"
 import { ButtonToolbar } from 'react-bootstrap'
 import Hero from "../Hero";
+// import FontAwesome from 'react-fontawesome'
+// import faStyles from 'font-awesome/css/font-awesome.css'
 import 'moment-timezone';
 import "./style.css";
-import 'moment';
+// import Moment from 'react-moment';
 
 
 
@@ -23,6 +25,9 @@ import 'moment';
 class Numbers extends Component {
     state = {
         dateTime: [],
+        dateForToolTip1: "",
+        dateForToolTip2: "",
+        dateForToolTip3: "",
         userNumbers: [],
         recentNumber: '',
         secRecentNo: '',
@@ -41,11 +46,10 @@ class Numbers extends Component {
     componentDidMount() {
         this.loadRecentNo();
         this.loadLastDrawDate();
-
-        // this.matchUserNumsToWinNums();
-
+        // this.formatDates();        
     }
 
+    //These two functions handle modal buttons
     handleEnterTixModal = event => {
         event.preventDefault();
         this.setState({ addModalShow: true });
@@ -55,6 +59,8 @@ class Numbers extends Component {
         event.preventDefault();
         this.setState({ addModalShow2: true });
     };
+
+
     //loadRecentNo loads and renders most recent inputted number in upper left section of Hero
 
     loadRecentNo = () => {
@@ -62,11 +68,13 @@ class Numbers extends Component {
             .then(res =>
                 this.setState({
                     ...this.state,
+                    dateForToolTip1: res.data[0].date,
+                    dateForToolTip2: res.data[1].date,
+                    dateForToolTip3: res.data[2].date,
                     recentNumber: res.data[0],
                     secRecentNo: res.data[1],
-                    thirdRecentNo: res.data[2],
-                    fourthRecentNo: res.data[3],
-                    fifthRecentNo: res.data[4]
+                    thirdRecentNo: res.data[2]
+
                 })
             )
             .catch(err => console.log(err));
@@ -97,10 +105,21 @@ class Numbers extends Component {
         this.props.logoutUser();
     };
 
+    // formatDates = () => {
+    //     let date1 = this.state.dateForToolTip1;
+    //     <Moment format="MM/DD/YYYY, h:mm a" timeZone="America/New_York">{date1}</Moment>
+
+    // }
+
+
     render() {
         const { user } = this.props.auth;
         let addModalClose = () => this.setState({ addModalShow: false })
         let addModalClose2 = () => this.setState({ addModalShow2: false })
+
+        console.log("this is the res.data response " + this.state.dateForToolTip1)
+
+
 
         //Filter and indexOf methods used below to match User's numbers with dynamic powerball numbers.       
         //Pushing up to 3 User games into arrays within the userNumbers object
@@ -311,6 +330,7 @@ class Numbers extends Component {
                             <div className="col-md-2">
                                 <ButtonToolbar>
                                     <button
+                                        type="button"
                                         style={{
                                             fontSize: "15px",
                                             color: "whitesmoke",
@@ -378,7 +398,8 @@ class Numbers extends Component {
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
-                                                    borderRadius: "45%"
+                                                    borderRadius: "45%",
+                                                    padding: "2px"
                                                 }}>{gameOne.powerball}
 
                                                 </span>
@@ -392,7 +413,8 @@ class Numbers extends Component {
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
-                                                    borderRadius: "45%"
+                                                    borderRadius: "45%",
+                                                    padding: "2px"
                                                 }}>{gameTwo.powerball}
 
                                                 </span>
@@ -406,7 +428,8 @@ class Numbers extends Component {
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
-                                                    borderRadius: "45%"
+                                                    borderRadius: "45%",
+                                                    padding: "2px"
                                                 }}>{gameThree.powerball}
 
                                                 </span>
@@ -457,7 +480,7 @@ class Numbers extends Component {
                         </div>
                         <div className="row align-content-center justify-content-center text-align-center" style={{ marginBottom: "0" }}>
                             <div className="col-md-12">
-                                <h4 style={{ color: "whitesmoke" }}>YOUR RESULTS:</h4>
+                                <h4 style={{ color: "whitesmoke", fontFamily: "Quantico" }}>YOUR RESULTS:</h4>
                                 <hr style={{ border: "solid darkred 1.75px" }}></hr>
                             </div>
                         </div>
@@ -486,6 +509,8 @@ class Numbers extends Component {
                                     </p>
                                     <p style={{
                                         fontSize: "1.5rem",
+                                        fontWeight: "bold",
+                                        fontFamily: "Quantico",
                                         marginBottom: "10px",
                                         marginTop: "0px",
                                         color: "whitesmoke"
@@ -499,10 +524,10 @@ class Numbers extends Component {
                         <div className="row">
                             <br></br>
 
-                            <div className="col-md-3 justify-content-between" style={{
+                            <div className="col-md justify-content-between" style={{
                                 backgroundColor: "black",
                                 margin: "2px",
-                                marginTop: "10px",
+                                width: "90%",
                                 borderRadius: "15px",
                                 padding: "8px",
                                 borderTop: "solid whitesmoke 3px",
@@ -528,20 +553,14 @@ class Numbers extends Component {
                                         <p id="my-prizes">{prizes}</p>
 
                                     </button>
-                                    <p style={{
-                                        fontSize: "1.5rem",
-                                        marginTop: "10px",
-                                        color: "whitesmoke",
-                                        position: "absolute",
-                                        display: "center",
-                                        textAlign: "center"
-                                    }}>GAME 1</p>
+                                    <h5 id="prizeBoxes" style={{ color: "white" }}>GAME 1 WIN$</h5>
                                 </div>
                             </div>
 
-                            <div className="col-md-3 justify-content-between" style={{
+                            <div className="col-md justify-content-between" style={{
                                 backgroundColor: "black",
                                 margin: "2px",
+                                width: "90%",
                                 borderRadius: "15px",
                                 padding: "8px",
                                 borderTop: "solid whitesmoke 3px",
@@ -569,22 +588,16 @@ class Numbers extends Component {
                                         <p id="my-prizes">{prizes2}</p>
 
                                     </button>
-                                    <p style={{
-                                        fontSize: "1.5rem",
-                                        marginTop: "10px",
-                                        color: "whitesmoke",
-                                        position: "absolute",
-                                        display: "center",
-                                        textAlign: "center"
-                                    }}>GAME 2</p>
+                                    <h5 id="prizeBoxes" style={{ color: "white" }}>GAME 2 WIN$</h5>
                                 </div>
 
                             </div>
 
 
-                            <div className="col-md-3 justify-content-between" style={{
+                            <div className="col-md justify-content-between" style={{
                                 backgroundColor: "black",
                                 margin: "2px",
+                                width: "90%",
                                 borderRadius: "15px",
                                 padding: "8px",
                                 borderTop: "solid whitesmoke 3px",
@@ -608,14 +621,7 @@ class Numbers extends Component {
                                         <p id="my-prizes">{prizes3}</p>
 
                                     </button>
-                                    <p style={{
-                                        fontSize: "1.5rem",
-                                        marginTop: "10px",
-                                        color: "whitesmoke",
-                                        position: "absolute",
-                                        display: "center",
-                                        textAlign: "center"
-                                    }}>GAME 3</p>
+                                    <h5 id="prizeBoxes" style={{ color: "white" }}>GAME 3 WIN$</h5>
                                 </div>
 
                             </div>
@@ -623,21 +629,6 @@ class Numbers extends Component {
                         </div>
 
 
-
-
-                        <div className="row">
-
-                        </div>
-
-                        <div className="row">
-                            <div className="col-m-4" style={{ marginTop: "0" }}>
-
-
-
-                                {/* <label htmlFor="my-matches" style={{ fontSize: "16px", color: "white", display: "top" }}>MY PRIZES: </label> */}
-
-                            </div>
-                        </div>
 
                     </div>
 

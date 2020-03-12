@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap"
 import "./style.css"
 
 // This file exports the Input, TextArea, and FormBtn components
@@ -6,10 +7,13 @@ import "./style.css"
 export function Input(props) {
     return (
         <div className="form-group center" style={{ display: "inline" }}>
-            <input type="number" className="form-control" {...props}
+            <input type="number" maxLength="1" className="form-control noscroll" {...props}
                 style={{
+                    cursor: "pointer",
                     borderTop: "solid red 8px",
                     borderBottom: "solid red 8px",
+                    borderLeft: "solid grey 2.5px",
+                    borderRight: "solid grey 2.5px",
                     color: "red",
                     textAlign: "center",
                     width: "70px",
@@ -25,19 +29,19 @@ export function Input(props) {
 
 export function FormBtn(props) {
     return (
-        <button {...props} className="saveNo" style={{
+        <Button {...props} className="saveNo" style={{
             color: "white",
             textAlign: "center",
-            width: "68.5%",
-            height: "25px",
+            display: "block",
+            width: "100%",
+            height: "35px",
             marginLeft: "8px",
-            display: "inline",
             backgroundColor: "green",
             borderRadius: "5px",
             fontSize: "15px"
         }}
         >
             {props.children}
-        </button>
+        </Button>
     );
 }

@@ -10,6 +10,7 @@ import Login from "./components/auth/login";
 import Nav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+// import Nomatch from "./pages/Nomatch";
 import Register from "./components/auth/register"
 
 // import Signup from "./pages/Register";
@@ -46,6 +47,7 @@ class App extends Component {
               <Route exact path="/landing" component={Landing} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
+              {/* <Route component={Nomatch} /> */}
               <Switch>
                 <PrivateRoute exact path="/numbers" component={Numbers} />
               </Switch>

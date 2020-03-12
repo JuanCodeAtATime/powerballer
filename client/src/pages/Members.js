@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
+
 import ReactTooltip from 'react-tooltip'
 import "./style.css"
 
@@ -77,6 +78,14 @@ class Powerballinput extends Component {
 
                         <form className="noInput">
                             <div className="row center" >
+                                <label style={{
+                                    display: "block",
+                                    width: "250px",
+                                    textAlign: "top",
+                                    color: "black",
+                                    lineHeight: "20px"
+
+                                }}>Game or Ref # required for better tracking</label>
                                 <input
                                     style={{
                                         height: "20px",
@@ -93,7 +102,6 @@ class Powerballinput extends Component {
                                     value={this.state.gameNo}
                                     onChange={this.handleInputChange}
                                     name="gameNo"
-
                                     placeholder="Ref Number (required)"
                                     type="number"
                                     fontSize="10px"
@@ -104,12 +112,18 @@ class Powerballinput extends Component {
                             </div>
                             <Input
                                 className="whiteballs"
+                                maxLength={2}
+                                minLength={2}
+                                type="text"
                                 value={this.state.no1}
                                 onChange={this.handleInputChange}
                                 name="no1"
                             />
                             <Input
                                 className="whiteballs"
+                                maxLength={2}
+                                minLength={2}
+                                type="text"
                                 value={this.state.no2}
                                 onChange={this.handleInputChange}
                                 name="no2"
@@ -117,6 +131,9 @@ class Powerballinput extends Component {
                             />
                             <Input
                                 className="whiteballs"
+                                maxLength={2}
+                                minLength={2}
+                                type="text"
                                 value={this.state.no3}
                                 onChange={this.handleInputChange}
                                 name="no3"
@@ -124,6 +141,9 @@ class Powerballinput extends Component {
                             />
                             <Input
                                 className="whiteballs"
+                                maxLength={2}
+                                minLength={2}
+                                type="text"
                                 value={this.state.no4}
                                 onChange={this.handleInputChange}
                                 name="no4"
@@ -131,6 +151,9 @@ class Powerballinput extends Component {
                             />
                             <Input
                                 className="whiteballs"
+                                maxLength={2}
+                                minLength={2}
+                                type="text"
                                 value={this.state.no5}
                                 onChange={this.handleInputChange}
                                 name="no5"
@@ -138,6 +161,9 @@ class Powerballinput extends Component {
                             />
                             <Input
                                 className="whiteballs powerball-input"
+                                maxLength={2}
+                                minLength={2}
+                                type="text"
                                 value={this.state.powerball}
                                 onChange={this.handleInputChange}
                                 name="powerball"
@@ -145,11 +171,13 @@ class Powerballinput extends Component {
                             />
 
                             <FormBtn
+                                className="saveNo"
                                 disabled={!(this.state.gameNo && this.state.no1 && this.state.no2 &&
                                     this.state.no3 && this.state.no4 &&
                                     this.state.no5 && this.state.powerball
                                 )}
                                 onClick={this.handleFormSubmit}
+
 
                             >
                                 Enter

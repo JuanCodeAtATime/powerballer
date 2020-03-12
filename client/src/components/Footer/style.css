@@ -3,6 +3,7 @@
   background: black;
   position: relative;
   border-top: solid white 2px;
+  bottom: 0;
 }
 
 .footer span {
