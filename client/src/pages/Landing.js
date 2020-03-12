@@ -7,10 +7,10 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import WinningNum from "./WinningNum";
 import Jackpot from "../components/Jackpot/Jackpot";
-import NextDraw from "../components/NextDrawDate";
 import PastYrData from "../components/PastYrData";
 import Jackpotchart from "../components/Jackpotchart";
 import LastDrawDate from "../components/LastDrawDate";
+import NextDrawDate from "../components/nextdrawdate.js";
 // import { Router } from "express";
 
 function Landing() {
@@ -33,18 +33,6 @@ function Landing() {
                             Login</button></Link>
                 </span>
 
-
-                {/*   
-                
-                This is for button in center of Hero element
-                <Link
-                    to="/register">
-
-                    <button className="hero-button">Become A Member</button></Link> */}
-                {/* <Countdown
-                    timeTillDate="02 29 2020, 11:00 pm"
-                    timeFormat="MM DD YYYY, h:mm a"
-                /> */}
             </Hero>
             <Container style={{ marginTop: 30 }}>
                 <Row>
@@ -70,6 +58,7 @@ function Landing() {
                             <Link>
                                 <iframe
                                     className="iframe"
+                                    title="Latest Powerball Draw"
                                     src="https://www.youtube.com/embed?max-results=1&showinfo=0&rel=0&listType=user_uploads&list=PowerbaLL39"
                                     allowFullScreen
                                     style={{ width: "98%" }}
@@ -86,7 +75,7 @@ function Landing() {
                                 backgroundColor: "white",
                                 borderRadius: "5px",
                                 border: "solid red 1.5px"
-                            }}><NextDraw ></NextDraw></h4>
+                            }}><b><NextDrawDate></NextDrawDate></b></h4>
                         </Jumbotron>
                     </Col>
                 </Row>

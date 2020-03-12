@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        required: '{PATH} is required!'
     },
     email: {
         type: String,
@@ -14,6 +15,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    numbers: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Numbers' }
+    ]
+}, {
     date: {
         type: Date,
         default: Date.now

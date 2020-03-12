@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Countdown from "../Countdown";
 import "./style.css";
-import NextDraw from "../NextDrawDate";
+import NextDraw from "../RenderCountdown";
 import "moment";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
@@ -45,7 +44,7 @@ function Navbar() {
           </li> */}
         </ul>
         <span className="navbar-text">
-          <Countdown placeholder="Next Draw: " timeTillDate={<NextDraw></NextDraw>}>Next Draw: </Countdown>
+          <NextDraw></NextDraw>
         </span>
       </div>
     </nav>

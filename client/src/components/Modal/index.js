@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap"
 import Powerballinput from "../../pages/Members";
-
+import "./style.css";
 // The ...props means, spread all of the passed props onto this element
+
+
 // That way we don't have to define them all individually
 export default class ModalInput extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
-            <div>
+            <div className="modal">
                 <Modal
                     {...this.props}
-                    size="xl"
+                    size="lg"
                     variant="primary"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">
-                            Enter Ticket #s
+                            <b>Hey, POWER<span style={{ color: "red" }}>BALLER! </span> Enter Your Ticket #s</b>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>

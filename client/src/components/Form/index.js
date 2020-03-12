@@ -5,7 +5,7 @@ import "./style.css"
 
 export function Input(props) {
     return (
-        <div className="form-group center" style={{ display: "inline", width: "100%" }}>
+        <div className="form-group center" style={{ display: "inline" }}>
             <input type="number" className="form-control" {...props}
                 style={{
                     borderTop: "solid red 8px",
@@ -16,7 +16,6 @@ export function Input(props) {
                     height: "80px",
                     marginRight: "6px",
                     marginTop: "15px",
-                    backgroundColor: "whitesmoke",
                     borderRadius: "5px",
                     fontSize: "40px"
                 }} />
@@ -29,7 +28,7 @@ export function FormBtn(props) {
         <button {...props} className="saveNo" style={{
             color: "white",
             textAlign: "center",
-            width: "100%",
+            width: "68.5%",
             height: "25px",
             marginLeft: "8px",
             display: "inline",

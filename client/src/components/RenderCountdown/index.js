@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
+import Countdown from "../Countdown"
 import 'moment-timezone';
 // import "./style.css"
 
@@ -9,7 +10,7 @@ import 'moment-timezone';
 
 class NextDraw extends Component {
     state = {
-        nextDrawDate: []
+        nextDrawDate: ""
 
     };
 
@@ -18,9 +19,7 @@ class NextDraw extends Component {
             .then(res =>
                 this.setState({
                     nextDrawDate: res.data[0].field_next_draw_date
-
                 })
-
             )
             .catch(err => console.log(err));
     };
@@ -34,19 +33,15 @@ class NextDraw extends Component {
     }
 
     render() {
-
+        // let afterAdjust = <Moment subtract={{ hours: 4 }}>{this.state.nextDrawDate}</Moment>
         return (
             < div className="nextDrawDate" >
-
-                <Moment
-                    subtract={{ hours: 4 }}
-                    // className="moment"
-                    format="MMM Do YYYY, h:mm a"
-                >
-                    {this.state.nextDrawDate}
-                </Moment>
-
-
+                <Countdown subtract={{ hours: 4 }}
+                    placeholder="Next Draw:"
+                    timeTillDate={this.state.nextDrawDate}
+                // timeTillFormat={"MM/DD/YYYY, hh:mm a"}
+                />
+                {console.log(this.state.nextDrawDate + "<--This is the time on Countdown")}
             </div >
         );
     }

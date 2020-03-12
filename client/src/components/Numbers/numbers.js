@@ -4,7 +4,7 @@ import WinningNum from "../../pages/WinningNum";
 import { logoutUser } from "../../actions/authActions";
 import LastDrawDate from "../LastDrawDate";
 import Jackpot from "../Jackpot/Jackpot";
-import NextDraw from "../NextDrawDate";
+import NextDrawDate from "../nextdrawdate.js"
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ModalInput from "../Modal/index";
@@ -17,6 +17,7 @@ import 'moment';
 
 
 
+
 class Numbers extends Component {
     state = {
         dateTime: [],
@@ -25,6 +26,8 @@ class Numbers extends Component {
         secRecentNo: '',
         thirdRecentNo: "",
         prize: [],
+        prize2: [],
+        prize3: [],
         matches: '',
         powerballs: "",
         addModalShow: false
@@ -139,50 +142,122 @@ class Numbers extends Component {
         // console.log("For Game 2, you got  " + gameTwoMatches.length + " Whiteball matches. " + " Here they are " + gameTwoMatches);
         // console.log("For Game 3, you got  " + gameThreeMatches.length + " Whiteball matches. " + " Here they are " + gameThreeMatches);
         let prizes = this.state.prize
+        let prizes2 = this.state.prize2
+        let prizes3 = this.state.prize3
 
+        //Prizes Tier 1
         if (pb === winningNumbers[5] && gameOneMatches.length === 1) {
             prizes.push("$4");
-            console.log("You matched the powerball.  Your prize is $4")
+        }
+        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 1) {
+            prizes2.push("$4");
+        }
+        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 1) {
+            prizes3.push("$4");
         }
 
+        //Prizes Tier 2
         if (pb === winningNumbers[5] && gameOneMatches.length === 2) {
             prizes.push("$4");
-            console.log("You matched the powerball and a whiteball.  Your prize is still $4")
         }
+        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 2) {
+            prizes2.push("$4");
+        }
+        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 2) {
+            prizes3.push("$4");
+        }
+
+
+        //Prizes Tier 3
         if (pb === winningNumbers[5] && gameOneMatches.length === 3) {
             prizes.push("$7");
-            console.log("You matched two whiteballs and the powerball.  Your prize is $7.  This is the gameOne  " + gameOneMatches)
         }
+        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 3) {
+            prizes2.push("$7");
+        }
+        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 3) {
+            prizes3.push("$7");
+        }
+
+        //Prizes Tier 4
+
         if (pb !== winningNumbers[5] && gameOneMatches.length === 3) {
             prizes.push("$7");
-            console.log("You matched three whiteballs.  Your prize is $7")
         }
+        if (pb2 !== winningNumbers[5] && gameTwoMatches.length === 3) {
+            prizes2.push("$7");
+        }
+        if (pb3 !== winningNumbers[5] && gameThreeMatches.length === 3) {
+            prizes3.push("$7");
+        }
+
+
+        //Prizes Tier 5
         if (pb === winningNumbers[5] && gameOneMatches.length === 4) {
             prizes.push("$100");
-            console.log("You matched three whiteballs + the powerball.  Your prize is $100")
         }
+        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 4) {
+            prizes2.push("$100");
+        }
+        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 4) {
+            prizes3.push("$100");
+        }
+
+
+        //Prizes Tier 6
         if (pb !== winningNumbers[5] && gameOneMatches.length === 4) {
             prizes.push("$100");
-            console.log("You matched four whiteballs.  Your prize is $100")
         }
-        if (pb === winningNumbers[5] && gameOneMatches.length === 5) {
+        if (pb2 !== winningNumbers[5] && gameTwoMatches.length === 4) {
+            prizes2.push("$100");
+        }
+        if (pb3 !== winningNumbers[5] && gameThreeMatches.length === 4) {
+            prizes3.push("$100");
+        }
+
+
+        //Prizes Tier 7
+        if (pb !== winningNumbers[5] && gameOneMatches.length === 5) {
             prizes.push("$50,000");
-            console.log("You matched four whiteballs + the powerball.  Your prize is $50,000")
         }
+        if (pb2 !== winningNumbers[5] && gameTwoMatches.length === 5) {
+            prizes2.push("$50,000");
+        }
+        if (pb3 !== winningNumbers[5] && gameThreeMatches.length === 5) {
+            prizes3.push("$50,000");
+        }
+
+
+
+        //Prizes Tier 8
         if (pb === winningNumbers[5] && gameOneMatches.length === 5) {
-            prizes.push("$100,000");
-            console.log("Wow!! You matched five whiteballs.  Your prize is $100,000")
+            prizes.push("$1,00,000");
         }
+        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 5) {
+            prizes2.push("$1,00,000");
+        }
+        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 5) {
+            prizes3.push("$1,00,000");
+        }
+
+        //Prizes Tier 9
         if (pb === winningNumbers[5] && gameOneMatches.length === 6) {
             prizes.push("$JACKPOT!!!!");
             console.log("Wow!! YOU WON THE JACKPOT")
         }
+        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 6) {
+            prizes2.push("$JACKPOT!!!!");
+            console.log("Wow!! YOU WON THE JACKPOT")
+        }
+        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 6) {
+            prizes3.push("$JACKPOT!!!!");
+            console.log("Wow!! YOU WON THE JACKPOT")
+        }
         // else {
-        //     console.log("You have no matches")
+        //     prizes.push("$0")
+        //     prizes2.push("$0")
+        //     prizes3.push("$0")
         // }
-        // if (pb === winningNumbers[5] && gameOneMatches == 2) {
-        //     prize.push("$4")
-        //     console.log("You matched one whiteball and the pb.  Your prize is $4")
 
 
 
@@ -196,7 +271,8 @@ class Numbers extends Component {
                             </div>
                             <div className="col-md-2">
                                 <ButtonToolbar>
-                                    <button
+                                    <Button
+                                        type="button"
                                         style={{
                                             fontSize: "15px",
                                             color: "whitesmoke",
@@ -210,10 +286,11 @@ class Numbers extends Component {
                                         onClick={() => this.setState({ addModalShow: true })}
                                     >
                                         Enter Tix#
-                                </button>
+                                </Button>
                                     <ModalInput
                                         show={this.state.addModalShow}
                                         onHide={addModalClose}
+                                        variant="primary"
                                     />
 
                                 </ButtonToolbar>
@@ -321,7 +398,7 @@ class Numbers extends Component {
 
                                     </h4>
                                     <h6 style={{ color: "black" }}><b>FOR UPCOMING DRAW ON:</b></h6>
-                                    <h4><NextDraw></NextDraw></h4></button>
+                                    <h4><NextDrawDate></NextDrawDate></h4></button>
                             </div>
                             <div className="col-md-3">
                                 <button
@@ -361,16 +438,17 @@ class Numbers extends Component {
                                     </h5></button>
                             </div>
                         </div>
-                        <div className="row align-content-center justify-content-center text-align-center">
+                        <div className="row align-content-center justify-content-center text-align-center" style={{ marginBottom: "0" }}>
                             <div className="col-md-12">
                                 <h4 style={{ color: "whitesmoke" }}>YOUR RESULTS:</h4>
+                                <hr style={{ border: "solid darkred 1.75px" }}></hr>
                             </div>
                         </div>
 
 
-                        <div className="row align-content-center justify-content-center text-align-center">
+                        <div className="row align-content-center justify-content-center" style={{ marginBottom: "30px" }}>
 
-                            <div className="col-md-5 justify-content-between" style={{
+                            <div className="col-md-2" style={{
                                 backgroundColor: "black",
                                 width: "50%",
                                 margin: "2px",
@@ -383,6 +461,48 @@ class Numbers extends Component {
                                 <button id="myMatches"
                                     style={{
                                         width: "auto",
+                                        // minWidth: "100px",
+                                        height: "100px",
+                                        // backgroundColor: "red",
+                                        display: "inline-block",
+                                        textAlign: "center",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderRadius: "5px",
+                                        border: "solid red 3px",
+                                        fontSize: "4.3rem",
+                                        padding: "8px",
+                                        color: "red"
+
+
+                                    }}>
+                                    <p id="my-matches">
+                                        {gameOneMatches.length +
+                                            gameTwoMatches.length + gameThreeMatches.length}
+                                    </p>
+                                    <p style={{ fontSize: "1.5rem", marginBottom: "10px", color: "whitesmoke" }}>
+                                        MATCHES
+                                    </p>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="row mt-15">
+                            <br></br>
+
+                            <div className="col-md-3 justify-content-between" style={{
+                                backgroundColor: "black",
+                                margin: "2px",
+                                marginTop: "10px",
+                                borderRadius: "15px",
+                                padding: "8px",
+                                borderTop: "solid whitesmoke 3px",
+                                borderBottom: "solid whitesmoke 3px"
+                            }}>
+
+                                <div>
+                                    <button id="gameOnePrize" style={{
+                                        width: "auto",
                                         minWidth: "100px",
                                         height: "105px",
                                         // backgroundColor: "red",
@@ -393,54 +513,106 @@ class Numbers extends Component {
                                         borderRadius: "5px",
                                         border: "solid red 3px",
                                         fontSize: "4.3rem",
-                                        color: "red",
-                                        zIndex: "-1",
-                                        position: "relative"
+                                        color: "red"
 
                                     }}>
-                                    <p id="my-matches">
-                                        {gameOneMatches.length +
-                                            gameTwoMatches.length + gameThreeMatches.length}
-                                    </p>
-                                    <p style={{ fontSize: "1.5rem", marginTop: "0", color: "whitesmoke" }}>
-                                        MATCHES
-                                    </p>
-                                </button>
+                                        <p id="my-prizes">{prizes}</p>
+
+                                    </button>
+                                    <p style={{
+                                        fontSize: "1.5rem",
+                                        marginTop: "10px",
+                                        color: "whitesmoke",
+                                        position: "absolute",
+                                        display: "center",
+                                        textAlign: "center"
+                                    }}>GAME 1</p>
+                                </div>
                             </div>
-                            <div className="col-md-5 justify-content-between" style={{
+
+                            <div className="col-md-3 justify-content-between" style={{
                                 backgroundColor: "black",
-                                width: "50%",
                                 margin: "2px",
                                 borderRadius: "15px",
                                 padding: "8px",
                                 borderTop: "solid whitesmoke 3px",
                                 borderBottom: "solid whitesmoke 3px"
                             }}>
-                                <button id="myPrizes" style={{
-                                    width: "auto",
-                                    minWidth: "100px",
-                                    height: "105px",
-                                    // backgroundColor: "red",
-                                    display: "inline-block",
-                                    textAlign: "center",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    borderRadius: "5px",
-                                    border: "solid red 3px",
-                                    fontSize: "4.3rem",
-                                    color: "red"
 
-                                }}>
-                                    <p id="my-prizes">{prizes}</p>
+                                <div>
+                                    <button id="gameTwoPrize" style={{
+                                        width: "auto",
+                                        minWidth: "100px",
+                                        height: "105px",
+                                        // backgroundColor: "red",
+                                        display: "inline-block",
+                                        textAlign: "center",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderRadius: "5px",
+                                        border: "solid red 3px",
+                                        marginLeft: "5px",
+                                        marginRight: "5px",
+                                        fontSize: "4.3rem",
+                                        color: "red"
+
+                                    }}>
+                                        <p id="my-prizes">{prizes2}</p>
+
+                                    </button>
                                     <p style={{
                                         fontSize: "1.5rem",
-                                        marginTop: "0",
-                                        color: "whitesmoke"
-                                    }}>PRIZES</p>
-                                </button>
+                                        marginTop: "10px",
+                                        color: "whitesmoke",
+                                        position: "absolute",
+                                        display: "center",
+                                        textAlign: "center"
+                                    }}>GAME 2</p>
+                                </div>
+
+                            </div>
+
+
+                            <div className="col-md-3 justify-content-between" style={{
+                                backgroundColor: "black",
+                                margin: "2px",
+                                borderRadius: "15px",
+                                padding: "8px",
+                                borderTop: "solid whitesmoke 3px",
+                                borderBottom: "solid whitesmoke 3px"
+                            }}>
+                                <div>
+                                    <button id="gameThreePrizes" style={{
+                                        width: "auto",
+                                        minWidth: "100px",
+                                        height: "105px",
+                                        // backgroundColor: "red",
+                                        display: "inline-block",
+                                        textAlign: "center",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderRadius: "5px",
+                                        border: "solid red 3px",
+                                        fontSize: "4.3rem",
+                                        color: "red"
+                                    }}>
+                                        <p id="my-prizes">{prizes3}</p>
+
+                                    </button>
+                                    <p style={{
+                                        fontSize: "1.5rem",
+                                        marginTop: "10px",
+                                        color: "whitesmoke",
+                                        position: "absolute",
+                                        display: "center",
+                                        textAlign: "center"
+                                    }}>GAME 3</p>
+                                </div>
+
                             </div>
 
                         </div>
+
 
 
 
@@ -464,7 +636,7 @@ class Numbers extends Component {
                 </Hero>
                 <br></br>
 
-            </div>
+            </div >
         );
     }
 }

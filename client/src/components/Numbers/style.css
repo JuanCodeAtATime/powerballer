@@ -40,6 +40,10 @@ h2.logo {
   
 }
 
+.mt-15 {
+    margin-top: 20px;
+}
+
 .noInput{
     text-align: center;
 }

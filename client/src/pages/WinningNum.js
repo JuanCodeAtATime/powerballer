@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Moment from 'react-moment';
 import 'moment-timezone';
 import "./style.css"
 

@@ -1,0 +1,10 @@
+
+  .modal {    
+    /* right: auto;
+    bottom: auto; */
+    position: relative;
+    vertical-align: auto;
+    background-color: wheat;
+    transform: "translate(-40%, -10%)";
+  }
+  

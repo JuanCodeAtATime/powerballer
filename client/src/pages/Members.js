@@ -11,7 +11,7 @@ class Powerballinput extends Component {
     state = {
         numbers: [],
         recentNumber: '',
-        // drawNumber: "",
+        // gameNo: "",
         no1: "",
         no2: "",
         no3: "",
@@ -51,11 +51,12 @@ class Powerballinput extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.no1 && this.state.no2 &&
+        if (this.state.gameNo &&
+            this.state.no1 && this.state.no2 &&
             this.state.no3 && this.state.no4 &&
             this.state.no5 && this.state.powerball) {
             API.saveNumber({
-                // drawNumber: this.state.drawNumber,
+                gameNo: this.state.gameNo,
                 no1: this.state.no1,
                 no2: this.state.no2,
                 no3: this.state.no3,
@@ -73,21 +74,31 @@ class Powerballinput extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="md-8 sm-8">
+                    <Col size="md-12 sm-6">
 
                         <form className="noInput">
-                            {/* <div className="row center" >
+                            <div className="row center" >
                                 <input
-                                    style={{ height: "20px", float: "left", backgroundColor: "whitesmoke", width: "25%" }}
-                                    className="drawNo"
-                                    value={this.state.drawNumber}
+                                    style={{
+                                        height: "20px",
+                                        float: "left",
+                                        backgroundColor: "whitesmoke",
+                                        width: "25%",
+                                        border: "solid red 2px",
+                                        borderRadius: "4px",
+                                        padding: "4px"
+
+                                    }}
+                                    className="gameNo"
+                                    value={this.state.gameNo}
                                     onChange={this.handleInputChange}
-                                    name="drawNumber"
-                                    placeholder="Draw Number (optional)"
+                                    name="gameNo"
+
+                                    placeholder="Ref Number (required)"
                                     type="number"
-                                    fontSize="15px"
+                                    fontSize="10px"
                                 />
-                            </div> */}
+                            </div>
                             <Input
                                 className="whiteballs"
                                 value={this.state.no1}
@@ -131,7 +142,7 @@ class Powerballinput extends Component {
                             />
 
                             <FormBtn
-                                disabled={!(this.state.no1 && this.state.no2 &&
+                                disabled={!(this.state.gameNo && this.state.no1 && this.state.no2 &&
                                     this.state.no3 && this.state.no4 &&
                                     this.state.no5 && this.state.powerball
                                 )}
@@ -142,7 +153,7 @@ class Powerballinput extends Component {
               </FormBtn>
                         </form>
                     </Col>
-                    {/* <Col size="md-3 sm-3">
+                    {/* <Col size="md-6 sm-6">
                         {this.state.numbers.length ? (
                             <List>
                                 {this.state.numbers.map(number => (
