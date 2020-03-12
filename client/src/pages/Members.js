@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import ReactTooltip from 'react-tooltip'
 import "./style.css"
+
 
 class Powerballinput extends Component {
     state = {
@@ -88,6 +87,7 @@ class Powerballinput extends Component {
                                         borderRadius: "4px",
                                         padding: "4px"
 
+
                                     }}
                                     className="gameNo"
                                     value={this.state.gameNo}
@@ -97,7 +97,10 @@ class Powerballinput extends Component {
                                     placeholder="Ref Number (required)"
                                     type="number"
                                     fontSize="10px"
+                                    data-tip="Game or Ref# required"
+                                    data-text-color="red"
                                 />
+                                <ReactTooltip />
                             </div>
                             <Input
                                 className="whiteballs"
@@ -153,30 +156,7 @@ class Powerballinput extends Component {
               </FormBtn>
                         </form>
                     </Col>
-                    {/* <Col size="md-6 sm-6">
-                        {this.state.numbers.length ? (
-                            <List>
-                                {this.state.numbers.map(number => (
-                                    <ListItem key={number._id}>
-                                        <Link to={"/numbers/" + number._id}>
-                                            <strong>
-                                                {number.no1} {"-"}
-                                                {number.no2} {"-"}
-                                                {number.no3} {"-"}
-                                                {number.no3} {"-"}
-                                                {number.no4} {"-"}
-                                                {number.no5} {"-"}
-                                                {number.powerball}
-                                            </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => this.deleteNumber(number._id)} />
-                                    </ListItem>
-                                ))}
-                            </List>
-                        ) : (
-                                <h3>No Results to Display</h3>
-                            )}
-                    </Col> */}
+
                 </Row>
             </Container>
         );

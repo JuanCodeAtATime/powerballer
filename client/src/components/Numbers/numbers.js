@@ -8,11 +8,13 @@ import NextDrawDate from "../nextdrawdate.js"
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ModalInput from "../Modal/index";
-import { Button, ButtonToolbar } from 'react-bootstrap'
+import ManageTix from "../ManageTix/index"
+import { ButtonToolbar } from 'react-bootstrap'
 import Hero from "../Hero";
 import 'moment-timezone';
 import "./style.css";
 import 'moment';
+
 
 
 
@@ -30,8 +32,8 @@ class Numbers extends Component {
         prize3: [],
         matches: '',
         powerballs: "",
-        addModalShow: false
-
+        addModalShow: false,
+        addModalShow2: false
     };
 
 
@@ -44,6 +46,15 @@ class Numbers extends Component {
 
     }
 
+    handleEnterTixModal = event => {
+        event.preventDefault();
+        this.setState({ addModalShow: true });
+    };
+
+    handleManageTixModal = event => {
+        event.preventDefault();
+        this.setState({ addModalShow2: true });
+    };
     //loadRecentNo loads and renders most recent inputted number in upper left section of Hero
 
     loadRecentNo = () => {
@@ -89,6 +100,7 @@ class Numbers extends Component {
     render() {
         const { user } = this.props.auth;
         let addModalClose = () => this.setState({ addModalShow: false })
+        let addModalClose2 = () => this.setState({ addModalShow2: false })
 
         //Filter and indexOf methods used below to match User's numbers with dynamic powerball numbers.       
         //Pushing up to 3 User games into arrays within the userNumbers object
@@ -138,9 +150,7 @@ class Numbers extends Component {
         const gameOneMatches = userNumbers.game1.filter(n => winningNumbers.indexOf(n) > -1)
         const gameTwoMatches = userNumbers.game2.filter(n => winningNumbers.indexOf(n) > -1)
         const gameThreeMatches = userNumbers.game3.filter(n => winningNumbers.indexOf(n) > -1)
-        // console.log("For Game 1, you got " + gameOneMatches.length + " Whiteball matches. " + " Here they are " + gameOneMatches);
-        // console.log("For Game 2, you got  " + gameTwoMatches.length + " Whiteball matches. " + " Here they are " + gameTwoMatches);
-        // console.log("For Game 3, you got  " + gameThreeMatches.length + " Whiteball matches. " + " Here they are " + gameThreeMatches);
+
         let prizes = this.state.prize
         let prizes2 = this.state.prize2
         let prizes3 = this.state.prize3
@@ -271,7 +281,7 @@ class Numbers extends Component {
                             </div>
                             <div className="col-md-2">
                                 <ButtonToolbar>
-                                    <Button
+                                    <button
                                         type="button"
                                         style={{
                                             fontSize: "15px",
@@ -283,10 +293,10 @@ class Numbers extends Component {
                                             borderBottom: "solid whitesmoke 2.5px",
                                             float: "right"
                                         }}
-                                        onClick={() => this.setState({ addModalShow: true })}
+                                        onClick={this.handleEnterTixModal}
                                     >
                                         Enter Tix#
-                                </Button>
+                                </button>
                                     <ModalInput
                                         show={this.state.addModalShow}
                                         onHide={addModalClose}
@@ -299,21 +309,28 @@ class Numbers extends Component {
 
                             </div>
                             <div className="col-md-2">
-                                <button
-                                    style={{
-                                        fontSize: "15px",
-                                        color: "whitesmoke",
-                                        borderRadius: "9px",
-                                        marginTop: "15px",
-                                        backgroundColor: "red",
-                                        borderTop: "solid whitesmoke 2.5px",
-                                        borderBottom: "solid whitesmoke 2.5px",
-                                        float: "right"
-                                    }}
-                                // onClick={this.onLogoutClick}
-                                >
-                                    Alerts
+                                <ButtonToolbar>
+                                    <button
+                                        style={{
+                                            fontSize: "15px",
+                                            color: "whitesmoke",
+                                            borderRadius: "9px",
+                                            marginTop: "15px",
+                                            backgroundColor: "blue",
+                                            borderTop: "solid whitesmoke 2.5px",
+                                            borderBottom: "solid whitesmoke 2.5px",
+                                            float: "right"
+                                        }}
+                                        onClick={this.handleManageTixModal}
+                                    >
+                                        Manage Tix
                                 </button>
+                                    <ManageTix
+                                        show={this.state.addModalShow2}
+                                        onHide={addModalClose2}
+                                        variant="primary"
+                                    />
+                                </ButtonToolbar>
                             </div>
                             <div className="col-md-2">
                                 <button
@@ -445,24 +462,13 @@ class Numbers extends Component {
                             </div>
                         </div>
 
+                        <div className="row align-content-center justify-content-center" style={{ marginBottom: "50px" }}>
 
-                        <div className="row align-content-center justify-content-center" style={{ marginBottom: "30px" }}>
-
-                            <div className="col-md-2" style={{
-                                backgroundColor: "black",
-                                width: "50%",
-                                margin: "2px",
-                                borderRadius: "15px",
-                                padding: "8px",
-                                borderTop: "solid whitesmoke 3px",
-                                borderBottom: "solid whitesmoke 3px"
-                            }}>
-
+                            <div className="col-md-2">
                                 <button id="myMatches"
                                     style={{
-                                        width: "auto",
-                                        // minWidth: "100px",
-                                        height: "100px",
+                                        minWidth: "75px",
+                                        height: "75px",
                                         // backgroundColor: "red",
                                         display: "inline-block",
                                         textAlign: "center",
@@ -470,24 +476,27 @@ class Numbers extends Component {
                                         justifyContent: "center",
                                         borderRadius: "5px",
                                         border: "solid red 3px",
-                                        fontSize: "4.3rem",
+                                        fontSize: "2.5rem",
                                         padding: "8px",
                                         color: "red"
-
-
                                     }}>
                                     <p id="my-matches">
                                         {gameOneMatches.length +
                                             gameTwoMatches.length + gameThreeMatches.length}
                                     </p>
-                                    <p style={{ fontSize: "1.5rem", marginBottom: "10px", color: "whitesmoke" }}>
+                                    <p style={{
+                                        fontSize: "1.5rem",
+                                        marginBottom: "10px",
+                                        marginTop: "0px",
+                                        color: "whitesmoke"
+                                    }}>
                                         MATCHES
                                     </p>
                                 </button>
                             </div>
                         </div>
 
-                        <div className="row mt-15">
+                        <div className="row">
                             <br></br>
 
                             <div className="col-md-3 justify-content-between" style={{

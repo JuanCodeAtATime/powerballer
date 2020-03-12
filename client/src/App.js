@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Landing from "./pages/Landing";
 import Login from "./components/auth/login";
-import Navbar from "./components/Navbar";
+import Nav from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Register from "./components/auth/register"
@@ -40,7 +40,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Navbar />
+            <Nav />
             <Wrapper>
               <Route exact path="/" component={Landing} />
               <Route exact path="/landing" component={Landing} />

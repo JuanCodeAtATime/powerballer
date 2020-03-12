@@ -8,6 +8,7 @@ import "./style.css";
 // That way we don't have to define them all individually
 export default class ModalInput extends Component {
 
+
     render() {
         return (
             <div className="modal">
@@ -19,8 +20,8 @@ export default class ModalInput extends Component {
                     centered
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-vcenter">
-                            <b>Hey, POWER<span style={{ color: "red" }}>BALLER! </span> Enter Your Ticket #s</b>
+                        <Modal.Title id="enterTixNo">
+                            <b>Hey there, POWER<span style={{ color: "red" }}>BALLER! </span> Enter Your #s</b>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>

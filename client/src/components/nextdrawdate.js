@@ -39,6 +39,7 @@ class NextDrawDate extends Component {
                     format="MMM Do YYYY, h:mm a"
                 >
                     {this.state.nextDraw}
+
                 </Moment>
             </div >
         );

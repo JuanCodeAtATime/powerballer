@@ -1,7 +1,3 @@
-nav.navbar.navbar-default {
-  margin-bottom: 0;
-}
-
 .navbar-brand {
   font-family: 'Quantico', 'Cursive';
 }
@@ -10,3 +6,23 @@ button#btn-sm:hover {
   background-color: royalblue;
 }
 
+a.powerballer {
+  text-decoration: none;
+  
+}
+
+/* .powerballer {
+  text-decoration: none;
+  
+} */
+
+/* 
+
+
+  
+  
+/* h3 {
+  text-decoration: none;
+  
+  } */
+  

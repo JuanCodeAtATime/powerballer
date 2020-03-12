@@ -11,6 +11,7 @@ import PastYrData from "../components/PastYrData";
 import Jackpotchart from "../components/Jackpotchart";
 import LastDrawDate from "../components/LastDrawDate";
 import NextDrawDate from "../components/nextdrawdate.js";
+import "./style.css"
 // import { Router } from "express";
 
 function Landing() {
@@ -37,7 +38,7 @@ function Landing() {
             <Container style={{ marginTop: 30 }}>
                 <Row>
                     <Col size="md-3" >
-                        <Jumbotron> <h3><b>POWERBALL</b></h3><hr></hr>
+                        <Jumbotron> <h3 className="landingH3"><b>POWERBALL</b></h3><hr></hr>
                             <h5 style={{ color: "red" }}>
                                 <em><b>CURRENT JACKPOT</b></em></h5>
                             <h2 style={{
@@ -51,7 +52,7 @@ function Landing() {
                         </Jumbotron>
                     </Col>
                     <Col size="md-5">
-                        <Jumbotron> <h3><b>LATEST DRAW DATE</b></h3><hr></hr>
+                        <Jumbotron> <h3 className="landingH3"><b>LATEST DRAW DATE</b></h3><hr></hr>
                             <h4><LastDrawDate></LastDrawDate></h4>
                             <h4><WinningNum></WinningNum></h4>
                             <br></br>
@@ -70,7 +71,7 @@ function Landing() {
                     </Col>
 
                     <Col size="md-4" >
-                        <Jumbotron> <h3><b>NEXT DRAW DATE</b></h3><hr></hr>
+                        <Jumbotron> <h3 className="landingH3"><b>NEXT DRAW DATE</b></h3><hr></hr>
                             <h4 style={{
                                 backgroundColor: "white",
                                 borderRadius: "5px",
@@ -86,7 +87,7 @@ function Landing() {
                         <div
                             style={{ height: "auto", clear: "both", paddingTop: 10, textAlign: "center", borderTop: "solid blue 25px" }}
                             className="jumbotron"
-                        > <h3><b>JACKPOTS IN 2019</b></h3>
+                        > <h3 className="landingH3"><b>JACKPOTS IN 2019</b></h3>
                             <hr></hr>
                             <PastYrData></PastYrData>
 
@@ -97,7 +98,7 @@ function Landing() {
                         <div
                             style={{ height: "auto", clear: "both", paddingTop: 10, textAlign: "center", borderTop: "solid blue 25px" }}
                             className="jumbotron"
-                        > <h3><b>CURRENT JACKPOT TRACKING</b></h3>
+                        > <h3 className="landingH3"><b>CURRENT JACKPOT TRACKING</b></h3>
                             <hr></hr>
                             <Jackpotchart></Jackpotchart>
 

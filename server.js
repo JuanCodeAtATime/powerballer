@@ -3,9 +3,19 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const app = express();
+
+var cors = require('cors');
+// Then use it before your routes are set up:
+app.use(cors());
+
+
 // const routes = require("./routes")
 const numbers = require("./routes/api/numbers")
-const app = express();
+
+
+
+
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
