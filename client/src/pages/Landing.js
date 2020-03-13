@@ -23,7 +23,7 @@ function Landing() {
                 <span>
                     <Link to="/register">
 
-                        <button className="btn-md"
+                        <button id="landingBtnLeft"
                             style={{
                                 backgroundColor: "blue",
                                 color: "whitesmoke",
@@ -35,8 +35,9 @@ function Landing() {
                 <span>
                     <Link to="/login">
 
-                        <button className="btn-md"
+                        <button id="landingBtnRight"
                             style={{
+                                hover: { transform: 'scale(1.7)', transition: 'all .2s ease-in-out' },
                                 backgroundColor: "red",
                                 color: "whitesmoke",
                                 marginLeft: "9px",

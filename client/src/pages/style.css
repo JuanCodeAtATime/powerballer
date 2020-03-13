@@ -91,4 +91,7 @@ time.moment:hover {
     color: red;
 }
 
+#landingBtnLeft:hover, #landingBtnRight:hover { transition: all .2s ease-in-out; }
+#landingBtnLeft:hover, #landingBtnRight:hover { transform: scale(1.7); }
+
 
