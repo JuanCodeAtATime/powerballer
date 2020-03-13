@@ -92,6 +92,6 @@ time.moment:hover {
 }
 
 #landingBtnLeft:hover, #landingBtnRight:hover { transition: all .2s ease-in-out; }
-#landingBtnLeft:hover, #landingBtnRight:hover { transform: scale(1.7); }
+#landingBtnLeft:hover, #landingBtnRight:hover { transform: scale(1.15); }
 
 

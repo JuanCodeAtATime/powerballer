@@ -37,7 +37,7 @@ function Landing() {
 
                         <button id="landingBtnRight"
                             style={{
-                                hover: { transform: 'scale(1.7)', transition: 'all .2s ease-in-out' },
+                                // hover: { transform: 'scale(1.7)', transition: 'all .2s ease-in-out' },
                                 backgroundColor: "red",
                                 color: "whitesmoke",
                                 marginLeft: "9px",
