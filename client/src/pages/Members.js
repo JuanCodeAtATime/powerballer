@@ -11,7 +11,7 @@ class Powerballinput extends Component {
     state = {
         numbers: [],
         recentNumber: '',
-        // gameNo: "",
+        gameNo: "",
         no1: "",
         no2: "",
         no3: "",
@@ -51,6 +51,22 @@ class Powerballinput extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        // let gameNo = this.state.gameNo;
+        // let no1 = this.state.no1;
+        // let no2 = this.state.no2;
+        // let no3 = this.state.no3;
+        // let no4 = this.state.no4;
+        // let no5 = this.state.no5;
+        // let powerball = this.state.powerball;
+        this.setState({
+            gameNo: "",
+            no1: "",
+            no2: "",
+            no3: "",
+            no4: "",
+            no5: "",
+            powerball: "",
+        })
         if (this.state.gameNo &&
             this.state.no1 && this.state.no2 &&
             this.state.no3 && this.state.no4 &&
@@ -78,14 +94,6 @@ class Powerballinput extends Component {
 
                         <form className="noInput">
                             <div className="row center" >
-                                <label style={{
-                                    display: "block",
-                                    width: "250px",
-                                    textAlign: "top",
-                                    color: "black",
-                                    lineHeight: "20px"
-
-                                }}>Game or Ref # required for better tracking</label>
                                 <input
                                     style={{
                                         height: "20px",

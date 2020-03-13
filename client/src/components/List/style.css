@@ -35,6 +35,7 @@
 
     /* border-top: none; */
   }
+ 
   
   .list-overflow-container li:last-child {
     border-bottom: solid red 7px;

@@ -17,13 +17,7 @@ class Jackpotchart extends Component {
         };
 
     }
-
-
-
-
-
-
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.getChartData();
         // this.loadPowerballData();
 
@@ -76,18 +70,24 @@ class Jackpotchart extends Component {
                         <div className="chart" style={{ backgroundColor: "white", opacity: ".65", borderRadius: "5px" }}>
                             <Bar
                                 data={this.state.chartData}
-                                width={425}
-                                height={325}
+                                width={275}
+                                height={275}
                                 options={{
                                     title: {
                                         display: true,
-                                        text: 'Jackpot Tracking (Now)',
-                                        fontSize: 20
+                                        text: 'Jackpot Tracking (Last four changes)',
+                                        fontSize: 20,
+                                        fontFamily: "Quantico",
+                                        fontWeight: "bold",
+                                        color: "whitesmoke",
+                                        backgroundColor: "red",
+                                        borderRadius: "5px"
                                     },
                                     legend: {
                                         display: true,
                                         position: 'top',
-                                        fontColor: 'black'
+                                        fontColor: 'black',
+                                        color: "black"
                                     }
                                 }}
                             />

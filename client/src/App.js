@@ -16,6 +16,7 @@ import Register from "./components/auth/register"
 // import Signup from "./pages/Register";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Numbers from "./components/Numbers/numbers";
+// import ControlledCarousel from "./pages/Carousel";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -44,6 +45,7 @@ class App extends Component {
             <Nav />
             <Wrapper>
               <Route exact path="/" component={Landing} />
+              {/* <Route exact path="/carousel" component={ControlledCarousel} /> */}
               <Route exact path="/landing" component={Landing} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />

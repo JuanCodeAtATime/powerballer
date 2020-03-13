@@ -21,15 +21,25 @@ export default class ModalInput extends Component {
                     centered
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="enterTixNo" style={{ fontFamily: "Quantico" }}>
-                            <b>Please enter 2 digits per field (eg. for "1" enter "01")</b>
+                        <Modal.Title id="enterTixNo" style={{ fontFamily: "Arial" }}>
+                            <p style={{ fontFamily: "Quantico", color: "blue" }}><b>POWER<span style={{ color: "red" }}>BALLER</span></b></p>
+                            <b>All fields required for submission.
+                              
+                            </b>
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body style={{lineHeight:"0.5"}}>
+                        <h4>Instructions:</h4>  
+                        <ul>
+                            <li>-For one digit numbers, add 0 (e.g. "01", not "1").</li>
+                            <li>-Add game or reference number for better tracking.</li>
+                        </ul>                 
+                 
                         <Powerballinput></Powerballinput>
+                        <Button variant="primary" onClick={this.props.onHide}>Close</Button>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" onClick={this.props.onHide}>Close</Button>
+                        
                     </Modal.Footer>
                 </Modal>
             </div>

@@ -54,7 +54,7 @@ export default class ManageTix extends Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id="manageTix">
-                            <b>Hey, POWER<span style={{ color: "red" }}>BALLER! </span> View or Delete Tix Here</b>
+                            <p style={{ fontFamily: "Quantico", color: "blue" }}><b>POWER<span style={{ color: "red" }}>BALLER</span></b></p>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -94,12 +94,11 @@ export default class ManageTix extends Component {
                                 </Col>
                             </Row>
                         </Container>
+                        <Button variant="primary" onClick={this.props.onHide}>Close</Button>
 
 
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="primary" onClick={this.props.onHide}>Close</Button>
-                    </Modal.Footer>
+
                 </Modal>
             </div>
 

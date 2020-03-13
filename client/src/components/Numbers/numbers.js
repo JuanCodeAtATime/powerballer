@@ -8,17 +8,16 @@ import NextDrawDate from "../nextdrawdate.js"
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ModalInput from "../Modal/index";
-import ManageTix from "../ManageTix/index"
-import { ButtonToolbar } from 'react-bootstrap'
+import ManageTix from "../ManageTix/index";
+import JackpotModal from "../JackpotModal/index"
 import Hero from "../Hero";
-// import FontAwesome from 'react-fontawesome'
-// import faStyles from 'font-awesome/css/font-awesome.css'
 import 'moment-timezone';
 import "./style.css";
-// import Moment from 'react-moment';
-
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import ReactTooltip from 'react-tooltip';
 
 
 
@@ -38,7 +37,8 @@ class Numbers extends Component {
         matches: '',
         powerballs: "",
         addModalShow: false,
-        addModalShow2: false
+        addModalShow2: false,
+        addModalShow3: false
     };
 
 
@@ -49,7 +49,7 @@ class Numbers extends Component {
         // this.formatDates();        
     }
 
-    //These two functions handle modal buttons
+    //These three functions handle modal buttons
     handleEnterTixModal = event => {
         event.preventDefault();
         this.setState({ addModalShow: true });
@@ -59,6 +59,12 @@ class Numbers extends Component {
         event.preventDefault();
         this.setState({ addModalShow2: true });
     };
+
+    handleJackpotTrack = event => {
+        event.preventDefault();
+        this.setState({ addModalShow3: true });
+    };
+
 
 
     //loadRecentNo loads and renders most recent inputted number in upper left section of Hero
@@ -105,21 +111,15 @@ class Numbers extends Component {
         this.props.logoutUser();
     };
 
-    // formatDates = () => {
-    //     let date1 = this.state.dateForToolTip1;
-    //     <Moment format="MM/DD/YYYY, h:mm a" timeZone="America/New_York">{date1}</Moment>
-
-    // }
-
 
     render() {
         const { user } = this.props.auth;
         let addModalClose = () => this.setState({ addModalShow: false })
         let addModalClose2 = () => this.setState({ addModalShow2: false })
+        let addModalClose3 = () => this.setState({ addModalShow3: false })
+
 
         console.log("this is the res.data response " + this.state.dateForToolTip1)
-
-
 
         //Filter and indexOf methods used below to match User's numbers with dynamic powerball numbers.       
         //Pushing up to 3 User games into arrays within the userNumbers object
@@ -131,34 +131,31 @@ class Numbers extends Component {
         };
 
         //Shortening the state variables
-        // const { recentNumber, secRecentNo, thirdRecentNo } = this.state;
-        let gameOne = this.state.recentNumber
-        let gameTwo = this.state.secRecentNo
-        let gameThree = this.state.thirdRecentNo
+        const { recentNumber, secRecentNo, thirdRecentNo } = this.state;
 
         //User's first ticket number input
-        let num1 = gameOne.no1;
-        let num2 = gameOne.no2;
-        let num3 = gameOne.no3;
-        let num4 = gameOne.no4;
-        let num5 = gameOne.no5;
-        let pb = gameOne.powerball;
+        let num1 = recentNumber.no1;
+        let num2 = recentNumber.no2;
+        let num3 = recentNumber.no3;
+        let num4 = recentNumber.no4;
+        let num5 = recentNumber.no5;
+        let pb = recentNumber.powerball;
 
         //User's second ticket number inputs
-        let numb1 = gameTwo.no1;
-        let numb2 = gameTwo.no2;
-        let numb3 = gameTwo.no3;
-        let numb4 = gameTwo.no4;
-        let numb5 = gameTwo.no5;
-        let pb2 = gameTwo.powerball;
+        let numb1 = secRecentNo.no1;
+        let numb2 = secRecentNo.no2;
+        let numb3 = secRecentNo.no3;
+        let numb4 = secRecentNo.no4;
+        let numb5 = secRecentNo.no5;
+        let pb2 = secRecentNo.powerball;
 
         //User's third ticket number inputs    
-        let numbe1 = gameThree.no1;
-        let numbe2 = gameThree.no2;
-        let numbe3 = gameThree.no3;
-        let numbe4 = gameThree.no4;
-        let numbe5 = gameThree.no5;
-        let pb3 = gameThree.powerball;
+        let numbe1 = thirdRecentNo.no1;
+        let numbe2 = thirdRecentNo.no2;
+        let numbe3 = thirdRecentNo.no3;
+        let numbe4 = thirdRecentNo.no4;
+        let numbe5 = thirdRecentNo.no5;
+        let pb3 = thirdRecentNo.powerball;
 
         //Pushing all (3) User's ticket numbers into arrays that will be matched and returned by filter method 
         userNumbers.game1.push(num1, num2, num3, num4, num5, pb);
@@ -206,7 +203,6 @@ class Numbers extends Component {
         if (pb3 === winningNumbers[5] && gameThreeMatches.length === 2) {
             prizes3.push("$4");
         }
-
 
         //Prizes Tier 3
         if (pb === winningNumbers[5] && gameOneMatches.length === 3) {
@@ -293,18 +289,8 @@ class Numbers extends Component {
             prizes3.push("$JACKPOT!!!!");
             console.log("Wow!! YOU WON THE JACKPOT")
         }
-        // else {
-        //     prizes.push("$0")
-        //     prizes2.push("$0")
-        //     prizes3.push("$0")
-        // }
-
-        // create new variable to set filtered value to
-        // // render the new variable instead of the current one
 
 
-
-        console.log('prizes', prizes)
         return (
             <div>
                 <Hero>
@@ -313,76 +299,53 @@ class Numbers extends Component {
                             <div className="col-md-5" style={{ marginTop: "0" }}>
                                 <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
                             </div>
-                            <div className="col-md-2">
-                                <ButtonToolbar>
-                                    <button
-                                        type="button"
-                                        style={{
-                                            fontSize: "15px",
-                                            color: "whitesmoke",
-                                            borderRadius: "9px",
-                                            marginTop: "15px",
-                                            backgroundColor: "green",
-                                            borderTop: "solid whitesmoke 2.5px",
-                                            borderBottom: "solid whitesmoke 2.5px",
-                                            float: "right"
-                                        }}
-                                        onClick={this.handleEnterTixModal}
-                                    >
-                                        Enter Tix#
-                                </button>
-                                    <ModalInput
-                                        show={this.state.addModalShow}
-                                        onHide={addModalClose}
-                                        variant="primary"
-                                    />
+                            <div className="col-md">
 
-                                </ButtonToolbar>
+                                <FontAwesomeIcon icon={faEdit}
+                                    onClick={this.handleEnterTixModal}
+                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                    data-tip="Enter Ticket #s"
+                                    data-text-color="white"
+                                />
+                                <ReactTooltip />
 
 
+                                <ModalInput
+                                    show={this.state.addModalShow}
+                                    onHide={addModalClose}
+                                    variant="primary"
+                                />
 
                             </div>
-                            <div className="col-md-2">
-                                {/* <ButtonToolbar> */}
-                                <button
-                                    type="button"
-                                    style={{
-                                        fontSize: "15px",
-                                        color: "whitesmoke",
-                                        borderRadius: "9px",
-                                        marginTop: "15px",
-                                        backgroundColor: "blue",
-                                        borderTop: "solid whitesmoke 2.5px",
-                                        borderBottom: "solid whitesmoke 2.5px",
-                                        float: "right"
-                                    }}
+                            <div className="col-md">
+
+                                <FontAwesomeIcon icon={faClipboard}
                                     onClick={this.handleManageTixModal}
-                                >
-                                    Manage Tix
-                                </button>
+                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                    data-tip="Manage/View Tickets"
+                                    data-text-color="white"
+                                />
+                                <ReactTooltip />
+
                                 <ManageTix
                                     show={this.state.addModalShow2}
                                     onHide={addModalClose2}
                                     variant="primary"
                                 />
-                                {/* </ButtonToolbar> */}
+
                             </div>
-                            <div className="col-md-2">
-                                <button
-                                    style={{
-                                        fontSize: "15px",
-                                        color: "whitesmoke",
-                                        borderRadius: "9px",
-                                        marginTop: "15px",
-                                        backgroundColor: "red",
-                                        borderTop: "solid whitesmoke 2.5px",
-                                        borderBottom: "solid whitesmoke 2.5px",
-                                        float: "right"
-                                    }}
+                            <div className="col-md">
+                                <FontAwesomeIcon icon={faDoorOpen}
                                     onClick={this.onLogoutClick}
-                                >
-                                    Logout
-                                </button>
+                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                    data-tip="Logout"
+                                    data-text-color="white"
+                                />
+
+
+                                <ReactTooltip />
+
+
                             </div>
 
 
@@ -392,7 +355,6 @@ class Numbers extends Component {
                                 <div
                                     className="my-ticketNo"
                                     style={{
-                                        // fontSize: "15px",
                                         color: "red",
                                         borderRadius: "12px",
                                         marginTop: "10px",
@@ -412,47 +374,47 @@ class Numbers extends Component {
                                     }} >
                                         <ul>
                                             <li >
-                                                {gameOne.no1}{"-"}
-                                                {gameOne.no2}{"-"}
-                                                {gameOne.no3}{"-"}
-                                                {gameOne.no4}{"-"}
-                                                {gameOne.no5}{"-"}
+                                                {recentNumber.no1}{"-"}
+                                                {recentNumber.no2}{"-"}
+                                                {recentNumber.no3}{"-"}
+                                                {recentNumber.no4}{"-"}
+                                                {recentNumber.no5}{"-"}
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
                                                     borderRadius: "45%",
                                                     padding: "2px"
-                                                }}>{gameOne.powerball}
+                                                }}>{recentNumber.powerball}
 
                                                 </span>
                                             </li>
                                             <li>
-                                                {gameTwo.no1}{"-"}
-                                                {gameTwo.no2}{"-"}
-                                                {gameTwo.no3}{"-"}
-                                                {gameTwo.no4}{"-"}
-                                                {gameTwo.no5}{"-"}
+                                                {secRecentNo.no1}{"-"}
+                                                {secRecentNo.no2}{"-"}
+                                                {secRecentNo.no3}{"-"}
+                                                {secRecentNo.no4}{"-"}
+                                                {secRecentNo.no5}{"-"}
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
                                                     borderRadius: "45%",
                                                     padding: "2px"
-                                                }}>{gameTwo.powerball}
+                                                }}>{secRecentNo.powerball}
 
                                                 </span>
                                             </li>
                                             <li >
-                                                {gameThree.no1}{"-"}
-                                                {gameThree.no2}{"-"}
-                                                {gameThree.no3}{"-"}
-                                                {gameThree.no4}{"-"}
-                                                {gameThree.no5}{"-"}
+                                                {thirdRecentNo.no1}{"-"}
+                                                {thirdRecentNo.no2}{"-"}
+                                                {thirdRecentNo.no3}{"-"}
+                                                {thirdRecentNo.no4}{"-"}
+                                                {thirdRecentNo.no5}{"-"}
                                                 <span style={{
                                                     backgroundColor: "red",
                                                     color: "white",
                                                     borderRadius: "45%",
                                                     padding: "2px"
-                                                }}>{gameThree.powerball}
+                                                }}>{thirdRecentNo.powerball}
 
                                                 </span>
                                             </li>
@@ -465,6 +427,8 @@ class Numbers extends Component {
                             <div className="col-md-3">
                                 <div
                                     className="currentJpot"
+                                    data-tip="Click for recent jackpot changes"
+                                    data-text-color="white"
                                     style={{
                                         fontSize: "15px",
                                         color: "red",
@@ -472,11 +436,23 @@ class Numbers extends Component {
                                         marginTop: "10px",
                                         borderTop: "solid red 4px",
                                         borderBottom: "solid red 4px",
-                                        backgroundColor: "#D9D6CF"
-                                    }}>
+                                        backgroundColor: "#D9D6CF",
+                                        cursor: "pointer"
+                                    }}
+
+                                    onClick={this.handleJackpotTrack}
+                                >
+                                    <ReactTooltip />
                                     <h4 style={{ color: "red" }}><em>CURRENT JACKPOT</em></h4>
                                     <h4 className="current-jackpot" style={{ color: "red" }} >
-                                        <Jackpot></Jackpot>
+                                        <JackpotModal
+
+                                            show={this.state.addModalShow3}
+                                            onHide={addModalClose3}
+                                            variant="primary"
+                                        />
+                                        <Jackpot />
+
                                     </h4></div>
                             </div>
                             <div className="col-md-5">

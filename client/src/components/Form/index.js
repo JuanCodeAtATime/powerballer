@@ -32,13 +32,15 @@ export function FormBtn(props) {
         <Button {...props} className="saveNo" style={{
             color: "white",
             textAlign: "center",
-            display: "block",
-            width: "100%",
+            display: "inline-block",
+            width: "25%",
             height: "35px",
             marginLeft: "8px",
             backgroundColor: "green",
             borderRadius: "5px",
-            fontSize: "15px"
+            fontSize: "15px",
+            float: "right",
+            marginTop: "20px"
         }}
         >
             {props.children}
