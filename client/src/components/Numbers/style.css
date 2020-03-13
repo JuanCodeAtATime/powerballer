@@ -91,6 +91,18 @@ div.powerballs-wrap {
 
 }
 
+
+/* Dashboard, top row */
+.right {text-align: right;}
+.left {text-align: left;}
+
+.icon1:hover,  .icon2:hover, .icon3:hover, .icon4:hover { transition: all .2s ease-in-out; }
+.icon1:hover,  .icon2:hover, .icon3:hover, .icon4:hover { transform: scale(1.7); }
+
+.icons li {
+    display: inline;       
+}
+
 .moment:hover {
  opacity: .75;
  background-color: red;

@@ -295,68 +295,78 @@ class Numbers extends Component {
                 <Hero>
                     <div className="container">
                         <div className="row align-center">
-                            <div className="col-md" style={{ marginTop: "0" }}>
+                            <div className="col-md left" style={{ marginTop: "0" }}>
                                 <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
                             </div>
-                            <div className="col-md">
-                                <FontAwesomeIcon icon={faEdit}
-                                    onClick={this.handleEnterTixModal}
-                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
-                                    data-tip="Enter Ticket #s"
-                                    data-text-color="white"
-                                />
-                                <ReactTooltip />
-
-                                <ModalInput
-                                    show={this.state.addModalShow}
-                                    onHide={addModalClose}
-                                    variant="primary"
-                                />
-                            </div>
+                            <div className="col-md right">
 
 
-                            <div className="col-md">
-                                <FontAwesomeIcon icon={faClipboard}
-                                    onClick={this.handleManageTixModal}
-                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
-                                    data-tip="Manage/View Tickets"
-                                    data-text-color="white"
-                                />
-                                <ReactTooltip />
+                                <ul className="icons">
+                                    <li style={{ margin: "10px" }}>
+                                        <FontAwesomeIcon icon={faEdit}
+                                            className="icon1"
+                                            onClick={this.handleEnterTixModal}
+                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                            data-tip="Enter Ticket #s"
+                                            data-text-color="white"
+                                        />
+                                        <ReactTooltip />
 
-                                <ManageTix
-                                    show={this.state.addModalShow2}
-                                    onHide={addModalClose2}
-                                    variant="primary"
-                                />
-
-                            </div>
-
-                            <div className="col-md">
-                                <FontAwesomeIcon icon={faChartBar}
-                                    onClick={this.handleJackpotTrack}
-                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
-                                    data-tip="Latest Jackpot Changes"
-                                    data-text-color="white"
-                                />
-                                <JackpotModal
-                                    id="thisOne"
-                                    show={this.state.addModalShow3}
-                                    onHide={addModalClose3}
-                                    variant="primary"
-                                />
-                            </div>
+                                        <ModalInput
+                                            show={this.state.addModalShow}
+                                            onHide={addModalClose}
+                                            variant="primary"
+                                        />
+                                    </li>
 
 
+                                    <li style={{ margin: "10px" }}>
+                                        <FontAwesomeIcon icon={faClipboard}
+                                            className="icon2"
+                                            onClick={this.handleManageTixModal}
+                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                            data-tip="Manage/View Tickets"
+                                            data-text-color="white"
+                                        />
+                                        <ReactTooltip />
 
-                            <div className="col-md">
-                                <FontAwesomeIcon icon={faDoorOpen}
-                                    onClick={this.onLogoutClick}
-                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
-                                    data-tip="Logout"
-                                    data-text-color="white"
-                                />
-                                <ReactTooltip />
+                                        <ManageTix
+                                            show={this.state.addModalShow2}
+                                            onHide={addModalClose2}
+                                            variant="primary"
+                                        />
+
+                                    </li>
+
+                                    <li style={{ margin: "10px" }}>
+                                        <FontAwesomeIcon icon={faChartBar}
+                                            className="icon3"
+                                            onClick={this.handleJackpotTrack}
+                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                            data-tip="Latest Jackpot Changes"
+                                            data-text-color="white"
+                                        />
+                                        <JackpotModal
+                                            id="thisOne"
+                                            show={this.state.addModalShow3}
+                                            onHide={addModalClose3}
+                                            variant="primary"
+                                        />
+                                    </li>
+
+
+
+                                    <li style={{ margin: "10px" }}>
+                                        <FontAwesomeIcon icon={faDoorOpen}
+                                            className="icon4"
+                                            onClick={this.onLogoutClick}
+                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                            data-tip="Logout"
+                                            data-text-color="white"
+                                        />
+                                        <ReactTooltip />
+                                    </li>
+                                </ul>
                             </div>
 
 
