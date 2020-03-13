@@ -3,7 +3,7 @@
 - ```Date: March 13, 2020```
 
 
- ![Powerballer, data-driven lottery gaming](client/public/pb.PNG)
+ ![Powerballer, data-driven lottery gaming](client/public/pb.png)
 
 *****
 
@@ -23,7 +23,7 @@ The application currently tracks Powerball lottery games only, but there is a de
 * **DBMS:**  Mongo DB / Mongoose
 * **Libraries:**:  React.js, Chart.js, Passport.js
 * **Featured NPMs:** React-Bootstrap, Moment.js, 
-* **Authentication:**  Passport,js (local-strategy)
+* **Authentication:**  Passport.js (local-strategy)
 * **API's used:** Powerball, NY Gov Lottery Data
 
 *****
