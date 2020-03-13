@@ -51,13 +51,6 @@ class Powerballinput extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        // let gameNo = this.state.gameNo;
-        // let no1 = this.state.no1;
-        // let no2 = this.state.no2;
-        // let no3 = this.state.no3;
-        // let no4 = this.state.no4;
-        // let no5 = this.state.no5;
-        // let powerball = this.state.powerball;
         this.setState({
             gameNo: "",
             no1: "",

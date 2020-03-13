@@ -10,15 +10,14 @@ import PropTypes from "prop-types";
 import ModalInput from "../Modal/index";
 import ManageTix from "../ManageTix/index";
 import JackpotModal from "../JackpotModal/index"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard, faChartBar, faEdit, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import ReactTooltip from 'react-tooltip';
+
+
 import Hero from "../Hero";
 import 'moment-timezone';
 import "./style.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
-import ReactTooltip from 'react-tooltip';
-
 
 
 class Numbers extends Component {
@@ -296,11 +295,10 @@ class Numbers extends Component {
                 <Hero>
                     <div className="container">
                         <div className="row align-center">
-                            <div className="col-md-5" style={{ marginTop: "0" }}>
+                            <div className="col-md" style={{ marginTop: "0" }}>
                                 <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
                             </div>
                             <div className="col-md">
-
                                 <FontAwesomeIcon icon={faEdit}
                                     onClick={this.handleEnterTixModal}
                                     style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
@@ -309,16 +307,15 @@ class Numbers extends Component {
                                 />
                                 <ReactTooltip />
 
-
                                 <ModalInput
                                     show={this.state.addModalShow}
                                     onHide={addModalClose}
                                     variant="primary"
                                 />
-
                             </div>
-                            <div className="col-md">
 
+
+                            <div className="col-md">
                                 <FontAwesomeIcon icon={faClipboard}
                                     onClick={this.handleManageTixModal}
                                     style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
@@ -334,6 +331,24 @@ class Numbers extends Component {
                                 />
 
                             </div>
+
+                            <div className="col-md">
+                                <FontAwesomeIcon icon={faChartBar}
+                                    onClick={this.handleJackpotTrack}
+                                    style={{ color: "whitesmoke", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                    data-tip="Latest Jackpot Changes"
+                                    data-text-color="white"
+                                />
+                                <JackpotModal
+                                    id="thisOne"
+                                    show={this.state.addModalShow3}
+                                    onHide={addModalClose3}
+                                    variant="primary"
+                                />
+                            </div>
+
+
+
                             <div className="col-md">
                                 <FontAwesomeIcon icon={faDoorOpen}
                                     onClick={this.onLogoutClick}
@@ -341,11 +356,7 @@ class Numbers extends Component {
                                     data-tip="Logout"
                                     data-text-color="white"
                                 />
-
-
                                 <ReactTooltip />
-
-
                             </div>
 
 
@@ -427,8 +438,6 @@ class Numbers extends Component {
                             <div className="col-md-3">
                                 <div
                                     className="currentJpot"
-                                    data-tip="Click for recent jackpot changes"
-                                    data-text-color="white"
                                     style={{
                                         fontSize: "15px",
                                         color: "red",
@@ -439,21 +448,15 @@ class Numbers extends Component {
                                         backgroundColor: "#D9D6CF",
                                         cursor: "pointer"
                                     }}
-
-                                    onClick={this.handleJackpotTrack}
                                 >
-                                    <ReactTooltip />
+
                                     <h4 style={{ color: "red" }}><em>CURRENT JACKPOT</em></h4>
                                     <h4 className="current-jackpot" style={{ color: "red" }} >
-                                        <JackpotModal
 
-                                            show={this.state.addModalShow3}
-                                            onHide={addModalClose3}
-                                            variant="primary"
-                                        />
                                         <Jackpot />
 
-                                    </h4></div>
+                                    </h4>
+                                </div>
                             </div>
                             <div className="col-md-5">
                                 <div

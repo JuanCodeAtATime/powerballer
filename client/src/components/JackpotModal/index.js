@@ -11,6 +11,7 @@ export default class JackpotModal extends Component {
                 <Modal
                     {...this.props}
                     size="md"
+                    id="thisOne"
                     variant="primary"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
@@ -22,7 +23,7 @@ export default class JackpotModal extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <Jackpotchart></Jackpotchart>
-                        <Button variant="primary" onClick={this.props.onHide}>Close</Button>
+                        <Button variant="primary" id="thisOne" onClick={this.props.onHide}>Close</Button>
                     </Modal.Body>
                     <Modal.Footer>
 
