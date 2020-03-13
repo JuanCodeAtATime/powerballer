@@ -131,6 +131,7 @@ class Numbers extends Component {
         };
 
         //Shortening the state variables
+        // const { recentNumber, secRecentNo, thirdRecentNo } = this.state;
         let gameOne = this.state.recentNumber
         let gameTwo = this.state.secRecentNo
         let gameThree = this.state.thirdRecentNo
@@ -170,9 +171,19 @@ class Numbers extends Component {
         const gameTwoMatches = userNumbers.game2.filter(n => winningNumbers.indexOf(n) > -1)
         const gameThreeMatches = userNumbers.game3.filter(n => winningNumbers.indexOf(n) > -1)
 
-        let prizes = this.state.prize
-        let prizes2 = this.state.prize2
-        let prizes3 = this.state.prize3
+
+        const prizes = this.state.prize;
+        let p1 = (prizes) => prizes.filter((v, i) =>
+            prizes.indexOf(v) === i)
+
+        const prizes2 = this.state.prize2;
+        let p2 = (prizes2) => prizes2.filter((v, i) =>
+            prizes2.indexOf(v) === i)
+
+        const prizes3 = this.state.prize3;
+        let p3 = (prizes3) => prizes3.filter((v, i) =>
+            prizes3.indexOf(v) === i)
+
 
         //Prizes Tier 1
         if (pb === winningNumbers[5] && gameOneMatches.length === 1) {
@@ -288,8 +299,12 @@ class Numbers extends Component {
         //     prizes3.push("$0")
         // }
 
+        // create new variable to set filtered value to
+        // // render the new variable instead of the current one
 
 
+
+        console.log('prizes', prizes)
         return (
             <div>
                 <Hero>
@@ -328,29 +343,29 @@ class Numbers extends Component {
 
                             </div>
                             <div className="col-md-2">
-                                <ButtonToolbar>
-                                    <button
-                                        type="button"
-                                        style={{
-                                            fontSize: "15px",
-                                            color: "whitesmoke",
-                                            borderRadius: "9px",
-                                            marginTop: "15px",
-                                            backgroundColor: "blue",
-                                            borderTop: "solid whitesmoke 2.5px",
-                                            borderBottom: "solid whitesmoke 2.5px",
-                                            float: "right"
-                                        }}
-                                        onClick={this.handleManageTixModal}
-                                    >
-                                        Manage Tix
+                                {/* <ButtonToolbar> */}
+                                <button
+                                    type="button"
+                                    style={{
+                                        fontSize: "15px",
+                                        color: "whitesmoke",
+                                        borderRadius: "9px",
+                                        marginTop: "15px",
+                                        backgroundColor: "blue",
+                                        borderTop: "solid whitesmoke 2.5px",
+                                        borderBottom: "solid whitesmoke 2.5px",
+                                        float: "right"
+                                    }}
+                                    onClick={this.handleManageTixModal}
+                                >
+                                    Manage Tix
                                 </button>
-                                    <ManageTix
-                                        show={this.state.addModalShow2}
-                                        onHide={addModalClose2}
-                                        variant="primary"
-                                    />
-                                </ButtonToolbar>
+                                <ManageTix
+                                    show={this.state.addModalShow2}
+                                    onHide={addModalClose2}
+                                    variant="primary"
+                                />
+                                {/* </ButtonToolbar> */}
                             </div>
                             <div className="col-md-2">
                                 <button
@@ -359,7 +374,7 @@ class Numbers extends Component {
                                         color: "whitesmoke",
                                         borderRadius: "9px",
                                         marginTop: "15px",
-                                        backgroundColor: "black",
+                                        backgroundColor: "red",
                                         borderTop: "solid whitesmoke 2.5px",
                                         borderBottom: "solid whitesmoke 2.5px",
                                         float: "right"
@@ -374,20 +389,27 @@ class Numbers extends Component {
                         </div>
                         <div className="row" style={{ marginBottom: "25px" }}>
                             <div className="col-md-4">
-                                <button
+                                <div
                                     className="my-ticketNo"
-                                    type="button"
                                     style={{
                                         // fontSize: "15px",
                                         color: "red",
                                         borderRadius: "12px",
                                         marginTop: "10px",
                                         borderTop: "solid red 4px",
-                                        borderBottom: "solid red 4px"
+                                        borderBottom: "solid red 4px",
+                                        backgroundColor: "#D9D6CF"
+
                                     }}>
 
                                     <h6 style={{ color: "black" }}><b>YOUR TICKET#s</b></h6>
-                                    <h4 className="my-ticket-no" id="my-ticket-no" style={{ color: "red", backgroundColor: "white", border: "solid yellow 2px", borderRadius: "5px" }} >
+                                    <h4 className="my-ticket-no" id="my-ticket-no" style={{
+                                        color: "red",
+                                        backgroundColor: "white",
+                                        borderTop: "solid black 1px",
+                                        borderBottom: "solid black 1px",
+                                        borderRadius: "1px"
+                                    }} >
                                         <ul>
                                             <li >
                                                 {gameOne.no1}{"-"}
@@ -438,35 +460,35 @@ class Numbers extends Component {
 
                                     </h4>
                                     <h6 style={{ color: "black" }}><b>FOR UPCOMING DRAW ON:</b></h6>
-                                    <h4><NextDrawDate></NextDrawDate></h4></button>
+                                    <h4><NextDrawDate></NextDrawDate></h4></div>
                             </div>
                             <div className="col-md-3">
-                                <button
-                                    className="my-ticketNo"
-                                    type="button"
+                                <div
+                                    className="currentJpot"
                                     style={{
                                         fontSize: "15px",
                                         color: "red",
                                         borderRadius: "9px",
                                         marginTop: "10px",
                                         borderTop: "solid red 4px",
-                                        borderBottom: "solid red 4px"
+                                        borderBottom: "solid red 4px",
+                                        backgroundColor: "#D9D6CF"
                                     }}>
                                     <h4 style={{ color: "red" }}><em>CURRENT JACKPOT</em></h4>
                                     <h4 className="current-jackpot" style={{ color: "red" }} >
                                         <Jackpot></Jackpot>
-                                    </h4></button>
+                                    </h4></div>
                             </div>
                             <div className="col-md-5">
-                                <button
-                                    className="my-ticketNo"
-                                    type="button"
+                                <div
+                                    className="lastDraw"
                                     style={{
                                         fontSize: "15px",
                                         color: "red",
                                         borderRadius: "9px",
                                         marginTop: "10px",
                                         borderTop: "solid red 4px",
+                                        backgroundColor: "#D9D6CF",
                                         borderBottom: "solid red 4px"
                                     }}>
                                     POWERBALL# for : <LastDrawDate></LastDrawDate>
@@ -475,7 +497,7 @@ class Numbers extends Component {
                                     <h5 className="my-ticket-no" style={{ color: "red" }} >
 
 
-                                    </h5></button>
+                                    </h5></div>
                             </div>
                         </div>
                         <div className="row align-content-center justify-content-center text-align-center" style={{ marginBottom: "0" }}>
@@ -525,21 +547,21 @@ class Numbers extends Component {
                             <br></br>
 
                             <div className="col-md justify-content-between" style={{
-                                backgroundColor: "black",
+                                backgroundColor: "#D9D6CF",
                                 margin: "2px",
                                 width: "90%",
                                 borderRadius: "15px",
                                 padding: "8px",
-                                borderTop: "solid whitesmoke 3px",
-                                borderBottom: "solid whitesmoke 3px"
+                                borderTop: "solid red 3px",
+                                borderBottom: "solid red 3px"
                             }}>
 
                                 <div>
-                                    <button id="gameOnePrize" style={{
+                                    <div id="gameOnePrize" style={{
                                         width: "auto",
                                         minWidth: "100px",
                                         height: "105px",
-                                        // backgroundColor: "red",
+                                        backgroundColor: "whitesmoke",
                                         display: "inline-block",
                                         textAlign: "center",
                                         alignItems: "center",
@@ -550,29 +572,29 @@ class Numbers extends Component {
                                         color: "red"
 
                                     }}>
-                                        <p id="my-prizes">{prizes}</p>
+                                        <p id="prizes1">{p1(prizes)}</p>
 
-                                    </button>
-                                    <h5 id="prizeBoxes" style={{ color: "white" }}>GAME 1 WIN$</h5>
+                                    </div>
+                                    <h5 id="prizeBoxes">GAME 1 WIN$</h5>
                                 </div>
                             </div>
 
                             <div className="col-md justify-content-between" style={{
-                                backgroundColor: "black",
+                                backgroundColor: "#D9D6CF",
                                 margin: "2px",
                                 width: "90%",
                                 borderRadius: "15px",
                                 padding: "8px",
-                                borderTop: "solid whitesmoke 3px",
-                                borderBottom: "solid whitesmoke 3px"
+                                borderTop: "solid red 3px",
+                                borderBottom: "solid red 3px"
                             }}>
 
                                 <div>
-                                    <button id="gameTwoPrize" style={{
+                                    <div id="gameTwoPrize" style={{
                                         width: "auto",
                                         minWidth: "100px",
                                         height: "105px",
-                                        // backgroundColor: "red",
+                                        backgroundColor: "whitesmoke",
                                         display: "inline-block",
                                         textAlign: "center",
                                         alignItems: "center",
@@ -585,30 +607,30 @@ class Numbers extends Component {
                                         color: "red"
 
                                     }}>
-                                        <p id="my-prizes">{prizes2}</p>
+                                        <p id="prizes2">{p2(prizes2)}</p>
 
-                                    </button>
-                                    <h5 id="prizeBoxes" style={{ color: "white" }}>GAME 2 WIN$</h5>
+                                    </div>
+                                    <h5 id="prizeBoxes">GAME 2 WIN$</h5>
                                 </div>
 
                             </div>
 
 
                             <div className="col-md justify-content-between" style={{
-                                backgroundColor: "black",
+                                backgroundColor: "#D9D6CF",
                                 margin: "2px",
                                 width: "90%",
                                 borderRadius: "15px",
                                 padding: "8px",
-                                borderTop: "solid whitesmoke 3px",
-                                borderBottom: "solid whitesmoke 3px"
+                                borderTop: "solid red 3px",
+                                borderBottom: "solid red 3px"
                             }}>
                                 <div>
-                                    <button id="gameThreePrizes" style={{
+                                    <div id="gameThreePrizes" style={{
                                         width: "auto",
                                         minWidth: "100px",
                                         height: "105px",
-                                        // backgroundColor: "red",
+                                        backgroundColor: "whitesmoke",
                                         display: "inline-block",
                                         textAlign: "center",
                                         alignItems: "center",
@@ -618,10 +640,10 @@ class Numbers extends Component {
                                         fontSize: "4.3rem",
                                         color: "red"
                                     }}>
-                                        <p id="my-prizes">{prizes3}</p>
+                                        <p id="prizes3">{p3(prizes3)}</p>
 
-                                    </button>
-                                    <h5 id="prizeBoxes" style={{ color: "white" }}>GAME 3 WIN$</h5>
+                                    </div>
+                                    <h5 id="prizeBoxes">GAME 3 WIN$</h5>
                                 </div>
 
                             </div>

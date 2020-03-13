@@ -12,10 +12,11 @@ class Jackpot extends Component {
     };
 
     loadPowerballData = () => {
-        API.loadChartData()
+        API.loadPbData()
             .then(res =>
                 this.setState({
-                    jackpotAmt: res.data[0].prizes.values[0].value
+                    // jackpotAmt: res.data[0].prizes.values[0].value
+                    jackpotAmt: res.data[0].field_prize_amount
 
                 })
 

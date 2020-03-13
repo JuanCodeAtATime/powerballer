@@ -67,7 +67,7 @@ export default class ManageTix extends Component {
                                             {this.state.numbers.map(number => (
                                                 <ListItem key={number._id}>
                                                     <strong style={{ fontFamily: "Quantico" }}>
-                                                        <p style={{ color: "blue" }}>Game No: {number.gameNo}</p>
+                                                        <p style={{ color: "red" }}>Game No: {number.gameNo}</p>
                                                         <hr></hr>
                                                         <h4>
                                                             {number.no1} {"-"}
@@ -79,7 +79,7 @@ export default class ManageTix extends Component {
                                                             {number.powerball}
                                                         </h4>
                                                         <hr></hr>
-                                                        <p style={{ color: "blue" }}>
+                                                        <p style={{ color: "wheat" }}>
                                                             <Moment format="MM/DD/YYYY">{number.date}</Moment>
                                                         </p>
                                                     </strong>
