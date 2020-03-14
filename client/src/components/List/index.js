@@ -6,7 +6,7 @@ import "./style.css";
 export function List({ children }) {
     return (
         <div className="list-overflow-container" style={{ backgroundColor: "#eee", borderTop: "solid red 25px", marginTop: "15px" }}>
-            <label for="pastTicketNo" style={{ marginLeft: "10px", color: "black", fontSize: "25px", textAlign: "center", fontFamily: "Quantico" }}><b>View or Delete Tickets</b></label>
+            <label htmlFor="pastTicketNo" style={{ marginLeft: "10px", color: "black", fontSize: "25px", textAlign: "center", fontFamily: "Quantico" }}><b>View or Delete Tickets</b></label>
             <ul className="list-group">{children}</ul>
         </div>
     );

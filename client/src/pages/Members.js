@@ -51,6 +51,7 @@ class Powerballinput extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        this.loadNumbers();
         this.setState({
             gameNo: "",
             no1: "",
