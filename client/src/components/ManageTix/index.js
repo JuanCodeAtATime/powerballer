@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import DeleteBtn from "../DeleteBtn";
 import API from "../../utils/API";
-// import Moment from "react-moment";
+import Moment from "react-moment";
 import "./style.css";
 
 
@@ -79,9 +79,9 @@ export default class ManageTix extends Component {
                                                             {number.powerball}
                                                         </h4>
                                                         <hr></hr>
-                                                        {/* <p style={{ color: "black" }}>
+                                                        <p style={{ color: "black" }}>
                                                             <Moment format="MM/DD/YYYY">{number.date}</Moment>
-                                                        </p> */}
+                                                        </p>
                                                     </strong>
 
                                                     <DeleteBtn onClick={() => this.deleteNumber(number._id)} />
