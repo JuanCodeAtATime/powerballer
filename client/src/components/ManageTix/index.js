@@ -80,7 +80,7 @@ export default class ManageTix extends Component {
                                                         </h4>
                                                         <hr></hr>
                                                         <p style={{ color: "black" }}>
-                                                            <Moment format="MM/DD/YYYY">{number.date}</Moment>
+                                                            <Moment format="MM/DD/YYYY, h:mm a">{number.date}</Moment>
                                                         </p>
                                                     </strong>
 

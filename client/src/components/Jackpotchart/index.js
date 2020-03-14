@@ -40,7 +40,7 @@ class Jackpotchart extends Component {
                             ],
                         datasets: [
                             {
-                                label: '',
+                                label: 'Recent Jackpot Changes',
                                 data:
                                     [
                                         1000000,
@@ -79,7 +79,7 @@ class Jackpotchart extends Component {
                                         fontSize: 20,
                                         fontFamily: "Quantico",
                                         fontWeight: "bold",
-                                        color: "whitesmoke",
+                                        color: "black",
                                         backgroundColor: "red",
                                         borderRadius: "5px"
                                     },
