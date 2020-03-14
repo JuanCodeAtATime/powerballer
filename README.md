@@ -1,4 +1,4 @@
-## POWERBALLER | *Date Driven Lottery Gaming*
+## POWERBALLER | *Data Driven Lottery Gaming*
 - ```Developer: Juan Rivera```
 - ```Date: March 13, 2020```
 
