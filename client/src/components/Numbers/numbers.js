@@ -23,9 +23,9 @@ import "./style.css";
 class Numbers extends Component {
     state = {
         dateTime: [],
-        dateForToolTip1: "",
-        dateForToolTip2: "",
-        dateForToolTip3: "",
+        // dateForToolTip1: "",
+        // dateForToolTip2: "",
+        // dateForToolTip3: "",
         userNumbers: [],
         recentNumber: '',
         secRecentNo: '',
@@ -73,9 +73,9 @@ class Numbers extends Component {
             .then(res =>
                 this.setState({
                     ...this.state,
-                    dateForToolTip1: res.data[0].date,
-                    dateForToolTip2: res.data[1].date,
-                    dateForToolTip3: res.data[2].date,
+                    // dateForToolTip1: res.data[0].date,
+                    // dateForToolTip2: res.data[1].date,
+                    // dateForToolTip3: res.data[2].date,
                     recentNumber: res.data[0],
                     secRecentNo: res.data[1],
                     thirdRecentNo: res.data[2]
@@ -118,7 +118,7 @@ class Numbers extends Component {
         let addModalClose3 = () => this.setState({ addModalShow3: false })
 
 
-        console.log("this is the res.data response " + this.state.dateForToolTip1)
+        // console.log("this is the res.data response " + this.state.dateForToolTip1)
 
         //Filter and indexOf methods used below to match User's numbers with dynamic powerball numbers.       
         //Pushing up to 3 User games into arrays within the userNumbers object
