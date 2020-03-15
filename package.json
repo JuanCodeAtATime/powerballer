@@ -42,6 +42,7 @@
     "mongoose": "^5.9.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "passport-validator": "^1.2.3",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "validator": "^12.2.0"

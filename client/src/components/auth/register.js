@@ -138,9 +138,9 @@ class Register extends Component {
                                         color: "white"
 
                                     }}
-                                    disabled={!(this.state.name && this.state.email &&
-                                        this.state.password && this.state.password2
-                                    )}
+                                    // disabled={!(this.state.name && this.state.email &&
+                                    //     this.state.password && this.state.password2
+                                    // )}
                                     type="submit"
                                     className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                                 >
