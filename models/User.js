@@ -16,7 +16,7 @@ const UserSchema = new Schema({
         required: true
     },
     numbers: [
-        { type: mongoose.Schema.Types.ObjectId, ref: 'Numbers' }
+        { type: mongoose.Schema.Types.ObjectId, ref: 'numbers' }
     ]
 }, {
     date: {
