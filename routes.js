@@ -51,77 +51,86 @@ router.post("/api/register", (req, res) => {
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/api/login",
+router.post("/api/login", function (req, res) {
+
+    // generate a signed son web token with the contents of user object and return it in the response
+
+    // Form validation
+    const { errors, isValid } = validateLoginInput(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    const email = req.body.email;
+    const password = req.body.password;
+    // Find user by email
+    db.Users.findOne({ email }).then(user => {
+        // Check if user exists
+        if (!user) {
+            return res.status(404).json({ emailnotfound: "Email not found" });
+        }
+        // Check password
+        bcrypt.compare(password, user.password).then(isMatch => {
+            if (isMatch) {
+                // User matched
+                // Create JWT Payload
+                const payload = {
+                    id: user.id,
+                    name: user.name
+                };
+                // Sign token
+                jwt.sign(
+                    payload,
+                    keys.secretOrKey,
+                    {
+                        expiresIn: 31556926 // 1 year in seconds
+                    },
+                    (err, token) => {
+                        res.json({
+                            success: true,
+                            token: "Bearer " + token
+                        });
+                    }
+                );
+            } else {
+                return res
+                    .status(400)
+                    .json({ passwordincorrect: "Password incorrect" });
+            }
+        });
+    });
+});
+
+
+
+router.get("/api/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
-
-        // generate a signed son web token with the contents of user object and return it in the response
-
-        // Form validation
-        const { errors, isValid } = validateLoginInput(req.body);
-        // Check validation
-        if (!isValid) {
-            return res.status(400).json(errors);
-        }
-        const email = req.body.email;
-        const password = req.body.password;
-        // Find user by email
-        db.Users.findOne({ email }).then(user => {
-            // Check if user exists
-            if (!user) {
-                return res.status(404).json({ emailnotfound: "Email not found" });
-            }
-            // Check password
-            bcrypt.compare(password, user.password).then(isMatch => {
-                if (isMatch) {
-                    // User matched
-                    // Create JWT Payload
-                    const payload = {
-                        id: user.id,
-                        name: user.name
-                    };
-                    // Sign token
-                    jwt.sign(
-                        payload,
-                        keys.secretOrKey,
-                        {
-                            expiresIn: 31556926 // 1 year in seconds
-                        },
-                        (err, token) => {
-                            res.json({
-                                success: true,
-                                token: "Bearer " + token
-                            });
-                        }
-                    );
-                } else {
-                    return res
-                        .status(400)
-                        .json({ passwordincorrect: "Password incorrect" });
-                }
+        // console.log("This is the res in th get numbers get route ..... " + res)
+        db.Users.find({ _id: req.user._id })
+            .populate('numbers')
+            .then(function (dbModel) {
+                res.json(dbModel);
+                console.log(dbModel);
+                console.log(req.user._id)
+            })
+            .catch(function (err) {
+                res.json(err);
             });
-        });
+
     });
 
 
-router.post("/api/numbersform",
+router.post("/api/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
-        db.Numbers.create({
-            gameNo: req.body.gameNo,
-            no1: req.body.no1,
-            no2: req.body.no2,
-            no3: req.body.no3,
-            no4: req.body.no4,
-            no5: req.body.no5,
-            powerball: req.body.powerball,
-
-        })
-            .then(function (dbNumbers) {
-                console.log(dbNumbers);
-                return db.Users.findOneAndUpdate({ _id: req.user._id }, { $set: { numbers: dbNumbers._id } })
+        db.Numbers.create(req.body)
+            .then(function (dbModel) {
+                console.log(dbModel + " This is the dbModel on Ln 110");
+                return db.Users.findOneAndUpdate({ _id: req.user._id }, { $set: { numbers: dbModel._id } })
             })
             .then(function (dbUser) {
+                console.log(dbUser + " This is the dbUser on ln 114")
                 res.json(dbUser)
             })
             .catch(function (err) {
@@ -130,29 +139,6 @@ router.post("/api/numbersform",
             });
     });
 
-
-// router.get("/api/authorized", isAuthenticated, function (req, res) {
-//     console.log("working")
-//     res.json(req.user);
-// });
-
-
-
-router.get("/api/numbers",
-    passport.authenticate('jwt', { session: false }),
-    function (req, res) {
-        db.Users.find({ _id: req.user._id })
-            .populate("numbers")
-            .then(function (dbNumbers) {
-                res.json(dbNumbers);
-                console.log(dbNumbers);
-                console.log(req.user._id)
-            })
-            .catch(function (err) {
-                res.json(err);
-            });
-
-    });
 
 router.delete("/api/numbers/:id",
     passport.authenticate('jwt', { session: false }),
@@ -169,9 +155,6 @@ router.delete("/api/numbers/:id",
             )
         console.log("Numbers record has been deleted")
     });
-
-
-
 
 
 
