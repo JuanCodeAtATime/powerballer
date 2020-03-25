@@ -14,10 +14,6 @@ export default {
   loadChartData: function () {
     return axios.get("https://cors-anywhere.herokuapp.com/https://games.api.lottery.com/api/v2.0/results?game=59bc2b6031947b9daf338d32");
   },
-  // Saves apowerball number to the database
-  saveNumber: function (numberData) {
-    return axios.post("/api/numbersform", numberData);
-  },
   getNumbers: function () {
     return axios.get("/api/numbers");
   },
@@ -28,8 +24,11 @@ export default {
   // Deletes the powerball number with the given id
   deleteNumber: function (id) {
     return axios.delete("/api/numbers/" + id);
-  }
-
+  },
+  // Saves apowerball number to the database
+  saveNumber: function (numberData) {
+    return axios.post("/api/numbers", numberData);
+  },
 };
 
 

@@ -9,7 +9,7 @@ function DeleteBtn(props) {
     return (
         <span className="delete-btn" {...props} role="button" tabIndex="0">
             <button type="button" data-tip="Delete Ticket#" data-text-color="red"
-                style={{ color: "white", backgroundColor: "red", borderRadius: "5px" }}>X</button>
+                style={{ color: "white", backgroundColor: "red", borderRadius: "5px" }}>x</button>
             <ReactTooltip />
         </span>
     );

@@ -5,15 +5,14 @@ import "./style.css";
 
 export function List({ children }) {
     return (
-        <div className="list-overflow-container" style={{ backgroundColor: "#eee", borderTop: "solid red 25px", marginTop: "15px" }}>
-            <label htmlFor="pastTicketNo" style={{ marginLeft: "10px", color: "black", fontSize: "25px", textAlign: "center", fontFamily: "Quantico" }}><b>View or Delete Tickets</b></label>
+        <div className="list-overflow-container" style={{ backgroundColor: "whitesmoke" }}>
             <ul className="list-group">{children}</ul>
         </div>
     );
 }
 
 export function ListItem({ children }) {
-    return <li className="list-group-item">{children}</li>;
+    return <li className="list-group-item" style={{ backgroundColor: "#facdd4" }}>{children}</li>;
 }
 
 export function ListItemFirstchild({ children }) {

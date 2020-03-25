@@ -10,7 +10,6 @@ import "./style.css"
 class Powerballinput extends Component {
     state = {
         numbers: [],
-        recentNumber: '',
         gameNo: "",
         no1: "",
         no2: "",
@@ -28,8 +27,8 @@ class Powerballinput extends Component {
     loadNumbers = () => {
         API.getNumbers()
             .then(res =>
-                // this.setState({ numbers: res.data, no1: "", no2: "", no3: "", no4: "", no5: "", powerball: "" })
-                this.setState({ ...this.state, numbers: res.data, recentNumber: res.data[0] })
+                this.setState({ numbers: res.data[0].numbers, gameNo: "", no1: "", no2: "", no3: "", no4: "", no5: "", powerball: "" })
+                // this.setState({ ...this.state, numbers: res.data })
             )
             .catch(err => console.log(err));
     };
