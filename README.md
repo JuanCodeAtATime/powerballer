@@ -28,6 +28,7 @@ The application currently tracks Powerball lottery games only, but there is a de
 
 *****
 
-### CHECK OUT THE LIVE SITE:
-* https://powerballers.herokuapp.com/
+### RUN LOCALLY
+```npm run start```
+
 
