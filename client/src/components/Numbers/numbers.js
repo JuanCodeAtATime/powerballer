@@ -12,7 +12,7 @@ import ModalInput from "../Modal/index";
 import Winnings from "../Winnings/index";
 import JackpotModal from "../JackpotModal/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBillAlt, faChartBar, faEdit, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faMoneyBillAlt, faChartBar, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
 import { List, ListItem } from "../List";
 import Moment from "react-moment";
@@ -39,7 +39,7 @@ class Numbers extends Component {
         matches: '',
         powerballs: "",
         addModalShow: false,
-        // addModalShow2: false,
+        addModalShow2: false,
         addModalShow3: false
     };
 
@@ -305,15 +305,13 @@ class Numbers extends Component {
                                 <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
                             </div>
                             <div className="col-md right">
-
-
                                 <ul className="icons">
                                     <li style={{ margin: "10px" }}>
                                         <FontAwesomeIcon icon={faEdit}
                                             className="icon1"
                                             onClick={this.handleEnterTixModal}
-                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
-                                            data-tip="Enter Ticket #s"
+                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
+                                            data-tip="Enter Ticket Number"
                                             data-text-color="white"
                                         />
                                         <ReactTooltip />
@@ -330,8 +328,8 @@ class Numbers extends Component {
                                         <FontAwesomeIcon icon={faMoneyBillAlt}
                                             className="icon2"
                                             onClick={this.handleWinningsModal}
-                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
-                                            data-tip="How to Win $"
+                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
+                                            data-tip="How to Win"
                                             data-text-color="white"
                                         />
                                         <ReactTooltip />
@@ -348,16 +346,18 @@ class Numbers extends Component {
                                         <FontAwesomeIcon icon={faChartBar}
                                             className="icon3"
                                             onClick={this.handleJackpotTrack}
-                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
                                             data-tip="Latest Jackpot Changes"
                                             data-text-color="white"
                                         />
+                                        <ReactTooltip />
                                         <JackpotModal
                                             id="thisOne"
                                             show={this.state.addModalShow3}
                                             onHide={addModalClose3}
                                             variant="primary"
                                         />
+
                                     </li>
 
 
@@ -366,7 +366,7 @@ class Numbers extends Component {
                                         <FontAwesomeIcon icon={faDoorOpen}
                                             className="icon4"
                                             onClick={this.onLogoutClick}
-                                            style={{ color: "red", fontSize: "20px", marginTop: "10px", cursor: "pointer" }}
+                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
                                             data-tip="Logout"
                                             data-text-color="white"
                                         />
