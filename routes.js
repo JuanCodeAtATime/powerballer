@@ -109,10 +109,10 @@ router.get("/api/numbers",
         // console.log("This is the res in th get numbers get route ..... " + res)
         db.Users.find({ _id: req.user._id })
             .populate('numbers')
-            .then(function (dbModel) {
-                res.json(dbModel);
-                console.log(dbModel);
-                console.log(req.user._id)
+            .then(function (dbNumbers) {
+                res.json(dbNumbers);
+                // console.log(dbNumbers);
+                // console.log(req.user._id)
             })
             .catch(function (err) {
                 res.json(err);
@@ -124,10 +124,10 @@ router.get("/api/numbers",
 router.post("/api/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
+        // console.log(req.body.gameNo + " This is the req.body.numbers[0] Ln 129");
         db.Numbers.create(req.body)
-            .then(function (dbModel) {
-                console.log(dbModel + " This is the dbModel on Ln 110");
-                return db.Users.findOneAndUpdate({ _id: req.user._id }, { $set: { numbers: dbModel._id } })
+            .then(function (dbNumbers) {
+                return db.Users.findOneAndUpdate({ _id: req.user._id }, { $push: { numbers: dbNumbers._id } })
             })
             .then(function (dbUser) {
                 console.log(dbUser + " This is the dbUser on ln 114")

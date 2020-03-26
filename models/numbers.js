@@ -22,7 +22,7 @@ const numberSchema = new Schema({
 
 });
 
-const Numbers = mongoose.model("Numbers", numberSchema);
+const Numbers = mongoose.model("numbers", numberSchema);
 
 module.exports = Numbers;
 
