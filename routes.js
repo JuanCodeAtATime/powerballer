@@ -5,7 +5,6 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("./config/keys");
-var isAuthenticated = require("./config/middleware/isAuthenticated");
 const db = require("./models");
 require("./config/passport")(passport);
 // Load input validation

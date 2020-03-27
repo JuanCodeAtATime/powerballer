@@ -16,7 +16,7 @@ const numberSchema = new Schema({
     powerball: { type: String, required: true },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'User'
     },
     date: { type: Date, default: Date.now }
 

@@ -1,4 +1,5 @@
 const express = require("express");
+const routes = require("./routes");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
@@ -20,7 +21,8 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(cors());
-app.use(routes);
+app.use(routes)
+
 
 
 // DB Config
