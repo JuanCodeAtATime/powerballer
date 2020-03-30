@@ -9,7 +9,7 @@
 
 ### BRIEF DESCRIPTION
 
-**Powerballer** is a full-stack MERN application featuring dynamic, data-driven lottery updates. It features real-time tracking of jackpot amounts and draws. 
+**Powerballer** is a full-stack MERN application that features dynamic, data-driven lottery updates. It features real-time tracking of jackpot amounts and draws. 
 
 Users can enter up to three lottery tickets at a time to compare them with the winning numbers.  The app also features a ticket management tool to view and/or delete past numbers.  
 
