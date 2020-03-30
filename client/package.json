@@ -15,6 +15,7 @@
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "history": "^4.10.1",
+    "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
