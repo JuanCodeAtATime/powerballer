@@ -22,7 +22,7 @@ The application currently tracks Powerball lottery games only, but there is a de
 * **Runtime Evironment/Sever:**  Node.js
 * **DBMS:**  Mongo DB / Mongoose
 * **Libraries:**:  React.js, Chart.js, Passport.js
-* **Featured NPMs:** React-Bootstrap, Moment.js, 
+* **Featured NPMs:** React-Bootstrap, Moment.js, Axios
 * **Authentication:**  Passport.js (local-strategy)
 * **API's used:** Powerball, NY Gov Lottery Data
 
