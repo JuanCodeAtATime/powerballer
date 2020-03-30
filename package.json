@@ -2,7 +2,7 @@
   "name": "powerball-pro",
   "version": "1.0.0",
   "description": "powerball app",
-  "homepage": "https://powerball-pro.juancodeatatime.now.sh/",
+  "homepage=": ".",
   "main": "server.js",
   "devDependencies": {
     "concurrently": "^5.1.0",

@@ -5,13 +5,11 @@ const bodyParser = require("body-parser");
 const app = express();
 const cors = require('cors');
 
-
 //Passport Middleware
 const passport = require("passport");
 app.use(passport.initialize());
 require("./config/passport")(passport);
 require("dotenv").config();
-
 
 // Bodyparser middleware
 app.use(
@@ -22,8 +20,6 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 app.use(routes)
-
-
 
 // DB Config
 const db = require("./config/keys").mongoURI;
