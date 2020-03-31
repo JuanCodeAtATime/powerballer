@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router basename="/landing">
+        <Router basename="/powerball-pro.now.sh">
           <div>
             <Nav />
             <Wrapper>
