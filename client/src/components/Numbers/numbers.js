@@ -16,8 +16,6 @@ import { faEdit, faMoneyBillAlt, faChartBar, faDoorOpen } from '@fortawesome/fre
 import ReactTooltip from 'react-tooltip';
 import { List, ListItem } from "../List";
 import Moment from "react-moment";
-
-
 import Hero from "../Hero";
 import 'moment-timezone';
 import "./style.css";
@@ -43,8 +41,6 @@ class Numbers extends Component {
         addModalShow3: false
     };
 
-
-
     componentDidMount() {
         this.loadRecentNo();
         this.loadLastDrawDate();
@@ -66,8 +62,6 @@ class Numbers extends Component {
         event.preventDefault();
         this.setState({ addModalShow3: true });
     };
-
-
 
     //loadRecentNo loads and renders most recent inputted number in upper left section of Hero
 
@@ -134,7 +128,7 @@ class Numbers extends Component {
 
         };
 
-        //Shortening the state variables
+        //Shortening state variables
         const { recentNumber, secRecentNo, thirdRecentNo } = this.state;
 
         //User's first ticket number input
