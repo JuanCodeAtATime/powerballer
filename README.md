@@ -28,7 +28,7 @@ The application currently tracks Powerball lottery games only, but there is a de
 
 *****
 
-### RUN LOCALLY
-```npm run start```
+### CHECK OUT THE DEPLOYED SITE
+https://powerballers.herokuapp.com/powerball-pro.now.sh/
 
 
