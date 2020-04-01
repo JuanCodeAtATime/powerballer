@@ -50,7 +50,7 @@ router.post("/api/register", (req, res) => {
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/api/login", function (req, res) {
+router.post("/api/users/login", function (req, res) {
 
     // generate a signed son web token with the contents of user object and return it in the response
 
