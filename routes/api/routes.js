@@ -4,30 +4,31 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("./config/keys");
-const db = require("./models");
-require("./config/passport")(passport);
+const keys = require("../../config/keys");
+const User = require("../../models/User");
+const db = require("../../models");
+require("../../config/passport")(passport);
 // Load input validation
-const validateRegisterInput = require("./validation/register");
-const validateLoginInput = require("./validation/login");
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 
 
-// @route POST api/register
+// @route POST api/routes/register
 // @desc Register user
 // @access Public
-router.post("/api/register", (req, res) => {
+router.post("/register", (req, res) => {
     // Form validation
     const { errors, isValid } = validateRegisterInput(req.body);
     // Check validation
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    db.Users.findOne({ email: req.body.email }).then(user => {
+    User.findOne({ email: req.body.email }).then(user => {
         if (user) {
             return res.status(400).json({ email: "Email already exists" });
         } else {
-            const newUser = new Users({
+            const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password
@@ -47,10 +48,10 @@ router.post("/api/register", (req, res) => {
     });
 });
 
-// @route POST api/login
+// @route POST api/routes/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/api/login", function (req, res) {
+router.post("/login", function (req, res) {
 
     // generate a signed son web token with the contents of user object and return it in the response
 
@@ -63,7 +64,7 @@ router.post("/api/login", function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
     // Find user by email
-    db.Users.findOne({ email }).then(user => {
+    User.findOne({ email }).then(user => {
         // Check if user exists
         if (!user) {
             return res.status(404).json({ emailnotfound: "Email not found" });
@@ -102,11 +103,11 @@ router.post("/api/login", function (req, res) {
 
 
 
-router.get("/api/numbers",
+router.get("/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
         // console.log("This is the res in th get numbers get route ..... " + res)
-        db.Users.find({ _id: req.user._id })
+        User.find({ _id: req.user._id })
             .populate('numbers')
             .then(function (dbNumbers) {
                 res.json(dbNumbers);
@@ -120,13 +121,13 @@ router.get("/api/numbers",
     });
 
 
-router.post("/api/numbers",
+router.post("/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
         // console.log(req.body.gameNo + " This is the req.body.numbers[0] Ln 129");
         db.Numbers.create(req.body)
             .then(function (dbNumbers) {
-                return db.Users.findOneAndUpdate({ _id: req.user._id }, { $push: { numbers: dbNumbers._id } })
+                return User.findOneAndUpdate({ _id: req.user._id }, { $push: { numbers: dbNumbers._id } })
             })
             .then(function (dbUser) {
                 console.log(dbUser + " This is the dbUser on ln 114")
@@ -139,12 +140,12 @@ router.post("/api/numbers",
     });
 
 
-router.delete("/api/numbers/:id",
+router.delete("/numbers/:id",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
         db.Numbers.deleteOne({ _id: req.params.id }).then(res => {
             console.log(req.params.id),
-                db.Users.findOneAndUpdate({ _id: req.user._id }, { $unset: { numbers: 1 } })
+                User.findOneAndUpdate({ _id: req.user._id }, { $unset: { numbers: 1 } })
         })
             .then(res => {
                 console.log(res)
