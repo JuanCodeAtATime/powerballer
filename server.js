@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
+const port = process.env.PORT || 5000;
 const cors = require('cors');
 
 //Passport Middleware
@@ -20,7 +21,7 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(cors());
-app.use(routes)
+app.use('api', routes)
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -45,6 +46,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
