@@ -16,7 +16,7 @@ const validateLoginInput = require("./validation/login");
 // @route POST api/register
 // @desc Register user
 // @access Public
-router.post("/api/register", (req, res) => {
+router.post("/register", (req, res) => {
     // Form validation
     const { errors, isValid } = validateRegisterInput(req.body);
     // Check validation
@@ -50,7 +50,7 @@ router.post("/api/register", (req, res) => {
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/api/users/login", function (req, res) {
+router.post("/login", function (req, res) {
 
     // generate a signed son web token with the contents of user object and return it in the response
 
@@ -102,7 +102,7 @@ router.post("/api/users/login", function (req, res) {
 
 
 
-router.get("/api/numbers",
+router.get("/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
         // console.log("This is the res in th get numbers get route ..... " + res)
@@ -120,7 +120,7 @@ router.get("/api/numbers",
     });
 
 
-router.post("/api/numbers",
+router.post("/numbers",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
         // console.log(req.body.gameNo + " This is the req.body.numbers[0] Ln 129");
@@ -139,7 +139,7 @@ router.post("/api/numbers",
     });
 
 
-router.delete("/api/numbers/:id",
+router.delete("/numbers/:id",
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
         db.Numbers.deleteOne({ _id: req.params.id }).then(res => {
