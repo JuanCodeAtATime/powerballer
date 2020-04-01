@@ -1,2 +1,3 @@
+# Don't include node modules in git commits
 node_modules/
 /*.env
