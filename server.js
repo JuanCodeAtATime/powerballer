@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = require("./routes");
+const routes = require("./routes.js");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
