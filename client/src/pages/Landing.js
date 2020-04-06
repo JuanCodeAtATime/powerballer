@@ -56,7 +56,7 @@ function Landing() {
                         }}>
                         <div className="col-md-3" style={{ textAlign: "center", alignContent: "center" }}>
                             <FontAwesomeIcon icon={faSearchDollar} style={{ fontSize: "80px", color: "whitesmoke" }} />
-                            <div style={{ color: "white" }}>
+                            <div style={{ color: "whitesmoke" }}>
                                 <h4>DISCOVER</h4>
                                 <p style={{ color: "whitesmoke" }}><em>Create and track your lottery gaming trends.</em></p>
                             </div>
@@ -64,16 +64,16 @@ function Landing() {
                         </div>
                         <div className="col-md-3" >
                             <FontAwesomeIcon icon={faChartLine} style={{ fontSize: "80px", color: "whitesmoke" }} />
-                            <div style={{ color: "white" }}>
+                            <div style={{ color: "whitesmoke" }}>
                                 <h4>DATA-DRIVEN</h4>
                                 <p style={{ color: "whitesmoke" }}><em>See real-time Jackpot amount changes.</em></p>
                             </div>
                         </div>
                         <div className="col-md-3" >
                             <FontAwesomeIcon icon={faMoneyBillAlt} style={{ fontSize: "80px", color: "whitesmoke" }} />
-                            <div style={{ color: "white" }}>
+                            <div style={{ color: "whitesmoke" }}>
                                 <h4>LOTTERY GAMING</h4>
-                                <p style={{ color: "whitesmoke" }}><em>Get instant prize calculation. $ignup today!</em></p>
+                                <p style={{ color: "whitesmoke" }}><em>See the latest drawn numbers. $ignup today!</em></p>
                             </div>
                         </div>
                     </div>
