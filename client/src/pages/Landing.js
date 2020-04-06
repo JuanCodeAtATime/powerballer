@@ -46,14 +46,14 @@ function Landing() {
                             Login</button></Link>
                 </span>
                 <div className="container">
-                    <div className="row justify-content-center"
+                    <div className="row"
                         style={{
                             marginTop: "70px",
                             marginBottom: "0",
                             textAlign: "center",
                             alignContent: "center"
                         }}>
-                        <div className="col-md-3" style={{ textAlign: "center", alignContent: "center" }}>
+                        <div className="col-md">
                             <FontAwesomeIcon icon={faSearchDollar} style={{ fontSize: "60px", color: "whitesmoke" }} />
                             <div style={{ color: "whitesmoke" }}>
                                 <h4>DISCOVER</h4>
@@ -61,14 +61,14 @@ function Landing() {
                             </div>
 
                         </div>
-                        <div className="col-md-3" >
+                        <div className="col-md" >
                             <FontAwesomeIcon icon={faChartLine} style={{ fontSize: "60px", color: "whitesmoke" }} />
                             <div style={{ color: "whitesmoke" }}>
                                 <h4>DATA-DRIVEN</h4>
                                 <p style={{ color: "whitesmoke" }}><em>See real-time Jackpot amount changes.</em></p>
                             </div>
                         </div>
-                        <div className="col-md-3" >
+                        <div className="col-md" >
                             <FontAwesomeIcon icon={faMoneyBillAlt} style={{ fontSize: "60px", color: "whitesmoke" }} />
                             <div style={{ color: "whitesmoke" }}>
                                 <h4>LOTTERY GAMING</h4>

@@ -42,6 +42,10 @@ h3.landingH3 {
     font-family: "Quantico", 'Cursive';
 }
 
+.justify-content-center, .container {
+    float: none;  
+    align-items: center;
+}
 
 
 .powerballs-wrap {
