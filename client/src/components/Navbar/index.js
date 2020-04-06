@@ -10,8 +10,8 @@ import "./style.css";
 function Nav() {
   return (
 
-    <Navbar bg="transparent">
-      <Navbar.Brand>
+    <Navbar className="navbar">
+      <Navbar.Brand bg="black" variant="black">
         <Link className="powerballer" to="/">
           <h3 style={{ textDecorationLine: "none", textDecoration: "none" }}>POWER<span id="pro">BALLER</span></h3>
         </Link></Navbar.Brand>

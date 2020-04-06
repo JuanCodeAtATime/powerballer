@@ -42,9 +42,11 @@ h3.landingH3 {
     font-family: "Quantico", 'Cursive';
 }
 
-.justify-content-center, .container {
+.justify-content-center {
     float: none;  
     align-items: center;
+    align-content: center;
+    text-align: center;
 }
 
 
