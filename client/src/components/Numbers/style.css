@@ -91,7 +91,49 @@ div.powerballs-wrap {
 
 }
 
+.realticket {
+    background-image: url(./powerball.jpg); 
+    background-size: cover;
+    
+    height: 200px;
+    border-style: outset;    
+}
 
+/* Enter tix Dashboard */
+.my-ticketNo { 
+    transition: all .2s ease-in-out;
+    font-size: 1.5rem;
+    font-family: 'Quantico';  
+    padding: 7px;
+}
+.my-ticketNo:hover { transform: scale(1.1); }
+
+/* Edit Icon upper right of Enter Tix Dashboard */
+.edit {
+float: left; 
+margin-left: 5px;
+transition: all .2s ease-in-out;
+}
+
+.edit:hover {transform: scale(1.1);}
+
+.currentJpot {
+    font-family: 'Quantico';   
+    text-shadow: -1px 0 whitesmoke, 0 .5px whitesmoke, .5px 0 black, 0 -1px black;
+    font-size: 1.8em;
+    color: "red";
+    border-radius: 9px;
+    border: solid red 1.5px;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: solid red 4px;
+    border-bottom: solid red 4px;
+    background-color: "#d9d6cf";
+    cursor: "pointer"
+}
+.current-jackpot {
+    font-size: 2.5rem;   
+}
 /* Dashboard, top row */
 .right {text-align: right;}
 .left {text-align: left;}
@@ -101,6 +143,12 @@ div.powerballs-wrap {
 
 .icons li {
     display: inline;       
+}
+
+h4, h6 {
+    font-weight: bold;
+    margin: 4px;
+   
 }
 
 .moment:hover {

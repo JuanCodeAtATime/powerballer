@@ -3,16 +3,9 @@ import "./style.css";
 
 // This file exports both the List and ListItem components
 
-export function List({ children }) {
-    return (
-        <div className="list-overflow-container" style={{ backgroundColor: "whitesmoke" }}>
-            <ul className="list-group">{children}</ul>
-        </div>
-    );
-}
 
 export function ListItem({ children }) {
-    return <li className="list-group-item" style={{ backgroundColor: "#facdd4" }}>{children}</li>;
+    return <li className="list-group-item" >{children}</li>;
 }
 
 export function ListItemFirstchild({ children }) {

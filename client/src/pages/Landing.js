@@ -19,7 +19,7 @@ function Landing() {
     return (
         <div>
             <Hero>
-                <h2 className="logo">POWER<span id="pro">BALLER</span></h2>
+                <h2 className="logo powerballer">POWER<span id="pro">BALLER</span></h2>
                 <span>
                     <Link to="/register">
 

@@ -1,10 +1,25 @@
 
-  .modal {    
+.modal {    
     /* right: auto;
     bottom: auto; */
     position: relative;
     vertical-align: auto;
     background-color: transparent;
     transform: "translate(-40%, -10%)";
-  }
+}
   
+#enterTixNo {
+    font-size: 2.rem;
+}
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

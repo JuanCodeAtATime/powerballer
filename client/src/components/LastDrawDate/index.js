@@ -35,7 +35,7 @@ class LastDrawDate extends Component {
 
     render() {
         return (
-            < div >
+            < div style={{ margin: "5px" }}>
                 <Moment className="moment" format="ddd, MMM Do YYYY">{this.state.dateTime}</Moment >
             </div >
         );

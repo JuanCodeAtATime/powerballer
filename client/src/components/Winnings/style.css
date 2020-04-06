@@ -2,7 +2,7 @@
   .modal {    
     /* right: auto;
     bottom: auto; */
-    position: relative;
+    /* position: relative; */
     vertical-align: auto;
     background-color: transparent;
     transform: "translate(-40%, -10%)";
@@ -12,8 +12,8 @@
     background-image: url(./winnings.PNG);
     background-position: center;
     background-size: cover;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-y: auto;
+    overflow-x: auto;
   }
 
 

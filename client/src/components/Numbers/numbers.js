@@ -5,45 +5,34 @@ import { logoutUser } from "../../actions/authActions";
 import LastDrawDate from "../LastDrawDate";
 import Jackpot from "../Jackpot/Jackpot";
 import NextDrawDate from "../nextdrawdate.js"
-import { connect } from "react-redux";
-import DeleteBtn from "../DeleteBtn";
-import PropTypes from "prop-types";
 import ModalInput from "../Modal/index";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Winnings from "../Winnings/index";
 import JackpotModal from "../JackpotModal/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faMoneyBillAlt, faChartBar, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
-import { List, ListItem } from "../List";
-import Moment from "react-moment";
 import Hero from "../Hero";
 import 'moment-timezone';
 import "./style.css";
 
 
+
 class Numbers extends Component {
     state = {
         dateTime: [],
-        // dateForToolTip1: "",
-        // dateForToolTip2: "",
-        // dateForToolTip3: "",
+        dateForToolTip1: [],
         numbers: [],
-        recentNumber: '',
-        secRecentNo: '',
-        thirdRecentNo: "",
-        prize: [],
-        prize2: [],
-        prize3: [],
-        matches: '',
-        powerballs: "",
         addModalShow: false,
         addModalShow2: false,
         addModalShow3: false
     };
 
     componentDidMount() {
-        this.loadRecentNo();
+        // this.loadRecentNo();
         this.loadLastDrawDate();
+        this.loadJackpotChangeDate();
         // this.formatDates();        
     }
 
@@ -65,31 +54,18 @@ class Numbers extends Component {
 
     //loadRecentNo loads and renders most recent inputted number in upper left section of Hero
 
-    loadRecentNo = () => {
-        API.getNumbers()
+    loadJackpotChangeDate = () => {
+        API.loadChartData()
             .then(res =>
                 this.setState({
                     ...this.state,
-                    numbers: res.data[0].numbers,
-                    recentNumber: res.data[0].numbers[0],
-                    secRecentNo: res.data[0].numbers[1],
-                    thirdRecentNo: res.data[0].numbers[2]
-                },
-                    console.log("this is recentnumber " + res.data[0].numbers[0].gameNo),
-                    console.log("this is secRecNo " + res.data[0].numbers[1].gameNo),
-                    console.log("this is thirdReceentNo " + res.data[0].numbers[2].gameNo)
-                )
+                    dateForToolTip1: res.data[0].prizes.asOfDate
+                })
 
             )
             .catch(err => console.log(err));
     };
 
-
-    deleteNumber = id => {
-        API.deleteNumber(id)
-            .then(res => this.loadRecentNo())
-            .catch(err => console.log(err));
-    };
 
     loadLastDrawDate = () => {
         API.getPbNum()
@@ -117,178 +93,6 @@ class Numbers extends Component {
         let addModalClose3 = () => this.setState({ addModalShow3: false })
 
 
-        // console.log("this is the res.data response " + this.state.dateForToolTip1)
-
-        //Filter and indexOf methods used below to match User's numbers with dynamic powerball numbers.       
-        //Pushing up to 3 User games into arrays within the userNumbers object
-        let userNumbers = {
-            game1: [],
-            game2: [],
-            game3: []
-
-        };
-
-        //Shortening state variables
-        const { recentNumber, secRecentNo, thirdRecentNo } = this.state;
-
-        //User's first ticket number input
-        let num1 = recentNumber.no1;
-        let num2 = recentNumber.no2;
-        let num3 = recentNumber.no3;
-        let num4 = recentNumber.no4;
-        let num5 = recentNumber.no5;
-        let pb = recentNumber.powerball;
-
-        //User's second ticket number inputs
-        let numb1 = secRecentNo.no1 || null;
-        let numb2 = secRecentNo.no2;
-        let numb3 = secRecentNo.no3;
-        let numb4 = secRecentNo.no4;
-        let numb5 = secRecentNo.no5;
-        let pb2 = secRecentNo.powerball;
-
-        //User's third ticket number inputs    
-
-        let numbe1 = thirdRecentNo.no1 || null;
-        let numbe2 = thirdRecentNo.no2 || null;
-        let numbe3 = thirdRecentNo.no3 || null;
-        let numbe4 = thirdRecentNo.no4 || null;
-        let numbe5 = thirdRecentNo.no5 || null;
-        let pb3 = thirdRecentNo.powerball || null;
-
-        //Pushing all (3) User's ticket numbers into arrays that will be matched and returned by filter method 
-        userNumbers.game1.push(num1, num2, num3, num4, num5, pb);
-        userNumbers.game2.push(numb1, numb2, numb3, numb4, numb5, pb2);
-        userNumbers.game3.push(numbe1, numbe2, numbe3, numbe4, numbe5, pb3);
-
-        // //Logic to match User's numbers to winning numbers, plus prize computation
-        let winningNumbers = this.state.powerballs
-        const gameOneMatches = userNumbers.game1.filter(n => winningNumbers.indexOf(n) > -1)
-        const gameTwoMatches = userNumbers.game2.filter(n => winningNumbers.indexOf(n) > -1)
-        const gameThreeMatches = userNumbers.game3.filter(n => winningNumbers.indexOf(n) > -1)
-
-
-        const prizes = this.state.prize;
-        let p1 = (prizes) => prizes.filter((v, i) =>
-            prizes.indexOf(v) === i)
-
-        const prizes2 = this.state.prize2;
-        let p2 = (prizes2) => prizes2.filter((v, i) =>
-            prizes2.indexOf(v) === i)
-
-        const prizes3 = this.state.prize3;
-        let p3 = (prizes3) => prizes3.filter((v, i) =>
-            prizes3.indexOf(v) === i)
-
-
-        // //Prizes Tier 1
-        if (pb === winningNumbers[5] && gameOneMatches.length === 1) {
-            prizes.push("$4");
-        }
-        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 1) {
-            prizes2.push("$4");
-        }
-        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 1) {
-            prizes3.push("$4");
-        }
-
-        // //Prizes Tier 2
-        if (pb === winningNumbers[5] && gameOneMatches.length === 2) {
-            prizes.push("$4");
-        }
-        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 2) {
-            prizes2.push("$4");
-        }
-        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 2) {
-            prizes3.push("$4");
-        }
-
-        // //Prizes Tier 3
-        if (pb === winningNumbers[5] && gameOneMatches.length === 3) {
-            prizes.push("$7");
-        }
-        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 3) {
-            prizes2.push("$7");
-        }
-        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 3) {
-            prizes3.push("$7");
-        }
-
-        // //Prizes Tier 4
-
-        if (pb !== winningNumbers[5] && gameOneMatches.length === 3) {
-            prizes.push("$7");
-        }
-        if (pb2 !== winningNumbers[5] && gameTwoMatches.length === 3) {
-            prizes2.push("$7");
-        }
-        if (pb3 !== winningNumbers[5] && gameThreeMatches.length === 3) {
-            prizes3.push("$7");
-        }
-
-
-        // //Prizes Tier 5
-        if (pb === winningNumbers[5] && gameOneMatches.length === 4) {
-            prizes.push("$100");
-        }
-        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 4) {
-            prizes2.push("$100");
-        }
-        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 4) {
-            prizes3.push("$100");
-        }
-
-
-        // //Prizes Tier 6
-        if (pb !== winningNumbers[5] && gameOneMatches.length === 4) {
-            prizes.push("$100");
-        }
-        if (pb2 !== winningNumbers[5] && gameTwoMatches.length === 4) {
-            prizes2.push("$100");
-        }
-        if (pb3 !== winningNumbers[5] && gameThreeMatches.length === 4) {
-            prizes3.push("$100");
-        }
-
-
-        // //Prizes Tier 7
-        if (pb !== winningNumbers[5] && gameOneMatches.length === 5) {
-            prizes.push("$50,000");
-        }
-        if (pb2 !== winningNumbers[5] && gameTwoMatches.length === 5) {
-            prizes2.push("$50,000");
-        }
-        if (pb3 !== winningNumbers[5] && gameThreeMatches.length === 5) {
-            prizes3.push("$50,000");
-        }
-
-
-
-        // //Prizes Tier 8
-        if (pb === winningNumbers[5] && gameOneMatches.length === 5) {
-            prizes.push("$1,00,000");
-        }
-        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 5) {
-            prizes2.push("$1,00,000");
-        }
-        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 5) {
-            prizes3.push("$1,00,000");
-        }
-
-        //Prizes Tier 9
-        if (pb === winningNumbers[5] && gameOneMatches.length === 6) {
-            prizes.push("$JACKPOT!!!!");
-            console.log("Wow!! YOU WON THE JACKPOT")
-        }
-        if (pb2 === winningNumbers[5] && gameTwoMatches.length === 6) {
-            prizes2.push("$JACKPOT!!!!");
-            console.log("Wow!! YOU WON THE JACKPOT")
-        }
-        if (pb3 === winningNumbers[5] && gameThreeMatches.length === 6) {
-            prizes3.push("$JACKPOT!!!!");
-            console.log("Wow!! YOU WON THE JACKPOT")
-        }
-
 
         return (
             <div>
@@ -296,33 +100,20 @@ class Numbers extends Component {
                     <div className="container">
                         <div className="row align-center">
                             <div className="col-md left" style={{ marginTop: "0" }}>
-                                <h4 className="logo" style={{ color: "whitesmoke" }}><b>{user.name.split(" ")[0]}'s </b><span id="pro">Dashboard</span></h4>
+                                <h4 className="logo" style={{ color: "whitesmoke" }}>
+                                    <b>
+                                        {user.name.split(" ")[0]}'s
+                                    </b><span id="pro"> Dashboard</span></h4>
                             </div>
                             <div className="col-md right">
                                 <ul className="icons">
-                                    <li style={{ margin: "10px" }}>
-                                        <FontAwesomeIcon icon={faEdit}
-                                            className="icon1"
-                                            onClick={this.handleEnterTixModal}
-                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
-                                            data-tip="Enter Ticket Number"
-                                            data-text-color="white"
-                                        />
-                                        <ReactTooltip />
-
-                                        <ModalInput
-                                            show={this.state.addModalShow}
-                                            onHide={addModalClose}
-                                            variant="primary"
-                                        />
-                                    </li>
 
 
                                     <li style={{ margin: "10px" }}>
                                         <FontAwesomeIcon icon={faMoneyBillAlt}
                                             className="icon2"
                                             onClick={this.handleWinningsModal}
-                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
+                                            style={{ color: "whitesmoke", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
                                             data-tip="How to Win"
                                             data-text-color="white"
                                         />
@@ -340,7 +131,7 @@ class Numbers extends Component {
                                         <FontAwesomeIcon icon={faChartBar}
                                             className="icon3"
                                             onClick={this.handleJackpotTrack}
-                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
+                                            style={{ color: "whitesmoke", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
                                             data-tip="Latest Jackpot Changes"
                                             data-text-color="white"
                                         />
@@ -360,7 +151,7 @@ class Numbers extends Component {
                                         <FontAwesomeIcon icon={faDoorOpen}
                                             className="icon4"
                                             onClick={this.onLogoutClick}
-                                            style={{ color: "red", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
+                                            style={{ color: "whitesmoke", fontSize: "25px", marginTop: "10px", cursor: "pointer" }}
                                             data-tip="Logout"
                                             data-text-color="white"
                                         />
@@ -372,6 +163,7 @@ class Numbers extends Component {
 
                         </div>
                         <div className="row" style={{ marginBottom: "25px" }}>
+
                             <div className="col-md-4">
                                 <div
                                     className="my-ticketNo"
@@ -385,79 +177,60 @@ class Numbers extends Component {
 
                                     }}>
 
-                                    <h6 style={{ color: "black" }}><b>YOUR TICKET#s</b></h6>
-                                    <h4 className="my-ticket-no" id="my-ticket-no" style={{
-                                        color: "black",
-                                        backgroundColor: "white",
-                                        borderTop: "solid black 1px",
-                                        borderBottom: "solid black 1px",
-                                        borderRadius: "1px"
-                                    }} >
-                                        {this.state.numbers.length ? (
-                                            <List>
-                                                {this.state.numbers.slice(0).reverse().map(number => (
-                                                    <ListItem key={number._id}>
-                                                        <strong style={{ fontFamily: "Quantico" }}>
-                                                            <h4 style={{ color: "black" }}><b>Game No:</b> {number.gameNo}
-                                                                <hr></hr>
-                                                                {number.no1} {"-"}
-                                                                {number.no2} {"-"}
-                                                                {number.no3} {"-"}
-                                                                {number.no4} {"-"}
-                                                                {number.no5} {"-"}
-                                                                <span style={{
-                                                                    backgroundColor: "red",
-                                                                    color: "white",
-                                                                    borderRadius: "50%",
-                                                                    padding: "3px",
-                                                                    marginTop: "2px"
-                                                                }}>
-                                                                    {number.powerball}
-                                                                </span>
-                                                            </h4>
-                                                            <hr></hr>
-                                                            <h6>
-                                                                <b>Date: </b><Moment format="MM/DD/YYYY, h:mm a">{number.date}</Moment>
-                                                            </h6>
-                                                        </strong>
-                                                        <DeleteBtn onClick={() => this.deleteNumber(number._id)} />
-                                                    </ListItem>
-                                                ))}
-                                            </List>
-                                        ) : (
-                                                <h3>Enter Ticket #s</h3>
-                                            )}
+                                    <h4>MANAGE MY TICKET#s</h4>
+
+                                    <h4 className="my-ticket-no realticket" id="my-ticket-no"
+                                        style={{
+                                            color: "black",
+                                            backgroundColor: "white",
+                                            borderTop: "solid black 1px",
+                                            borderBottom: "solid black 1px",
+                                            borderRadius: "1px",
+                                        }}
+
+                                    >
+                                        <FontAwesomeIcon icon={faEdit}
+                                            className="edit"
+                                            onClick={this.handleEnterTixModal}
+                                            style={{
+                                                color: "white",
+                                                fontSize: "25px",
+                                                marginTop: "5px",
+                                                cursor: "pointer"
+                                            }}
+                                            data-tip="Enter Ticket Number"
+                                            data-text-color="white"
+
+                                        />
+                                        <ReactTooltip />
+                                        <ModalInput
+                                            show={this.state.addModalShow}
+                                            onHide={addModalClose}
+                                            variant="primary"
+                                        />
+
 
                                     </h4>
-                                    <h6 style={{ color: "black" }}><b>FOR UPCOMING DRAW ON:</b></h6>
-                                    <h4><NextDrawDate></NextDrawDate></h4></div>
+                                    <b>FOR UPCOMING DRAW ON:</b>
+                                    <NextDrawDate></NextDrawDate>
+
+                                </div>
                             </div>
+
                             <div className="col-md-3">
-                                <div
-                                    className="currentJpot"
-                                    style={{
-                                        fontSize: "15px",
-                                        color: "red",
-                                        borderRadius: "9px",
-                                        marginTop: "10px",
-                                        borderTop: "solid red 4px",
-                                        borderBottom: "solid red 4px",
-                                        backgroundColor: "#D9D6CF",
-                                        cursor: "pointer"
-                                    }}
-                                >
-
-                                    <h4 style={{ color: "red" }}><em>CURRENT JACKPOT</em></h4>
-                                    <h4 className="current-jackpot" style={{ color: "red" }} >
-
+                                <div className="currentJpot my-ticketNo" style={{ backgroundColor: "#D9D6CF" }}>
+                                    <h4 style={{ color: "red", backgroundColor: "#D9D6CF" }}><em><b>CURRENT JACKPOT</b></em></h4>
+                                    <h4 className="current-jackpot"
+                                        style={{ color: "red", cursor: "pointer" }}
+                                    >
                                         <Jackpot />
-
                                     </h4>
                                 </div>
                             </div>
+
                             <div className="col-md-5">
                                 <div
-                                    className="lastDraw"
+                                    className="lastDraw my-ticketNo"
                                     style={{
                                         fontSize: "15px",
                                         color: "red",
@@ -467,7 +240,9 @@ class Numbers extends Component {
                                         backgroundColor: "#D9D6CF",
                                         borderBottom: "solid red 4px"
                                     }}>
-                                    POWERBALL# for : <LastDrawDate></LastDrawDate>
+                                    <h4>POWERBALL DRAW DATE:
+                                        <LastDrawDate></LastDrawDate>
+                                    </h4>
                                     <WinningNum></WinningNum>
 
                                     <h5 className="my-ticket-no" style={{ color: "red" }} >
@@ -476,14 +251,14 @@ class Numbers extends Component {
                                     </h5></div>
                             </div>
                         </div>
-                        <div className="row align-content-center justify-content-center text-align-center" style={{ marginBottom: "0" }}>
+                        {/* <div className="row align-content-center justify-content-center text-align-center" style={{ marginBottom: "0" }}>
                             <div className="col-md-12">
                                 <h4 style={{ color: "whitesmoke", fontFamily: "Quantico" }}>YOUR RESULTS:</h4>
                                 <hr style={{ border: "solid darkred 1.75px" }}></hr>
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className="row align-content-center justify-content-center" style={{ marginBottom: "50px" }}>
+                        {/* <div className="row align-content-center justify-content-center" style={{ marginBottom: "50px" }}>
 
                             <div className="col-md-2">
                                 <button id="myMatches"
@@ -501,11 +276,11 @@ class Numbers extends Component {
                                         padding: "8px",
                                         color: "red"
                                     }}>
-                                    <p id="my-matches">
+                                    {/* <p id="my-matches">
                                         {gameOneMatches.length +
                                             gameTwoMatches.length + gameThreeMatches.length}
-                                    </p>
-                                    <p style={{
+                                    </p> */}
+                        {/* <p style={{
                                         fontSize: "1.5rem",
                                         fontWeight: "bold",
                                         fontFamily: "Quantico",
@@ -517,8 +292,8 @@ class Numbers extends Component {
                                     </p>
                                 </button>
                             </div>
-                        </div>
-
+                        </div> */}
+                        {/* 
                         <div className="row">
                             <br></br>
 
@@ -548,9 +323,9 @@ class Numbers extends Component {
                                         color: "red"
 
                                     }}>
-                                        <p id="prizes1">{p1(prizes)}</p>
+                                        {/* <p id="prizes1">{p1(prizes)}</p> */}
 
-                                    </div>
+                        {/* </div>
                                     <h5 id="prizeBoxes">GAME 1 WIN$</h5>
                                 </div>
                             </div>
@@ -583,13 +358,13 @@ class Numbers extends Component {
                                         color: "red"
 
                                     }}>
-                                        <p id="prizes2">{p2(prizes2)}</p>
-
+                                        {/* <p id="prizes2">{p2(prizes2)}</p> */}
+                        {/* 
                                     </div>
                                     <h5 id="prizeBoxes">GAME 2 WIN$</h5>
-                                </div>
+                                </div> */}
 
-                            </div>
+                        {/* </div>
 
 
                             <div className="col-md justify-content-between" style={{
@@ -600,8 +375,8 @@ class Numbers extends Component {
                                 padding: "8px",
                                 borderTop: "solid red 3px",
                                 borderBottom: "solid red 3px"
-                            }}>
-                                <div>
+                            }}> */}
+                        {/* <div>
                                     <div id="gameThreePrizes" style={{
                                         width: "auto",
                                         minWidth: "100px",
@@ -615,16 +390,16 @@ class Numbers extends Component {
                                         border: "solid red 3px",
                                         fontSize: "4.3rem",
                                         color: "red"
-                                    }}>
-                                        <p id="prizes3">{p3(prizes3)}</p>
-
+                                    }}> */}
+                        {/* <p id="prizes3">{p3(prizes3)}</p> */}
+                        {/* 
                                     </div>
                                     <h5 id="prizeBoxes">GAME 3 WIN$</h5>
                                 </div>
 
                             </div>
 
-                        </div>
+                        </div> */}
 
 
 
@@ -649,3 +424,4 @@ export default connect(
     mapStateToProps,
     { logoutUser }
 )(Numbers);
+

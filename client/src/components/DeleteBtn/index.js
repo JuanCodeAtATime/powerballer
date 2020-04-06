@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 // The ...props means, spread all of the passed props onto this element
@@ -8,8 +10,11 @@ import ReactTooltip from 'react-tooltip'
 function DeleteBtn(props) {
     return (
         <span className="delete-btn" {...props} role="button" tabIndex="0">
-            <button type="button" data-tip="Delete Ticket#" data-text-color="red"
-                style={{ color: "white", backgroundColor: "red", borderRadius: "5px" }}>x</button>
+            <FontAwesomeIcon icon={faTrash}
+                id="trashIcon"
+                style={{ fontSize: "20px", cursor: "pointer" }}
+                data-tip="Delete"
+                data-text-color="white" />
             <ReactTooltip />
         </span>
     );

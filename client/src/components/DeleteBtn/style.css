@@ -1,5 +1,7 @@
 .delete-btn {
-    float: right;
-    color: #e74944;
+    float: right;   
   }
+
+#trashIcon {transition: all .2s ease-in-out}  
+#trashIcon:hover {transform: scale(1.6);}
   

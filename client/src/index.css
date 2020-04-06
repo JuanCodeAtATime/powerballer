@@ -1,11 +1,22 @@
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+
+
 body {
   margin: 0;
+  height: 100%;
+  position: relative;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./pbbg.jpg);
+  background-image: url(../src/components/Numbers/powerball.jpg); 
   background-size: cover;
 }
 
@@ -14,3 +25,11 @@ code {
     monospace; 
 }
 
+#root {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+ 
+}

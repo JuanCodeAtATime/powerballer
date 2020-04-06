@@ -28,6 +28,10 @@ h1.logo {
       color: black;
   }
 
+  h2.powerballer {
+    font-size: 4.5rem;
+    margin: 5px;
+  }
 
   .powerballs {
     display: inline-block;
