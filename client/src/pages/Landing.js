@@ -37,7 +37,6 @@ function Landing() {
 
                         <button id="landingBtnRight"
                             style={{
-                                // hover: { transform: 'scale(1.7)', transition: 'all .2s ease-in-out' },
                                 backgroundColor: "red",
                                 color: "whitesmoke",
                                 marginLeft: "9px",
@@ -55,7 +54,7 @@ function Landing() {
                             alignContent: "center"
                         }}>
                         <div className="col-md-3" style={{ textAlign: "center", alignContent: "center" }}>
-                            <FontAwesomeIcon icon={faSearchDollar} style={{ fontSize: "80px", color: "whitesmoke" }} />
+                            <FontAwesomeIcon icon={faSearchDollar} style={{ fontSize: "60px", color: "whitesmoke" }} />
                             <div style={{ color: "whitesmoke" }}>
                                 <h4>DISCOVER</h4>
                                 <p style={{ color: "whitesmoke" }}><em>Create and track your lottery gaming trends.</em></p>
@@ -63,14 +62,14 @@ function Landing() {
 
                         </div>
                         <div className="col-md-3" >
-                            <FontAwesomeIcon icon={faChartLine} style={{ fontSize: "80px", color: "whitesmoke" }} />
+                            <FontAwesomeIcon icon={faChartLine} style={{ fontSize: "60px", color: "whitesmoke" }} />
                             <div style={{ color: "whitesmoke" }}>
                                 <h4>DATA-DRIVEN</h4>
                                 <p style={{ color: "whitesmoke" }}><em>See real-time Jackpot amount changes.</em></p>
                             </div>
                         </div>
                         <div className="col-md-3" >
-                            <FontAwesomeIcon icon={faMoneyBillAlt} style={{ fontSize: "80px", color: "whitesmoke" }} />
+                            <FontAwesomeIcon icon={faMoneyBillAlt} style={{ fontSize: "60px", color: "whitesmoke" }} />
                             <div style={{ color: "whitesmoke" }}>
                                 <h4>LOTTERY GAMING</h4>
                                 <p style={{ color: "whitesmoke" }}><em>See the latest drawn numbers. $ignup today!</em></p>
