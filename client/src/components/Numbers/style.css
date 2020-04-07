@@ -100,13 +100,12 @@ div.powerballs-wrap {
 }
 
 /* Enter tix Dashboard */
-.my-ticketNo { 
-    transition: all .2s ease-in-out;
+.my-ticketNo {    
     font-size: 1.5rem;
     font-family: 'Quantico';  
     padding: 7px;
 }
-.my-ticketNo:hover { transform: scale(1.1); }
+
 
 /* Edit Icon upper right of Enter Tix Dashboard */
 .edit {
