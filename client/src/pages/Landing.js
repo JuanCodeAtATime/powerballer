@@ -13,7 +13,7 @@ import "./style.css"
 
 function Landing() {
     return (
-        <div>
+        <div style={{ marginTop: "20px" }}>
 
             <Hero>
                 <Row className="alignContent">

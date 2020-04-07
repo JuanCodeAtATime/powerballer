@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);  
 }
 
 button#btn-sm:hover {
@@ -16,7 +16,14 @@ a.powerballer {
 }
 
 #navJackpot {
-  font-size: .90rem;
+  font-size: .94rem;
 }
 
-  
+span.blink{ 
+  animation: blink 5s linear infinite;
+}
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}

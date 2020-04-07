@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import "./auth.css"
 
 
 class Register extends Component {
@@ -59,7 +60,7 @@ class Register extends Component {
         return (
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-5" style={{ backgroundColor: "white", opacity: ".85", borderRadius: "5px" }}>
+                    <div className="col-md-5 authMarginTop" style={{ backgroundColor: "white", opacity: ".85", borderRadius: "5px" }}>
                         <Link to="/" className="btn-flat waves-effect" style={{ color: "black" }}>
                             <i className="material-icons left" style={{ color: "#0056b3" }}>keyboard_backspace</i> Back to
                             home

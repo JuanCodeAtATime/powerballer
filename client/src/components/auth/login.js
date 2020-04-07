@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-import "./style.css"
+import "./auth.css"
 
 
 class Login extends Component {
@@ -64,7 +64,7 @@ class Login extends Component {
                 <form noValidate onSubmit={this.onSubmit}>
                     <br></br>
                     <div className="row justify-content-center">
-                        <div className="col-md-5" style={{ backgroundColor: "white", opacity: ".88", borderRadius: "5px", padding: "10px" }}>
+                        <div className="col-md-5 authMarginTop" style={{ backgroundColor: "white", opacity: ".88", borderRadius: "5px", padding: "10px" }}>
                             <Link to="/" className="btn-flat waves-effect" style={{ color: "black" }}>
                                 <i className="material-icons left" style={{ color: "#0056b3" }}>keyboard_backspace</i> Back to
                                 home

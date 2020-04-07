@@ -98,7 +98,7 @@ class Numbers extends Component {
             <div>
                 <Hero>
                     <div className="container">
-                        <div className="row align-center">
+                        <div className="row align-center" style={{ marginTop: "60px" }}>
                             <div className="col-md left" style={{ marginTop: "0" }}>
                                 <h4 className="logo" style={{ color: "whitesmoke" }}>
                                     <b>

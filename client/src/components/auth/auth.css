@@ -12,8 +12,14 @@
   margin-left: 5px;
   margin-right: 5px;
   align-items: center;
+  margin-top: 30px; 
 
 }
+
+.authMarginTop {
+  margin-top: 35px;
+}
+
 
 h2.style {
 text-align: center;

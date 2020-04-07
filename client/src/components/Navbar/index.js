@@ -10,7 +10,7 @@ import "./style.css";
 function Nav() {
   return (
 
-    <Navbar className="navbar">
+    <Navbar className="navbar" fixed="top">
       <Navbar.Brand bg="black" variant="black">
         <Link className="powerballer" to="/">
           <h3 style={{ textDecorationLine: "none", textDecoration: "none" }}>POWER<span id="pro">BALLER</span></h3>
@@ -18,7 +18,7 @@ function Nav() {
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text variant="white">
-          <h4 id="navJackpot" style={{ color: "red" }}>Current Jackpot: <Jackpot /></h4>
+          <h4 id="navJackpot" style={{ color: "red" }}>Current Jackpot: <span class="blink"><Jackpot /></span></h4>
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
