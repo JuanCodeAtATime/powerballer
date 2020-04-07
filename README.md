@@ -29,6 +29,6 @@ The application currently tracks Powerball lottery games only, but there is a de
 *****
 
 ### CHECK OUT THE DEPLOYED SITE
-https://powerballers.herokuapp.com/powerball-pro.now.sh/
+https://powerballers.herokuapp.com
 
 
