@@ -8,13 +8,9 @@
     transform: "translate(-40%, -10%)";
   }
 
-  .winningsMatrix {
-    background-image: url(./winnings.PNG);
-    background-position: center;
-    background-size: cover;
-    overflow-y: auto;
-    overflow-x: auto;
-  }
+.modal-body { 
+  text-align: center;
 
+}
 
   

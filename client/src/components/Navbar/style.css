@@ -20,10 +20,10 @@ a.powerballer {
 }
 
 span.blink{ 
-  animation: blink 5s linear infinite;
+  animation: blink 4s linear infinite;
 }
 @keyframes blink{
 0%{opacity: 0;}
-50%{opacity: .5;}
+50%{opacity: .35;}
 100%{opacity: 1;}
 }
