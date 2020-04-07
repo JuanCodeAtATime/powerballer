@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
-// import Jumbotron from "../components/Jumbotron";
-// import Container from "../components/Container";
-// import Row from "../components/Row";
-// import Col from "../components/Col";
-// import WinningNum from "./WinningNum";
-// import LastDrawDate from "../components/LastDrawDate";
-// import NextDrawDate from "../components/nextdrawdate.js";
+import Row from "../components/Row";
+import Col from "../components/Col";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearchDollar } from '@fortawesome/free-solid-svg-icons';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons';
@@ -15,110 +10,76 @@ import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons';
 import "./style.css"
 
 
+
 function Landing() {
     return (
         <div>
+
             <Hero>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md">
-                            <h2 className="logo powerballer">POWER<span id="pro">BALLER</span></h2>
-                            <span>
-                                <Link to="/register">
+                <Row className="alignContent">
+                    <h2 className="logo powerballer">POWER<span id="pro">BALLER</span></h2>
 
-                                    <button id="landingBtnLeft"
-                                        style={{
-                                            backgroundColor: "blue",
-                                            color: "whitesmoke",
-                                            borderRadius: "8px",
-                                            padding: "4.5px"
-                                        }}>
-                                        Create Account</button></Link>
-                            </span>
-                            <span>
-                                <Link to="/login">
-
-                                    <button id="landingBtnRight"
-                                        style={{
-                                            backgroundColor: "red",
-                                            color: "whitesmoke",
-                                            marginLeft: "9px",
-                                            borderRadius: "8px",
-                                            padding: "4.5px"
-                                        }}>
-                                        Login</button></Link>
-                            </span>
-                        </div>
-                        <div className="container">
-                            <div className="row"
-                                style={{
-                                    marginTop: "70px",
-                                    marginBottom: "0",
-                                    textAlign: "center",
-                                    alignContent: "center"
-                                }}>
-                                <div className="col-md">
-                                    <FontAwesomeIcon icon={faSearchDollar} style={{ fontSize: "45px", color: "whitesmoke" }} />
-                                    <div style={{ color: "whitesmoke" }}>
-                                        <h5>DISCOVER</h5>
-                                        <p style={{ color: "whitesmoke" }}><em>Create and track your lottery gaming trends.</em></p>
-                                    </div>
-
-                                </div>
-                                <div className="col-md" >
-                                    <FontAwesomeIcon icon={faChartLine} style={{ fontSize: "45px", color: "whitesmoke" }} />
-                                    <div style={{ color: "whitesmoke" }}>
-                                        <h5>DATA-DRIVEN</h5>
-                                        <p style={{ color: "whitesmoke" }}><em>See real-time Jackpot amount changes.</em></p>
-                                    </div>
-                                </div>
-                                <div className="col-md" >
-                                    <FontAwesomeIcon icon={faMoneyBillAlt} style={{ fontSize: "45px", color: "whitesmoke" }} />
-                                    <div style={{ color: "whitesmoke" }}>
-                                        <h5>LOTTERY GAMING</h5>
-                                        <p style={{ color: "whitesmoke" }}><em>See the latest drawn numbers. $ignup today!</em></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Hero>
-            {/* <Container style={{ marginTop: 30 }}>
-                <Row>
-                    <Col size="md-5">
-                        <Jumbotron> <h3 className="landingH3"><b>LATEST DRAW DATE</b></h3><hr></hr>
-                            <h4><LastDrawDate></LastDrawDate></h4>
-                            <h4><WinningNum></WinningNum></h4>
-                            <br></br>
-                            <Link>
-                                <iframe
-                                    className="iframe"
-                                    title="Latest Powerball Draw"
-                                    src="https://www.youtube.com/embed?max-results=1&showinfo=0&rel=0&listType=user_uploads&list=PowerbaLL39"
-                                    allowFullScreen
-                                    style={{ width: "98%" }}
-                                >
-                                </iframe></Link>
-                            <hr></hr>
-                        </Jumbotron>
-
-                    </Col>
-
-                    <Col size="md-5" >
-                        <Jumbotron> <h3 className="landingH3"><b>NEXT DRAW DATE</b></h3><hr></hr>
-                            <h4 style={{
-                                backgroundColor: "white",
-                                borderRadius: "5px",
-                                border: "solid red 1.5px"
-                            }}><b><NextDrawDate></NextDrawDate></b></h4>
-                        </Jumbotron>
-                    </Col>
                 </Row>
 
+                <Row className="alignContent">
+                    <span>
+                        <Link to="/register">
 
-            </Container> */}
-        </div>
+                            <button id="landingBtnLeft"
+                                style={{
+                                    backgroundColor: "blue",
+                                    color: "whitesmoke",
+                                    borderRadius: "12px",
+                                    padding: "4.5px"
+                                }}>
+                                signup</button></Link>
+                    </span>
+                    <span>
+                        <Link to="/login">
+
+                            <button id="landingBtnRight"
+                                style={{
+                                    backgroundColor: "red",
+                                    color: "whitesmoke",
+                                    marginLeft: "9px",
+                                    borderRadius: "12px",
+                                    padding: "4.5px"
+                                }}>
+                                login</button></Link>
+                    </span>
+                </Row>
+                <Row className="alignContent landingIcons"
+                    style={{
+                        marginTop: "70px",
+                        marginBottom: "0"
+                    }}>
+                    <Col size="md">
+                        <FontAwesomeIcon icon={faSearchDollar} style={{ fontSize: "45px", color: "whitesmoke" }} />
+                        <div style={{ color: "whitesmoke" }}>
+                            <h5>DISCOVER</h5>
+                            <p style={{ color: "whitesmoke" }}><em>Create and track your lottery gaming trends.</em></p>
+                        </div>
+
+                    </Col>
+                    <Col size="md">
+                        <FontAwesomeIcon icon={faChartLine} style={{ fontSize: "45px", color: "whitesmoke" }} />
+                        <div style={{ color: "whitesmoke" }}>
+                            <h5>DATA-DRIVEN</h5>
+                            <p style={{ color: "whitesmoke" }}><em>See real-time Jackpot amount changes.</em></p>
+                        </div>
+                    </Col>
+                    <Col size="md">
+                        <FontAwesomeIcon icon={faMoneyBillAlt} style={{ fontSize: "45px", color: "whitesmoke" }} />
+                        <div style={{ color: "whitesmoke" }}>
+                            <h5>LOTTERY GAMING</h5>
+                            <p style={{ color: "whitesmoke" }}><em>See the latest drawn numbers. $ignup today!</em></p>
+                        </div>
+                    </Col>
+                </Row>
+            </Hero>
+
+
+        </div >
     );
 }
 

@@ -8,6 +8,8 @@
     border: solid red 2px;
 }
 
+.alignContent {text-align: center;}
+
 button.hero-button {
     background-color: transparent;
     color: whitesmoke;
@@ -29,8 +31,8 @@ h1.logo {
   }
 
   h2.powerballer {
-    font-size: 3.5rem;
-    margin: 5px;
+    font-size: 3.8rem;
+    margin: 0px 5px;
   }
 
   .powerballs {
@@ -101,7 +103,10 @@ time.moment:hover {
     color: red;
 }
 
-#landingBtnLeft:hover, #landingBtnRight:hover { transition: all .2s ease-in-out; }
+#landingBtnLeft:hover, #landingBtnRight:hover { transition: all .2s ease-in-out;
+ }
 #landingBtnLeft:hover, #landingBtnRight:hover { transform: scale(1.15); }
+
+#landingBtnLeft, #landingBtnRight {font-family: "Quantico";}
 
 

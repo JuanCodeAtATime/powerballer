@@ -2,13 +2,16 @@
   height: 675px;
   background-size: cover;
   background-position: center;
-  position: relative; 
+  position: relative;  
+  border-bottom: solid white 1px;
+  
 }
+
 
 .hero::after {
   content: "";
   display: block;
-  opacity: .6;
+  opacity: .75;
   position: absolute;
   top: 0;
   bottom: 0;

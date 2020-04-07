@@ -40,16 +40,14 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router basename="/powerball-pro.now.sh">
+        <Router>
           <div>
             <Nav />
             <Wrapper>
               <Route exact path="/" component={Landing} />
-              {/* <Route exact path="/carousel" component={ControlledCarousel} /> */}
               <Route exact path="/landing" component={Landing} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
-              {/* <Route component={Nomatch} /> */}
               <Switch>
                 <PrivateRoute exact path="/numbers" component={Numbers} />
               </Switch>

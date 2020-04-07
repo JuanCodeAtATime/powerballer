@@ -18,7 +18,7 @@ function Nav() {
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text variant="white">
-          <h4 style={{ color: "red" }}>Current Jackpot: <Jackpot /></h4>
+          <h4 id="navJackpot" style={{ color: "red" }}>Current Jackpot: <Jackpot /></h4>
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
