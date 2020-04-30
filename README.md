@@ -28,7 +28,7 @@ The application currently tracks Powerball lottery games only, but there is a de
 * **Programming Language:** JavaScript 
 * **Runtime Evironment/Sever:**  [Node.js](https://nodejs.org/en/)
 * **DBMS:**  [Mongo DB](https://www.mongodb.com/)
-* **Libraries:**: [React-Bootstrap](https://react-bootstrap.github.io/),[Moment.js](https://momentjs.com), [Chart.js](https://www.chartjs.org/)
+* **Libraries:**: [React-Bootstrap](https://react-bootstrap.github.io/), [Moment.js](https://momentjs.com), [Chart.js](https://www.chartjs.org/)
 * **Authentication:**  [Passport.js](http://www.passportjs.org/)
 * **API's used:** Powerball, NY Gov Lottery Data
 
