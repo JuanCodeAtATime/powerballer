@@ -7,7 +7,7 @@
 
 *****
 
-## Overview
+### Overview
 
 **Powerballer** is a full-stack MERN application that features dynamic, data-driven lottery updates. It features real-time tracking of jackpot amounts and draws. 
 
@@ -15,7 +15,7 @@ Users can enter up to three lottery tickets at a time to compare them with the w
 
 The application currently tracks Powerball lottery games only, but there is a desire to expand this tool to other lottery games.
 
-## Installation Steps
+### Installation Steps
 1. Git clone with HTTPS to your local machine ```https://github.com/JuanCodeAtATime/powerballer.git```.
 2. In **powerballer** folder (root directory), run ```npm install``` in your terminal to install back-end dependencies.  
 3. Then,  ```cd client``` and run ```npm install``` to install front-end dependencies.  
@@ -28,7 +28,7 @@ The application currently tracks Powerball lottery games only, but there is a de
 * **Programming Language:** JavaScript 
 * **Runtime Evironment/Sever:**  [Node.js](https://nodejs.org/en/)
 * **DBMS:**  [Mongo DB](https://www.mongodb.com/)
-* **Libraries:**: [React-Bootstrap](https://react-bootstrap.github.io/), [Moment.js](https://momentjs.com), [Chart.js](https://www.chartjs.org/)
+* **Libraries:** [React-Bootstrap](https://react-bootstrap.github.io/), [Moment.js](https://momentjs.com), [Chart.js](https://www.chartjs.org/)
 * **Authentication:**  [Passport.js](http://www.passportjs.org/)
 * **API's used:** Powerball, NY Gov Lottery Data
 
