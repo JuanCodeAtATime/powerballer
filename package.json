@@ -48,6 +48,6 @@
     "path": "^0.12.7",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
-    "validator": "^12.2.0"
+    "validator": "^13.7.0"
   }
 }
